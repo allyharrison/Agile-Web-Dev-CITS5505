@@ -30,6 +30,22 @@ background-attachment: fixed;
 color: white;
 }
 
+.search-bar {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+  .search-bar input {
+    width: 50%;
+    min-width: 300px;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 16px;
+    border: 0px;
+    outline: none;
+  }
+
+
 h1
 {
 color:rgb(229, 220, 220); 

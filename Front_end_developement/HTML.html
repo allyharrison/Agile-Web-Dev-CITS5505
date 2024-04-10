@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="stylesheet.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--good for icons?-->
-  <script src=""></script>
+  <script src="JS.js"></script>
   <title> Foodie Hub </title>
 </head>
 
@@ -20,8 +20,29 @@
           <li><a href="">NEW RECIPES</a></li>
           <li><a href="">NEW RESTAURANTS </a></li>
           <li><a href="">FOODIE HUB</a></li>
-          <li><a href="">EVENTS/a></li>
+          <li><a href="">EVENTS</a></li>
           <li><a href="">FOODIE USER</a></li>
+        </ul>
+        <div class="search-bar">
+          <input 
+          id="search" 
+          type="search" 
+          placeholder="Start searching"
+          list="search-suggestions" 
+          autocomplete="off"
+         />
+         <datalist id="search-suggestions">
+          <option value="Recipes">
+          <option value="Blog">
+          <option value="Recommendations">
+        </datalist>
+        </div>
+        
+        <main class="container">
+          <div class="search-display"></div>
+          
+          <div class="posts-container"></div>
+      </main>
       </div>
       <div class ="header_part">
         <h1> LOOKING TO SPICE UP YOUR LIFE <br> LOOK NO FURTHER </h1>
