@@ -1,0 +1,162 @@
+*
+{
+    margin:0; 
+    padding:0;
+
+}
+
+.row
+{
+    max-width:1140px; 
+    margin: 0 auto; 
+}
+
+
+.header_part
+{
+position: absolute; 
+width: 1140px; 
+top:40%;
+left:20%; 
+}
+
+header 
+{
+background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg");
+height:900px; 
+background-position: center; 
+background-size: cover; 
+background-attachment: fixed;
+color: white;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+  .search-bar input {
+    width: 50%;
+    min-width: 300px;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 16px;
+    border: 0px;
+    outline: none;
+  }
+
+
+h1
+{
+color:rgb(229, 220, 220); 
+}
+
+.main-nav
+{
+list-style: none; 
+float:right; 
+margin-top: 60px;
+}
+
+.main-nav li
+{
+    display:inline-block;
+    margin-left:20px; 
+}
+
+.main-nav li a
+{
+    color:white;
+    text-decoration: none;
+    font-size: 90%;
+    font-weight:bold;
+}
+
+.main-nav li a:hover
+{
+    color:#24cf3b;
+    border-bottom:2px solid #24cf3b;
+    transition:all 0.5s ease-in;
+    padding:15px 0;
+
+}
+
+.logo img
+{
+    height: 100px;
+    float:left;
+    margin-top:30px;
+    
+}
+
+
+.btn
+{
+border: 1px solid #24cf3b;
+padding: 10px 30px;   
+color:#24cf3b;
+text-decoration: none;
+border-radius:12px;
+margin-right:15px;
+}
+
+.button-awesome 
+{
+margin-top:40px;
+}
+
+.btn-half:hover
+{
+background-color:#24cf3b;
+color:white;
+transition:all 0.5s ease-in; 
+}
+
+.btn-full:hover
+{
+background-color:#24cf3b;
+color:white;
+transition:all 0.5s ease-in; 
+}
+.copy
+{
+width:70%;
+margin-left:15%; 
+margin-bottom:20px;
+}
+
+h3:after 
+{
+    width:100px; 
+    height:2px;
+    background-color:#24cf3b;
+    display:block; 
+    content: " ";
+    margin: 0 auto; 
+    margin-top: 30px; 
+
+}
+.features h3
+{
+    margin-top:50px;
+    margin-bottom: 30px;
+
+
+}
+.arranging
+{
+    text-align: justify;
+}
+
+.features i 
+{
+   font-size: 40px; 
+   color:#090603;  
+   margin-left:40%;
+   margin-bottom: 20px;
+}
+
+.features h4
+{
+    margin-left: 55px;
+}
