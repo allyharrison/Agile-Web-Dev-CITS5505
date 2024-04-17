@@ -14,36 +14,48 @@
 <body>
   <header>
     <div class="row">
-      <div class="logo">
-        <img src="https://png.pngtree.com/png-clipart/20230823/original/pngtree-fast-food-logo-design-picture-image_8225761.png">
-        <ul class="main-nav">
-          <li><a href="">NEW RECIPES</a></li>
-          <li><a href="">NEW RESTAURANTS </a></li>
-          <li><a href="">FOODIE HUB</a></li>
-          <li><a href="">EVENTS</a></li>
-          <li><a href="">FOODIE USER</a></li>
+      <nav>
+        <ul class="main-nav" id="myTopnav">
+          <li class="dropdown">
+            <a href="recipes.html">RECIPES</a>
+            <div class="dropdown-content">
+              <a href="#">BREAKFAST</a>
+              <a href="#">LUNCH</a>
+              <a href="#">DINNER</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="cuisine.html">CUISINE TYPE</a>
+            <div class="dropdown-content">
+              <a href="#">ASIAN</a>
+              <a href="#">INDIAN</a>
+              <a href="#">MEXICAN</a>
+              <a href="#">EUROPEAN</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="recommendations.html">RESTAURANT RECOMMENDATIONS</a>
+            <div class="dropdown-content">
+              <a href="#">PERTH'S BEST</a>
+              <a href="#">HIDDEN GEMS</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="blog.html">FOODIE BLOG</a>
+            <div class="dropdown-content">
+              <a href="#">NEW</a>
+              <a href="#">HOT RECIPES</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="account.html">FOODIE ACCOUNT</a>
+            <div class="dropdown-content">
+              <a href="#">LOGIN</a>
+              <a href="#">SIGN UP</a>
+            </div>
+          </li>
         </ul>
-        <div class="search-bar">
-          <input 
-          id="search" 
-          type="search" 
-          placeholder="Start searching"
-          list="search-suggestions" 
-          autocomplete="off"
-         />
-         <datalist id="search-suggestions">
-          <option value="Recipes">
-          <option value="Blog">
-          <option value="Recommendations">
-        </datalist>
-        </div>
-        
-        <main class="container">
-          <div class="search-display"></div>
-          
-          <div class="posts-container"></div>
-      </main>
-      </div>
+      </nav>
       <div class ="header_part">
         <h1> LOOKING TO SPICE UP YOUR LIFE <br> LOOK NO FURTHER </h1>
         <div class="button-awesome">
@@ -71,7 +83,7 @@
     
                     <h4>Recipe Photos?</h4> 
     
-                    <p class-"arranging"> </p>
+                    <p class="arranging"> </p>
                     </div>
     
                 <div class="col-md-3"> 

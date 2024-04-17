@@ -1,3 +1,15 @@
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "main-nav") {
+    x.className += " responsive";
+  } else {
+    x.className = "main-nav";
+  }
+}
+
+
+
+// below JS still needs to be reviewed and tested 
 let postsData = [];
 const postsContainer = document.querySelector(".posts-container");
 

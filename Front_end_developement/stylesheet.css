@@ -14,11 +14,15 @@
 
 .header_part
 {
-position: absolute; 
-width: 1140px; 
-top:40%;
-left:20%; 
+    position: relative; /* Change absolute to relative */
+    width: 100%; /* Change width to 100% */
+    text-align: center; /* Center align the content */
 }
+
+.header_part h1 {
+    margin-top: 150px; /* value can be adjusted to look nicer i think */
+    }
+
 
 header 
 {
@@ -30,22 +34,6 @@ background-attachment: fixed;
 color: white;
 }
 
-.search-bar {
-    display: flex;
-    justify-content: center;
-    padding: 24px;
-  }
-  .search-bar input {
-    width: 50%;
-    min-width: 300px;
-    padding: 12px 24px;
-    border-radius: 24px;
-    font-size: 16px;
-    border: 0px;
-    outline: none;
-  }
-
-
 h1
 {
 color:rgb(229, 220, 220); 
@@ -54,8 +42,8 @@ color:rgb(229, 220, 220);
 .main-nav
 {
 list-style: none; 
-float:right; 
-margin-top: 60px;
+float:centre; 
+margin-top: 30px;
 }
 
 .main-nav li
@@ -72,22 +60,37 @@ margin-top: 60px;
     font-weight:bold;
 }
 
-.main-nav li a:hover
-{
-    color:#24cf3b;
-    border-bottom:2px solid #24cf3b;
-    transition:all 0.5s ease-in;
-    padding:15px 0;
 
+.active {
+    background-color: #04AA6D;
+    color: white;
 }
 
-.logo img
-{
-    height: 100px;
-    float:left;
-    margin-top:30px;
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    }
     
-}
+    .dropdown:hover .dropdown-content {
+    display: block;
+    color:#24cf3b;
+    border-bottom: 2px solid blue;
+    transition: all 1.5s ease-in; /* transition duration, test if working */
+    padding: 15px 0;
+    }
+
 
 
 .btn
@@ -160,3 +163,15 @@ h3:after
 {
     margin-left: 55px;
 }
+
+.dropdown-content {
+    display: none; /* Hide the dropdown content by default */
+    }
+    
+    .dropdown:hover .dropdown-content {
+    display: block; /* Display the dropdown content when hovering over the dropdown */
+    }
+    
+    .dropdown-content a {
+    display: block; /* Display each link as a block element */
+    }
