@@ -1,11 +1,25 @@
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "main-nav") {
-    x.className += " responsive";
-  } else {
-    x.className = "main-nav";
-  }
-}
+//Login forms 
+const loginForm = document.getElementById("login-form");
+const loginButton = document.getElementById("login-form-submit");
+const loginErrorMsg = document.getElementById("login-error-msg");
+
+// When the login button is clicked, the following code is executed
+loginButton.addEventListener("click", (e) => {
+    // Prevent the default submission of the form
+    e.preventDefault();
+    // Get the values input by the user in the form fields
+    const username = loginForm.username.value;
+    const password = loginForm.password.value;
+
+    if (username === "user" && password === "web_dev") {
+        // If the credentials are valid, show an alert box and reload the page
+        alert("You have successfully logged in.");
+        location.reload();
+    } else {
+        // Otherwise, make the login error message show (change its oppacity)
+        loginErrorMsg.style.opacity = 1;
+    }
+})
 
 
 
@@ -53,78 +67,43 @@ const filterPosts = (searchTerm) => {
 };
 
 // Event listener for search input
-const searchInput = document.querySelector("#search-input");
-searchInput.addEventListener("input", (event) => {
-  filterPosts(event.target.value);
-});
+const searchDisplay = document.querySelector(".search-display");
 
-const search = document.getElementById("search");
-let debounceTimer;
 const debounce = (callback, time) => {
+  let debounceTimer;
   window.clearTimeout(debounceTimer);
   debounceTimer = window.setTimeout(callback, time);
 };
-search.addEventListener(
-  "input",
-  (event) => {
-    const query = event.target.value;
-    debounce(() => handleSearchPosts(query), 500);
-  },
-  false
-);
 
-function handleSearchPosts(query) {
-    const searchQuery = query.trim().toLowerCase();
+const resetPosts = () => {
+  searchDisplay.innerHTML = "";
+  postsContainer.innerHTML = "";
+  postsData.forEach((post) => createPost(post));
+};
 
-    if (searchQuery.length <= 1) {
-        return;
-    }
-}
+const handleSearchPosts = (query) => {
+  const searchQuery = query.trim().toLowerCase();
 
-let searchResults = [...postsData].filter(
+  if (searchQuery.length <= 1) {
+    resetPosts();
+    return;
+  }
+
+  const searchResults = postsData.filter(
     (post) =>
-      post.categories.some((category) => category.toLowerCase().includes(searchQuery)) ||
-      post.title.toLowerCase().includes(query)
+      post.categories.some((category) =>
+        category.toLowerCase().includes(searchQuery)
+      ) || post.title.toLowerCase().includes(searchQuery)
   );
 
-  const searchDisplay = document.querySelector(".search-display");
-  if (searchResults.length == 0) {
-      searchDisplay.innerHTML = "No results found"
-  } else if (searchResults.length == 1) {
-      searchDisplay.innerHTML = `1 result found for your query: ${query}`
+  if (searchResults.length === 0) {
+    searchDisplay.innerHTML = "No results found";
+  } else if (searchResults.length === 1) {
+    searchDisplay.innerHTML = `1 result found for your query: ${query}`;
   } else {
-      searchDisplay.innerHTML = `${searchResults.length} results found for your query: ${query}`
+    searchDisplay.innerHTML = `${searchResults.length} results found for your query: ${query}`;
   }
 
   postsContainer.innerHTML = "";
-searchResults.map((post) => createPost(post));
-
-const resetPosts = () => {
-    searchDisplay.innerHTML = ""
-    postsContainer.innerHTML = "";
-    postsData.map((post) => createPost(post));
-  };
-  const handleSearchPosts = (query) => {
-    const searchQuery = query.trim().toLowerCase();
-    
-    if (searchQuery.length <= 1) {
-      resetPosts()
-      return
-    }
-    
-    let searchResults = [...postsData].filter(
-      (post) =>
-        post.categories.some((category) => category.toLowerCase().includes(searchQuery)) ||
-        post.title.toLowerCase().includes(searchQuery)
-    );
-    
-    if (searchResults.length == 0) {
-      searchDisplay.innerHTML = "No results found"
-    } else if (searchResults.length == 1) {
-      searchDisplay.innerHTML = `1 result found for your query: ${query}`
-    } else {
-      searchDisplay.innerHTML = `${searchResults.length} results found for your query: ${query}`
-    }
-    postsContainer.innerHTML = "";
-    searchResults.map((post) => createPost(post));
-  };
+  searchResults.forEach((post) => createPost(post));
+};
