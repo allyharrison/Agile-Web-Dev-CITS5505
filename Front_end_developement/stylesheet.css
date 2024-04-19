@@ -23,7 +23,7 @@
 header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg');
-    height: 900px;
+    height: 500px;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -57,6 +57,7 @@ h1 {
     display: inline-block;
     margin-left: 20px;
     margin-top: 10px;
+    position: relative; /* relative positioning to .nav-item */
 }
 
 .nav-item a {
@@ -80,6 +81,7 @@ h1 {
     margin-left: 15px;
 }
 
+
 .navbar-brand {
     color: white;
 }
@@ -87,6 +89,35 @@ h1 {
 .navbar-brand:hover {
     color: #24cf3b;
 }
+
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: opacity 0.3s ease-in-out; /* Add transition for smooth opening and closing */
+    opacity: 0; /* Initially set opacity to 0 */
+}
+
+.dropdown-content a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.nav-item:hover .dropdown-content,
+.dropdown-content:hover {
+    display: block;
+    opacity: 1; /* Set opacity to 1 when dropdown opens */
+}
+
 
 .link {
     color: black;
@@ -115,11 +146,6 @@ h1 {
     transition: all 0.5s ease-in;
 }
 
-.btn-full:hover {
-    background-color: #24cf3b;
-    color: white;
-    transition: all 0.5s ease-in;
-}
 
 .copy {
     width: 70%;
@@ -178,3 +204,105 @@ footer {
 .copyright {
     padding-top: 70px;
 }
+
+/* CSS for login/ sign in form */
+body.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  #main-holder {
+    clear: both;
+    width: 200px; /* Adjust the width as needed */
+    height: auto;
+    padding: 50px;
+    background-size: cover; 
+    background-color: white;
+    background-position: center; /* Center the background image */
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 2px black;
+    text-align: center;
+    margin: 150px auto; /* Center horizontally */
+  }
+  
+  
+  #login-header {
+    color: black;
+}
+  
+
+  
+  #login-error-msg-holder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  /* Error message. By default it's transparent, but the opacity is controlled
+  by JavaScript */
+  
+  #login-error-msg {
+    width: 63%;
+    text-align: center;
+    margin: 10;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8a0000;
+    border: 1px solid #8a0000;
+    background-color: #e58f8f;
+    opacity: 0;
+  }
+  
+  #error-msg-second-line {
+    display: block;
+  }
+  
+  /* -------------------------------------------------------------- */
+  
+  /* Adjust the positioning of the login form inside the last row of the
+  main grid */
+  
+  #login-form {
+    align-self: flex-start;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  /* Style the login form fields' placeholders */
+  
+  .login-form-field::placeholder {
+    color: #3a3a3a;
+  }
+  
+  /* Style the login form fields (username and password) */
+  
+  .login-form-field {
+    border: none;
+    border-bottom: 1px solid #3a3a3a;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    outline: none;
+    padding: 0px 0px 5px 5px;
+  }
+  
+  /* Style the login button */
+  
+  #login-form-submit {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #3a3a3a;
+    cursor: pointer;
+    outline: none;
+  }
