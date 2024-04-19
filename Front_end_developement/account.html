@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+  <header class="container-fluid">
+    <nav class="navbar">
+      <div class="d-flex top-nav-area justify-content-evenly">
+        <div class="logo">
+          <img
+            src="https://png.pngtree.com/png-clipart/20230823/original/pngtree-fast-food-logo-design-picture-image_8225761.png">
+        </div>
+        <a class="navbar-brand" href="HTML.html">Foodie Hub</a>
+        <div class="search-bar">
+          <input id="search" type="search" placeholder="Start searching" list="search-suggestions" autocomplete="off" />
+          <datalist id="search-suggestions">
+            <option value="Recipes"></option>
+            <option value="Blog"></option>
+            <option value="Recommendations"></option>
+          </datalist>
+        </div>
+        <ul class="nav">
+          <li class="nav-item"><a href="recipes.html">NEW RECIPES</a>
+            <div class="dropdown-content">
+              <a href="#">BREAKFAST</a>
+              <a href="#">LUNCH</a>
+              <a href="#">DINNER</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="new_restaurants.html">NEW RESTAURANTS </a>
+              <div class="dropdown-content">
+               <a href="#">PERTH'S BEST</a>
+               <a href="#">HIDDEN GEMS</a>
+             </div>  
+            </li>
+          <li class="nav-item">
+          <a href="cuisine.html">CUISINE</a>
+            <div class="dropdown-content">
+              <a href="#">ASIAN</a>
+              <a href="#">INDIAN</a>
+              <a href="#">MEXICAN</a>
+              <a href="#">EUROPEAN</a>
+             </div>   
+          </li>
+          <li class="nav-item"><a href="blog.html">FOODIE HUB</a>
+            <div class="dropdown-content">
+                <a href="#">NEW</a>
+                <a href="#">HOT RECIPES</a>
+              </div>  
+            </li>
+          <li class="nav-item"><a href="account.html">FOODIE USER</a>
+            <div class="dropdown-content">
+              <a href="account.html">LOGIN</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+
+  <main id="main-holder">
+    <h1 id="login-header">Login</h1>
+
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+
+    <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="Login" id="login-form-submit">
+    </form>
+  </main>
+
+  <script src="JS.js"></script>
+</body>
+
+</html>
