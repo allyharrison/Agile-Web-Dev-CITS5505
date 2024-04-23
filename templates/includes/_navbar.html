@@ -1,0 +1,54 @@
+<header>
+  <nav class="navbar">
+      <div class="d-flex top-nav-area justify-content-evenly">
+          <div class="logo">
+              <img src="https://png.pngtree.com/png-clipart/20230823/original/pngtree-fast-food-logo-design-picture-image_8225761.png">
+          </div>
+          <a class="navbar-brand" href="{{ url_for('HTML') }}">Foodie Hub</a>
+          <div class="search-bar">
+              <input id="search" type="search" placeholder="Start searching" list="search-suggestions" autocomplete="off" />
+              <datalist id="search-suggestions">
+                  <option value="Recipes"></option>
+                  <option value="Blog"></option>
+                  <option value="Recommendations"></option>
+              </datalist>
+          </div>
+          <ul class="nav">
+              <li class="nav-item"><a href="{{ url_for('recipes') }}">NEW RECIPES</a>
+                  <div class="dropdown-content">
+                      <a href="#">BREAKFAST</a>
+                      <a href="#">LUNCH</a>
+                      <a href="#">DINNER</a>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a href="{{ url_for('new_restaurants') }}">NEW RESTAURANTS</a>
+                  <div class="dropdown-content">
+                      <a href="#">PERTH'S BEST</a>
+                      <a href="#">HIDDEN GEMS</a>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a href="{{ url_for('cuisine') }}">CUISINE</a>
+                  <div class="dropdown-content">
+                      <a href="#">ASIAN</a>
+                      <a href="#">INDIAN</a>
+                      <a href="#">MEXICAN</a>
+                      <a href="#">EUROPEAN</a>
+                  </div>
+              </li>
+              <li class="nav-item"><a href="{{ url_for('blog') }}">FOODIE HUB</a>
+                  <div class="dropdown-content">
+                    <a href="{{ url_for('create') }}">CREATE POSTS</a>
+                      <a href="#">HOT RECIPES</a>
+                  </div>
+              </li>
+              <li class="nav-item"><a href="{{ url_for('account') }}">FOODIE USER</a>
+                  <div class="dropdown-content">
+                      <a href="#">LOGIN</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </nav>
+</header>
