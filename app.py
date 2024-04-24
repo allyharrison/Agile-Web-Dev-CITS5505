@@ -7,7 +7,7 @@ app.config['SECRET_KEY'] = 'NotSoSecretKey'
 
 
 @app.route('/')
-def HTML():
+def html():
     return render_template('HTML.html')
     
 @app.route('/recipes.html')
@@ -40,7 +40,7 @@ def blog():
     return render_template('blog.html', posts=posts)
 
 
-@app.route('/create/', methods=('GET', 'POST'))
+@app.route('/create', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':
         title = request.form['title']
