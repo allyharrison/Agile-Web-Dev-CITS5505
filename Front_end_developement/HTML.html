@@ -17,9 +17,9 @@
   <title> Foodie Hub </title>
 </head>
 
-<body>
+<body class="flex-container">
   <header class="container-fluid">
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-md navbar-toggler">
       <div class="d-flex top-nav-area justify-content-evenly">
         <div class="logo">
           <img
@@ -44,26 +44,26 @@
           </li>
           <li class="nav-item">
             <a href="new_restaurants.html">NEW RESTAURANTS </a>
-              <div class="dropdown-content">
-               <a href="#">PERTH'S BEST</a>
-               <a href="#">HIDDEN GEMS</a>
-             </div>  
-            </li>
+            <div class="dropdown-content">
+              <a href="#">PERTH'S BEST</a>
+              <a href="#">HIDDEN GEMS</a>
+            </div>
+          </li>
           <li class="nav-item">
-          <a href="cuisine.html">CUISINE</a>
+            <a href="cuisine.html">CUISINE</a>
             <div class="dropdown-content">
               <a href="#">ASIAN</a>
               <a href="#">INDIAN</a>
               <a href="#">MEXICAN</a>
               <a href="#">EUROPEAN</a>
-             </div>   
+            </div>
           </li>
           <li class="nav-item"><a href="blog.html">FOODIE HUB</a>
             <div class="dropdown-content">
-                <a href="#">NEW</a>
-                <a href="#">HOT RECIPES</a>
-              </div>  
-            </li>
+              <a href="#">NEW</a>
+              <a href="#">HOT RECIPES</a>
+            </div>
+          </li>
           <li class="nav-item"><a href="account.html">FOODIE USER</a>
             <div class="dropdown-content">
               <a href="account.html">LOGIN</a>
@@ -72,7 +72,7 @@
         </ul>
     </nav>
 
-    <main class="container">
+    <main class="container-fluid">
       <div class="search-display"></div>
       <div class="posts-container"></div>
     </main>
@@ -87,7 +87,9 @@
   </header>
 
   <section class="features">
-    <h3 class="text-center"> What's Foodie Hub all about? <br> Discover, make, share and learn! </h3>
+    <div class="row">
+      <h3 class="text-center"> What's Foodie Hub all about? <br> Discover, make, share and learn! </h3>
+    </div>
     <p class="copy"> something about what we do </p>
     <div class="container">
       <div class="row">
@@ -124,20 +126,13 @@
       </div>
     </div>
   </section>
-  <footer class="footer">
-    <div class="container">
+  <!-- Footer not sitting on bottom of screen when there is small amount of content -->
+  <!-- hoping it will work with more content and we wont have to worry about it -->
+  <footer class="footer container-fluid">
+    <!-- Put the Foodie Hub brand stuff in this div to hide on small screens -->
+    <div class="container d-none d-md-block">
       <div class="row justify-content-center">
-        <div class="col-md-3">
-          <h5>Foodie Hub</h5>
-          <p>Your brand content goes here.</p>
-          <div class="social-icons">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="col-md-3">
+        <div class="col-md-2 text-center">
           <h5>Quick Links</h5>
           <ul class="list-unstyled">
             <li><a href="#" class="link">Home</a></li>
@@ -145,7 +140,7 @@
             <li><a href="#" class="link">Get Started</a></li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2  text-center">
           <h5>Recipes</h5>
           <ul class="list-unstyled">
             <li><a href="#" class="link">By cuisine</a></li>
@@ -153,7 +148,7 @@
             <li><a href="#" class="link">Request a recipe</a></li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2 text-center">
           <h5>Restaurants</h5>
           <ul class="list-unstyled">
             <li><a href="#" class="link">By suburb</a></li>
@@ -163,7 +158,17 @@
         </div>
       </div>
     </div>
-    <div class="copyright text-center">
+    <div class="row col-md text-center">
+      <h2>Foodie Hub</h2>
+      <p>Your brand content goes here.</p>
+      <div class="social-icons">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+    <div class="row copyright col-md justify-content-center">
       &copy; 2024. All Rights Reserved.
     </div>
   </footer>
