@@ -3,6 +3,7 @@
 CITS5505 Agile Web Development Project due Sunday, May 19th, 2024.
 
 ## TABLE OF CONTENTS
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -29,8 +30,8 @@ CITS5505 Agile Web Development Project due Sunday, May 19th, 2024.
   </ol>
 </details>
 
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
@@ -42,6 +43,7 @@ Foodie Hub offers the chance to interact with like minded and taste-budded peopl
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Assessment Criteria
+
 ### Front End
 
 The first part of the project assessment will evaluate the front-end functionality of the application:
@@ -74,10 +76,30 @@ To see a more detailed mark scheme, please click on the "Submission" item below,
 
 This will be updated with project details and ideas
 
-### STACK USED 
-
+### STACK USED
 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
 
+## Local Set-up & Deploying
 
+To run the project locally, first set up a `venv`, `pip` install requirements-dev and then run flask.
 
+```sh
+python3 -m venv tmp-env
+source tmp-env/bin/activate
+pip install -r requirements-dev.txt # (this includes requirements.txt)
+flask run
+```
+
+If you would like to run with "livereload", run `app.py` with python instead of calling `flask run`.
+This works well if you are editing HTML/CSS, not so great for editing Python files.
+
+```sh
+python app.py
+```
+
+When deploying to production, only install `requirements.txt` (don't install `requirements.dev.txt`)
+
+```sh
+pip install -r requirements.txt
+```

@@ -107,4 +107,9 @@ def delete(id):
 
 if __name__ == '__main__':
     app.secret_key = 'Secret145'
-    app.run(debug=True)
+    # app.run(debug=True)
+
+    app.debug = True
+    from livereload import Server
+    server = Server(app.wsgi_app)
+    server.serve(host = '0.0.0.0', port=5000, debug=True)

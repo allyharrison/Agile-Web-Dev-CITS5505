@@ -1,0 +1,4 @@
+# See README.md for installation instructions
+
+Flask==2.3.3
+WTForms==3.1.2

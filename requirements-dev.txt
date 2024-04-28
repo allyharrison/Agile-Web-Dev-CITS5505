@@ -1,0 +1,6 @@
+# See README.md for installation instructions
+
+-r requirements.txt
+
+livereload~=2.6.3
+tornado<6.3.0
