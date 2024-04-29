@@ -1,55 +1,62 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-  Foodie Hub
+Foodie Hub
 {% endblock %}
 
 {% block content %}
 
-<main class="container">
-  <div class="search-display"></div>
-  <div class="posts-container"></div>
-</main>
-<div class="header_part">
-  <h1>LOOKING TO SPICE UP YOUR LIFE <br> LOOK NO FURTHER</h1>
-  <div class="button-awesome">
-    <a href="" class="btn btn-half">Show me more</a>
-    <a href="" class="btn btn-half">I'm hungry</a>
-  
+<main class="container-fluid">
+  <div class="row p-5">
+    <h3 class="text-center">What's Foodie Hub all about? <br> Discover, make, share, and learn!</h3>
   </div>
-</div>
-
-
-<section class="features container">
-  <h3 class="text-center">What's Foodie Hub all about? <br> Discover, make, share, and learn!</h3>
-  <p class="copy">something about what we do</p>
-  <div class="">
-    <div class="row">
-      <div class="col-md-3">
-        <i class="fa fa-certificate"></i>
-        <h4>What website achieves</h4>
-        <p class="arranging"></p>
+  <div class="row">
+    <p class="text-center copy">Something about what we do. Some quick example text to build on the card title and make up the bulk of the card's
+      content.</p>
+  </div>
+  <div class="container p-5 justify-content-evenly">
+    <div class="row ">
+      <div class="col-lg card m-2">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+          <i class="fa fa-certificate"></i>
+          <h4 class="card-title">What website achieves</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="card-link">link</a>
+        </div>
       </div>
-
-      <div class="col-md-3">
-        <i class="fa fa-camera"></i>
-        <h4>Recipe Photos?</h4>
-        <p class="arranging"></p>
+      <div class="col-lg card m-2">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+          <i class="fa fa-camera"></i>
+          <h4 class="card-title">Recipe Photos</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="card-link">link</a>
+        </div>
       </div>
-
-      <div class="col-md-3">
-        <i class="fa fa-handshake-o"></i>
-        <h4>Being Social?</h4>
-        <p class="arranging"></p>
+      <div class="col-lg card m-2">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+          <i class="fa fa-handshake-o"></i>
+          <h4 class="card-title">Being Social</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="card-link">link</a>
+        </div>
       </div>
-
-      <div class="col-md-3">
-        <i class="fa fa-cutlery"></i>
-        <h4>Setting Goals?</h4>
-        <p class="arranging"></p>
+      <div class="col-lg card m-2">
+        <img src="" class="card-img-top" alt="">
+        <div class="card-body">
+          <i class="fa fa-cutlery"></i>
+          <h4 class="card-title">Setting Goals</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="card-link">link</a>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</main>
 {% endblock %}
-
