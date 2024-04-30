@@ -1,6 +1,95 @@
 <header>
-  <nav class="navbar">
-      <div class="d-flex top-nav-area justify-content-evenly">
+
+    <div class="row position-absolute pt-5 show" id="header-text1">
+        <h1 class="p-5">LOOKING TO SPICE UP YOUR LIFE?<br> LOOK NO FURTHER</h1>
+        <div class="button-awesome p-5">
+            <a href="" class="btn btn-lg btn-half">Show me more</a>
+            <a href="" class="btn btn-lg btn-half">I'm hungry</a>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <div class="logo">
+                <img
+                    src="https://png.pngtree.com/png-clipart/20230823/original/pngtree-fast-food-logo-design-picture-image_8225761.png">
+            </div>
+            <a class="navbar-brand" href="{{ url_for('html') }}">Foodie Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent,#header-text1" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse p-4" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" href="{{ url_for('recipes') }}">RECIPES</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('recipes') }}">BREAKFAST</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('recipes') }}">LUNCH</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('recipes') }}">DINNER</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            RESTAURANTS
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="">PERTH'S BEST</a></li>
+                            <li><a class="dropdown-item" href="">HIDDEN GEMS</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ url_for('cuisine') }}" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            CUISINE
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('cuisine') }}">ASIAN</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('cuisine') }}">INDIAN</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('cuisine') }}">MEXICAN</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('cuisine') }}">EUROPEAN</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{ url_for('cuisine') }}">OTHER CUISINES</a></li>
+                        </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ url_for('account') }}" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            FOODIE HUB
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="">HOT RECIPES</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('create') }}">REQUEST A RECIPE</a></li>
+                            <li><a class="dropdown-item" href="">HOT RESTAURANTS</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('create') }}">REQUEST A RESTAURANT</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{ url_for('account') }}">LOGIN</a></li>
+                        </ul>
+                    <li class="nav-item">
+                        <form class="d-flex search-bar form-inline" role="search"><input id="search" type="search"
+                                placeholder="Start searching" list="search-suggestions" autocomplete="off"
+                                aria-label="Search" />
+                            <datalist id="search-suggestions">
+                                <option value="Recipes"></option>
+                                <option value="Blog"></option>
+                                <option value="Recommendations"></option>
+                            </datalist>
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- commenting the old navbar out for now while I try and make it Bootstrap friendly-->
+    <!-- <nav class="navbar ">
+      <div class="d-flex container-fluid justify-content-evenly">
           <div class="logo">
               <img src="https://png.pngtree.com/png-clipart/20230823/original/pngtree-fast-food-logo-design-picture-image_8225761.png">
           </div>
@@ -50,5 +139,5 @@
               </li>
           </ul>
       </div>
-  </nav>
+  </nav> -->
 </header>
