@@ -2,3 +2,7 @@
 
 Flask==2.3.3
 WTForms==3.1.2
+Flask-MDE==1.2.1
+Flask-WTF==1.2.1
+markdown==3.6
+
