@@ -1,8 +1,6 @@
 /* CSS comment style applied based on this:
    https://github.com/necolas/idiomatic-css */
 
-
-
 /* ==========================================================================
    Root/global styling and basic alignment
    ========================================================================== */
@@ -79,7 +77,6 @@ header {
     margin-right: 20px;
 } */
 
-
 /* Navigation
    ========================================================================== */
 
@@ -91,7 +88,7 @@ header {
         opacity: 90%;
         border-radius: 10px;
     }
-    
+
     #header-text1 {
         display: none;
     }
@@ -100,7 +97,6 @@ header {
 .navbar-toggler {
     color: var(--secondary-bg-color);
 }
-
 
 .nav-item a {
     color: var(--secondary-bg-color);
@@ -162,17 +158,16 @@ header {
     display: block;
 } */
 
-
 /* ==========================================================================
    Text, headings, paragraphs etc
    ========================================================================== */
 
 h1 {
-    color: var(--secondary-text-color)
+    color: var(--secondary-text-color);
 }
 
 header div h1 {
-    color: var(--secondary-bg-color)
+    color: var(--secondary-bg-color);
 }
 
 .copy {
@@ -402,8 +397,6 @@ body.login {
     background-color: #fff;
     overflow-y: scroll;
     font-family: sans-serif;
-  }
+}
 
 /* just testing this out */
-
-
