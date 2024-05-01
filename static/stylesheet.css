@@ -1,4 +1,7 @@
-/* CSS comment style applied based on this: https://github.com/necolas/idiomatic-css */
+/* CSS comment style applied based on this:
+   https://github.com/necolas/idiomatic-css */
+
+
 
 /* ==========================================================================
    Root/global styling and basic alignment
@@ -44,8 +47,6 @@
 /* Headers
    ========================================================================== */
 
-/* commenting this out so the 'looking to spice...' part can move with scroll */
-
 header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg');
@@ -78,33 +79,36 @@ header {
     margin-right: 20px;
 } */
 
+
 /* Navigation
    ========================================================================== */
 
-/* hide header text on large screens so the dropdown can fold over the top */
+/* Alter header text and nav dropwdown on large screens so the dropdown can fold 
+   over the top */
 @media (max-width: 991.98px) {
     #navbarSupportedContent {
         background-color: black;
         opacity: 90%;
+        border-radius: 10px;
     }
-    /* 
+    
     #header-text1 {
         display: none;
-    } */
+    }
 }
 
 .navbar-toggler {
     color: var(--secondary-bg-color);
 }
 
-/* COMMENTED OUT FOR TESTING */
+
 .nav-item a {
     color: var(--secondary-bg-color);
     text-decoration: none;
     font-weight: bold;
 }
 
-/* can't change colour when i change this to a  variable */
+/* Can't change colour when I change this to a variable */
 .nav-item .dropdown-item {
     color: #48003b;
     box-sizing: border-box;
@@ -158,12 +162,17 @@ header {
     display: block;
 } */
 
+
 /* ==========================================================================
    Text, headings, paragraphs etc
    ========================================================================== */
 
 h1 {
-    color: rgb(229, 220, 220);
+    color: var(--secondary-text-color)
+}
+
+header div h1 {
+    color: var(--secondary-bg-color)
 }
 
 .copy {
@@ -185,7 +194,6 @@ li {
    Buttons, links, images
    ========================================================================== */
 .logo img {
-    /* why does height: 100px make the logo work?? */
     height: 100px;
     float: left;
 }
@@ -206,18 +214,26 @@ li {
 .btn {
     border: 1px solid;
     border-color: var(--main-bg-color);
-    /* padding: 10px 30px; */
     color: var(--main-bg-color);
     text-decoration: none;
     border-radius: 12px;
     margin-right: 15px;
 }
 
-/* .btn-half:hover {
+.btn-half:hover {
     background-color: var(--main-bg-color);
     color: white;
     transition: all 0.5s ease-in;
-} */
+}
+
+.btn-outline-light {
+    color: var(--secondary-text-color);
+    background-color: var(--main-bg-color);
+}
+
+.btn-outline-light:hover {
+    border-color: var(--main-bg-color);
+}
 
 .arranging {
     text-align: justify;
@@ -247,7 +263,7 @@ footer {
     bottom: 0; */
 }
 
-/* is this bad practice? */
+/* Need to revise this, not sure if bad practice */
 footer.link,
 h4,
 p {
@@ -322,34 +338,34 @@ body.login {
 
 /* Adjust the positioning of the login form inside the last row of the
   main grid */
-
+/* 
 #login-form {
     align-self: flex-start;
     display: grid;
     justify-items: center;
     align-items: center;
-}
+} */
 
 /* Style the login form fields' placeholders */
 
-.login-form-field::placeholder {
+/* .login-form-field::placeholder {
     color: #3a3a3a;
-}
+} */
 
 /* Style the login form fields (username and password) */
 
-.login-form-field {
+/* .login-form-field {
     border: none;
     border-bottom: 1px solid #3a3a3a;
     margin-bottom: 15px;
     border-radius: 3px;
     outline: none;
     padding: 0px 0px 5px 5px;
-}
+} */
 
 /* Style the login button */
 
-#login-form-submit {
+/* #login-form-submit {
     width: 100%;
     padding: 7px;
     border: none;
@@ -359,7 +375,7 @@ body.login {
     background-color: #3a3a3a;
     cursor: pointer;
     outline: none;
-}
+} */
 
 .alert {
     padding: 20px;
@@ -389,4 +405,5 @@ body.login {
   }
 
 /* just testing this out */
+
 

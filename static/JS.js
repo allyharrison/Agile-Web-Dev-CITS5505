@@ -1,3 +1,16 @@
+
+// Just commenting the map out for now as it was causing an error
+
+// please don't span api :( over a threshold and I pay
+// mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmkiLCJhIjoiY2x2ZWtrdThhMGI1bjJpbnFrNm9xem80YSJ9.Lz5tsAHEt_qZED_2_wyEGw';
+// const map = new mapboxgl.Map({
+//     container: 'map',
+//     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+//     style: 'mapbox://styles/mapbox/streets-v12',
+//     center: [116, -31.9],
+//     zoom: 10
+// });
+
 // please don't span api :( over a threshold and I pay\
 // JS code adapted from MapBox tutorials and chatgpt help
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmkiLCJhIjoiY2x2ZWtrdThhMGI1bjJpbnFrNm9xem80YSJ9.Lz5tsAHEt_qZED_2_wyEGw';
@@ -9,9 +22,48 @@ const map = new mapboxgl.Map({
     zoom: 10
 });
 
+
 let start = [116, -31.9]; // Default start location
 
 // Add the control to the map.
+// map.addControl(
+//     new MapboxGeocoder({
+//         accessToken: mapboxgl.accessToken,
+//         mapboxgl: mapboxgl
+//     })
+// );
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   //Login forms 
+//   const loginForm = document.getElementById("login-form");
+//   const loginButton = document.getElementById("login-form-submit");
+//   const loginErrorMsg = document.getElementById("login-error-msg");
+
+//   // When the login button is clicked, the following code is executed
+//   loginButton.addEventListener("click", (e) => {
+//       // Prevent the default submission of the form
+//       e.preventDefault();
+//       // Get the values input by the user in the form fields
+//       const username = loginForm.username.value;
+//       const password = loginForm.password.value;
+
+//       if (username === "user" && password === "web_dev") {
+//           // If the credentials are valid, show an alert box and reload the page
+//           alert("You have successfully logged in.");
+//           location.reload();
+//       } else {
+//           // Otherwise, make the login error message show (change its opacity)
+//           loginErrorMsg.style.opacity = 1;
+//       }
+//   });
+// });
+
+// This is half working, the modal pops up but the static background doesn't disappear when I close it
+//  
+// This is to merge the exisitng login JS with a new event listener
+// It shows the login modal when clicked from any page
+
 map.addControl(
     new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
@@ -115,33 +167,18 @@ map.on('load', () => {
     });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
-  //Login forms 
-  const loginForm = document.getElementById("login-form");
-  const loginButton = document.getElementById("login-form-submit");
-  const loginErrorMsg = document.getElementById("login-error-msg");
+  const loginBtn = document.getElementById("loginBtn");
+  const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
 
-  // When the login button is clicked, the following code is executed
-  loginButton.addEventListener("click", (e) => {
-      // Prevent the default submission of the form
-      e.preventDefault();
-      // Get the values input by the user in the form fields
-      const username = loginForm.username.value;
-      const password = loginForm.password.value;
-
-      if (username === "user" && password === "web_dev") {
-          // If the credentials are valid, show an alert box and reload the page
-          alert("You have successfully logged in.");
-          location.reload();
-      } else {
-          // Otherwise, make the login error message show (change its opacity)
-          loginErrorMsg.style.opacity = 1;
-      }
+  // Add an event listener to the login button
+  loginBtn.addEventListener("click", function(event) {
+      event.preventDefault();
+      loginModal.show();
   });
 });
 
+// Commenting this out for now as I haven't tested it with the frontend stuff that I've recently added
 /*
 // below JS still needs to be reviewed and tested 
 let postsData = [];

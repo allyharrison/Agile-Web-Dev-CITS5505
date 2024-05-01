@@ -1,10 +1,19 @@
 from flask import Flask, render_template, flash, redirect, request, url_for, session, logging, redirect, abort
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators, SubmitField
+from flask_mde import Mde, MdeField
+from flask_wtf import FlaskForm
+
 import sqlite3
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'NotSoSecretKey'
+mde = Mde(app)
 
+
+class PostForm(FlaskForm):
+    title = StringField('Title')
+    content = MdeField('Content')
+    submit = SubmitField('Submit')
 
 @app.route('/')
 def html():
@@ -42,6 +51,11 @@ def blog():
 
 @app.route('/create', methods=('GET', 'POST'))
 def create():
+    form = PostForm()
+    # Sets the title for this page
+    # Trying to do this with Jinja locally on each page but so far it only 
+    # works this way. WIP for now.
+    title = "Add a New Post" 
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
@@ -58,7 +72,7 @@ def create():
             conn.close()
             return redirect(url_for('blog'))
 
-    return render_template('create.html')
+    return render_template('create.html', form=form, title=title)
 
 def get_post(post_id):
     conn = get_db_connection()

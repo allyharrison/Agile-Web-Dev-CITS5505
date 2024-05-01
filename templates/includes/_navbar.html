@@ -1,6 +1,5 @@
 <header>
-
-    <div class="row position-absolute pt-5 show" id="header-text1">
+    <div class="row position-absolute pt-5" id="header-text1">
         <h1 class="p-5">LOOKING TO SPICE UP YOUR LIFE?<br> LOOK NO FURTHER</h1>
         <div class="button-awesome p-5">
             <a href="" class="btn btn-lg btn-half">Show me more</a>
@@ -14,13 +13,15 @@
                 <img
                     src="https://png.pngtree.com/png-clipart/20230823/original/pngtree-fast-food-logo-design-picture-image_8225761.png">
             </div>
+            <!-- On small screens the navbar toggle button only toggles the dropdown
+                but doesn't retract it. Need to fix-->
             <a class="navbar-brand" href="{{ url_for('html') }}">Foodie Hub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarContent,#header-text1" aria-controls="navbarSupportedContent"
+                data-bs-target="#navbarSupportedContent,#header-text1" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse p-4" id="navbarContent">
+            <div class="collapse navbar-collapse p-4" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -64,12 +65,14 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="">HOT RECIPES</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('create') }}">REQUEST A RECIPE</a></li>
-                            <li><a class="dropdown-item" href="">HOT RESTAURANTS</a></li>
+                            <li><a class="dropdown-item" href="">TOP RESTAURANTS</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('create') }}">REQUEST A RESTAURANT</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ url_for('account') }}">LOGIN</a></li>
+                            <li><a class="dropdown-item" id="loginBtn" data-bs-toggle="modal"
+                                    data-bs-target="#loginModal" href="">LOGIN</a></li>
+                            <!-- put this back in a tag if needed: href="{{ url_for('account') }}" -->
                         </ul>
                     <li class="nav-item">
                         <form class="d-flex search-bar form-inline" role="search"><input id="search" type="search"
@@ -87,7 +90,38 @@
             </div>
         </div>
     </nav>
-<!-- commenting the old navbar out for now while I try and make it Bootstrap friendly-->
+</header>
+
+<body>
+    <div class="modal fade p-5" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Login to Foodie Hub</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" id="login-form">
+                        <label for="username-field" class="form-label">Username</label>
+                        <input type="email" name="username" id="username-field" class="form-control"
+                            placeholder="Username">
+                        <label for="password-field" class="form-label">Password</label>
+                        <input type="password-placeholder" name="password" id="password-field" class="form-control"
+                            placeholder="Password">
+                        <a href="#" class="link">Forgot your password?</a>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn m-2" id="login-form-submit">Login</button>
+                            <p>Don't have an account?
+                                <a href="#" class="link"><b>Sign up here!</b></a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- commenting the old navbar out for now while I try and make it Bootstrap friendly-->
     <!-- <nav class="navbar ">
       <div class="d-flex container-fluid justify-content-evenly">
           <div class="logo">
@@ -140,4 +174,8 @@
           </ul>
       </div>
   </nav> -->
-</header>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+    <script src="{{ url_for('static', filename='JS.js') }}"></script>
+</body>
