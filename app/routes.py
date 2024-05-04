@@ -1,19 +1,13 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from app import app 
-from flask_login import current_user, login_user
-from app.forms import LoginForm
-from flask_login import logout_user
-from flask_login import login_required
+from flask_login import current_user, login_user, login_required
 import sqlalchemy as sa
 from app import db
-from app.models import User
-from app.models import Post
-from app.forms import LoginForm
+from app.models import User, Post
+from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from livereload import Server
-from app.forms import RegistrationForm
-from flask import request
 from urllib.parse import urlsplit
-from app.forms import EditProfileForm
+
 
 
 @app.route("/")
@@ -144,10 +138,6 @@ def create():
 @app.route("/<int:id>/edit/", methods=("GET", "POST"))
 def edit(id):
     #post = get_post(id)
-
-
-
-
     return render_template("edit.html")
 
 
