@@ -2,25 +2,24 @@
 
 // please don't span api :( over a threshold and I pay\
 // JS code adapted from MapBox tutorials and chatgpt help
-mapboxgl.accessToken =
-    'pk.eyJ1Ijoic3RldmkiLCJhIjoiY2x2ZWtrdThhMGI1bjJpbnFrNm9xem80YSJ9.Lz5tsAHEt_qZED_2_wyEGw' // TODO - move this to .env file
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmkiLCJhIjoiY2x2ZWtrdThhMGI1bjJpbnFrNm9xem80YSJ9.Lz5tsAHEt_qZED_2_wyEGw';
 const map = new mapboxgl.Map({
     container: 'map',
-    // Choosen from Mapbox's core styles
+    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     style: 'mapbox://styles/mapbox/streets-v12',
-    center: [116, -31.9],
-    zoom: 10,
-})
+    center: [115.8605, -31.9505],
+    zoom: 13
+});
 
-let start = [116, -31.9] // Default start location
-
-// Add the control to the map.
 map.addControl(
-    new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-    })
-)
+    new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+    }),
+    'top-left'
+  );
+
+
+  
 
 // document.addEventListener('DOMContentLoaded', function() {
 //   //Login forms
@@ -52,108 +51,6 @@ map.addControl(
 // This is to merge the exisitng login JS with a new event listener
 // It shows the login modal when clicked from any page
 
-map.addControl(
-    new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-    })
-)
-
-// Function to update the start location and fetch the route
-async function updateStartLocation(coords) {
-    start = coords
-    await getRoute(start)
-}
-
-// create a function to make a directions request
-async function getRoute(end) {
-    // make a directions request using cycling profile
-    const query = await fetch(
-        `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
-        { method: 'GET' }
-    )
-    const json = await query.json()
-    const data = json.routes[0]
-    const route = data.geometry.coordinates
-    const geojson = {
-        type: 'Feature',
-        properties: {},
-        geometry: {
-            type: 'LineString',
-            coordinates: route,
-        },
-    }
-    // if the route already exists on the map, we'll reset it using setData
-    if (map.getSource('route')) {
-        map.getSource('route').setData(geojson)
-    } else {
-        map.addLayer({
-            id: 'route',
-            type: 'line',
-            source: {
-                type: 'geojson',
-                data: geojson,
-            },
-            layout: {
-                'line-join': 'round',
-                'line-cap': 'round',
-            },
-            paint: {
-                'line-color': '#3887be',
-                'line-width': 5,
-                'line-opacity': 0.75,
-            },
-        })
-    }
-    // Display turn instructions
-    const instructions = document.getElementById('instructions')
-    const steps = data.legs[0].steps
-
-    let tripInstructions = ''
-    for (const step of steps) {
-        tripInstructions += `<li>${step.maneuver.instruction}</li>`
-    }
-    instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
-        data.duration / 60
-    )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`
-}
-
-map.on('load', () => {
-    // make an initial directions request that starts and ends at the same location
-    getRoute(start)
-
-    // Add starting point to the map
-    map.addLayer({
-        id: 'point',
-        type: 'circle',
-        source: {
-            type: 'geojson',
-            data: {
-                type: 'FeatureCollection',
-                features: [
-                    {
-                        type: 'Feature',
-                        properties: {},
-                        geometry: {
-                            type: 'Point',
-                            coordinates: start,
-                        },
-                    },
-                ],
-            },
-        },
-        paint: {
-            'circle-radius': 10,
-            'circle-color': '#3887be',
-        },
-    })
-
-    // Listen for clicks on the map to update start location
-    map.on('click', async (event) => {
-        const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key])
-        await updateStartLocation(coords)
-    })
-})
 
 // Commenting this out for now as I haven't tested it with the frontend stuff that I've recently added
 /*
