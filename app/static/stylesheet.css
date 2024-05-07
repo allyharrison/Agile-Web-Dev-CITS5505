@@ -277,18 +277,11 @@ p {
    ========================================================================== */
 
 /* CSS for login/ sign in form */
-body.login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg');
-    background-size: cover;
-    background-position: center;
-}
+
 
 #main-holder {
     clear: both;
-    width: 200px; /* Adjust the width as needed */
+    width: 300px; /* Adjust the width as needed */
     height: auto;
     padding: 50px;
     background-size: cover;

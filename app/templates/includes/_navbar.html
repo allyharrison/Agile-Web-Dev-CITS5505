@@ -1,11 +1,4 @@
 <header>
-    <div class="row position-absolute pt-5" id="header-text1">
-        <h1 class="p-5">LOOKING TO SPICE UP YOUR LIFE?<br> LOOK NO FURTHER</h1>
-        <div class="button-awesome p-5">
-            <button id="start" class="btn btn-lg btn-half">Start Tour </button>
-        </div>
-    </div>
-
     <nav class="row navbar navbar-expand-lg navbar-dark" id="menu">
         <div class="container-fluid">
             <div class="logo">
@@ -62,8 +55,8 @@
                             FOODIE HUB
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">HOT RECIPES</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('create') }}">REQUEST A RECIPE</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('explore') }}">EXPLORE RECIPES</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('blog') }}">REQUEST A RECIPE</a></li>
                             <li><a class="dropdown-item" href="">TOP RESTAURANTS</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('create') }}">REQUEST A RESTAURANT</a></li>
                             <li>
@@ -110,102 +103,11 @@
         </div>
         </div>
     </nav>
-    <div class="row pt-5" id="header-text1">
-        <h1 class="main-heading p-5">LOOKING TO SPICE UP YOUR LIFE?<br>look no further</h1>
+    <div class="row position-absolute pt-5" id="header-text1">
+        <h1 class="p-5">LOOKING TO SPICE UP YOUR LIFE?<br> LOOK NO FURTHER</h1>
         <div class="button-awesome p-5">
-            <a href="" class="btn btn-lg btn-half">Show me more</a>
-            <a href="" class="btn btn-lg btn-half">I'm hungry</a>
+            <button id="start" class="btn btn-lg btn-half">Start Tour </button>
         </div>
     </div>
-
 </header>
 
-<!--
-<body>
-    <div class="modal fade p-5" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Login to Foodie Hub</h1>
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" id="login-form">
-                        <label for="username-field" class="form-label">Username</label>
-                        <input type="email" name="username" id="username-field" class="form-control"
-                            placeholder="Username">
-                        <label for="password-field" class="form-label">Password</label>
-                        <input type="password-placeholder" name="password" id="password-field" class="form-control"
-                            placeholder="Password">
-                        <a href="#" class="link">Forgot your password?</a>
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn m-2" id="login-form-submit">Login</button>
-                            <p>Don't have an account?
-                                <a href="#" class="link"><b>Sign up here!</b></a>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
--->
-
-
-
-
-<!-- commenting the old navbar out for now while I try and make it Bootstrap friendly -->
-<!-- <nav class="navbar ">
-      <div class="d-flex container-fluid justify-content-evenly">
-          <div class="logo">
-              <img src="https://png.pngtree.com/png-clipart/20230823/original/pngtree-fast-food-logo-design-picture-image_8225761.png">
-          </div>
-          <a class="navbar-brand" href="{{ url_for('html') }}">Foodie Hub</a>
-          <div class="search-bar">
-              <input id="search" type="search" placeholder="Start searching" list="search-suggestions" autocomplete="off" />
-              <datalist id="search-suggestions">
-                  <option value="Recipes"></option>
-                  <option value="Blog"></option>
-                  <option value="Recommendations"></option>
-              </datalist>
-          </div>
-          <ul class="nav">
-              <li class="nav-item"><a href="{{ url_for('recipes') }}">NEW RECIPES</a>
-                  <div class="dropdown-content">
-                      <a href="#">BREAKFAST</a>
-                      <a href="#">LUNCH</a>
-                      <a href="#">DINNER</a>
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a href="{{ url_for('new_restaurants') }}">NEW RESTAURANTS</a>
-                  <div class="dropdown-content">
-                      <a href="#">PERTH'S BEST</a>
-                      <a href="#">HIDDEN GEMS</a>
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a href="{{ url_for('cuisine') }}">CUISINE</a>
-                  <div class="dropdown-content">
-                      <a href="#">ASIAN</a>
-                      <a href="#">INDIAN</a>
-                      <a href="#">MEXICAN</a>
-                      <a href="#">EUROPEAN</a>
-                  </div>
-              </li>
-              <li class="nav-item"><a href="{{ url_for('blog') }}">FOODIE HUB</a>
-                  <div class="dropdown-content">
-                    <a href="{{ url_for('create') }}">CREATE POSTS</a>
-                      <a href="#">HOT RECIPES</a>
-                  </div>
-              </li>
-              <li class="nav-item"><a href="{{ url_for('account') }}">FOODIE USER</a>
-                  <div class="dropdown-content">
-                      <a href="#">LOGIN</a>
-                  </div>
-              </li>
-          </ul>
-      </div>
-  </nav> -->
-</body>

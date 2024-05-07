@@ -6,11 +6,13 @@ from app import db
 from app.models import User, Post
 from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from urllib.parse import urlsplit
+from app.forms import EmptyForm
 
 
 @app.route("/")
 def html():
     return render_template("HTML.html")
+
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -50,7 +52,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash("Congratulations, you are now a registered user!")
-        return redirect(url_for("login"))
+        return redirect(url_for("login.html"))
     return render_template("register.html", title="Register", form=form)
 
 
@@ -62,7 +64,8 @@ def user(username):
         {"author": user, "body": "Test post #1"},
         {"author": user, "body": "Test post #2"},
     ]
-    return render_template("user.html", user=user, posts=posts)
+    form = EmptyForm()
+    return render_template('user.html', user=user, posts=posts, form=form)
 
 
 from datetime import datetime, timezone
@@ -89,8 +92,76 @@ def edit_profile():
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
     return render_template("edit_profile.html", title="Edit Profile", form=form)
+# Keep this for rendering
+from app.forms import PostForm
+from app.models import Post
 
 
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/blog', methods=['GET', 'POST'])
+@login_required
+def index():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('blog'))
+    posts = db.session.scalars(current_user.following_posts()).all()
+    return render_template("blog.html", title='Home Page', form=form,
+                           posts=posts)
+@app.route('/explore')
+@login_required
+def explore():
+    page = request.args.get('page', 1, type=int)
+    query = sa.select(Post).order_by(Post.timestamp.desc())
+    posts = db.paginate(query, page=page,
+                        per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+    return render_template("index.html", title='Explore', posts=posts.items)
+
+@app.route('/follow/<username>', methods=['POST'])
+@login_required
+def follow(username):
+    form = EmptyForm()
+    if form.validate_on_submit():
+        user = db.session.scalar(
+            sa.select(User).where(User.username == username))
+        if user is None:
+            flash(f'User {username} not found.')
+            return redirect(url_for('html'))
+        if user == current_user:
+            flash('You cannot follow yourself!')
+            return redirect(url_for('user', username=username))
+        current_user.follow(user)
+        db.session.commit()
+        flash(f'You are following {username}!')
+        return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('html'))
+
+
+@app.route('/unfollow/<username>', methods=['POST'])
+@login_required
+def unfollow(username):
+    form = EmptyForm()
+    if form.validate_on_submit():
+        user = db.session.scalar(
+            sa.select(User).where(User.username == username))
+        if user is None:
+            flash(f'User {username} not found.')
+            return redirect(url_for('html'))
+        if user == current_user:
+            flash('You cannot unfollow yourself!')
+            return redirect(url_for('user', username=username))
+        current_user.unfollow(user)
+        db.session.commit()
+        flash(f'You are not following {username}.')
+        return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('html'))
+
+# Below is older stiff can be turned into html tag 
 @app.route("/recipes")
 def recipes():
     return render_template("recipes.html")
@@ -110,12 +181,9 @@ def cuisine():
 def account():
     return render_template("account.html")
 
-
 @app.route("/blog")
 def blog():
-    # conn = get_db_connection()
-    # posts = conn.execute("SELECT * FROM posts").fetchall()
-    # conn.close()
+
     return render_template("blog.html")
 
 
