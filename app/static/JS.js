@@ -15,7 +15,6 @@ const driverObj = driver({
   ]
 });
 
-driverObj.drive();
 
 function startTour() {
   driverObj.drive(); // Start the tour
