@@ -1,37 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Register</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=64) }}<br>
-            {% for error in form.email.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}<br>
-            {% for error in form.password2.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+
+<div class="d-flex align-items-center p-4 bg-body-tertiary">
+    <main class="form-register m-auto">
+        <form action="" method="post" novalidate class="needs-validation">
+            {{ form.hidden_tag() }}
+            <h1 class="mb-3 text-center">Register for Foodie Hub</h1>
+            <div class="invalid-feedback" style="display: block; color: red;">
+                {% for error in form.username.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+            <div class="mb-3 form-floating" id="floatingInput">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control", size=32) }}
+            </div>
+            <div class="invalid-feedback" style="display: block; color: red;">
+                {% for error in form.email.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+            <div class="mb-3 form-floating" id="floatingInput">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control", size=64) }}
+            </div>
+            <div class="invalid-feedback" style="display: block; color: red;">
+                {% for error in form.password.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+            <div class="mb-3 form-floating" id="floatingInput">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control", size=32) }}
+            </div>
+            <div class="invalid-feedback" style="display: block; color: red;">
+                {% for error in form.password2.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+            <div class="mb-3 form-floating" id="floatingInput">
+                {{ form.password2.label(class="form-label") }}
+                {{ form.password2(class="form-control", size=32) }}
+            </div>
+            <button type="submit" class="btn w-100 py-2 btn-dark">{{ form.submit.label }}</button>
+        </form>
+    </main>
+</div>
 {% endblock %}
