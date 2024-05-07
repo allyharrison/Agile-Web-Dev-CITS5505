@@ -20,19 +20,28 @@
     <!-- Mapbox GL CSS -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css" type="text/css">
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css"
+        type="text/css">
     <!-- Markdown CSS -->
     {{mde.css}}
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="d-flex flex-column justify-content-between">
     <!-- Navbar -->
     {% include 'includes/_navbar.html' %}
 
-   
+
     <!-- Content -->
     <div class="content flex-grow-1">
         {% with messages = get_flashed_messages() %}
@@ -42,14 +51,14 @@
             <li>{{ message }}</li>
             {% endfor %}
         </ul>
-        
+
         {% endif %}
         {% endwith %}
 
 
         {% block content %}
 
-        
+
         {% endblock %}
     </div>
 

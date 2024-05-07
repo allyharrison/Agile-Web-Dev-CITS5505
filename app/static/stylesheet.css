@@ -2,13 +2,13 @@
    https://github.com/necolas/idiomatic-css */
 
 /* ==========================================================================
-   Root/global styling and basic alignment
+   Root/global styling plus variables and basic alignment
    ========================================================================== */
 
-/* Using global variables for colours to make it easier*/
 :root {
     --main-bg-color: #c8e776;
     --secondary-bg-color: #ffffff;
+    --tertiary-bg-color: #9ec23a;
     --main-text-color: black;
     --secondary-text-color: #48003b;
 }
@@ -16,11 +16,6 @@
 * {
     margin: 0;
     padding: 0;
-}
-
-/* Not sure if needed */
-.row {
-    margin: 0 auto;
 }
 
 #flex-container {
@@ -72,11 +67,6 @@ header {
     border: 0px;
 }
 
-/* restore this after other bootstrap nav is done */
-/* #search {
-    margin-right: 20px;
-} */
-
 /* Navigation
    ========================================================================== */
 
@@ -104,7 +94,7 @@ header {
     font-weight: bold;
 }
 
-/* Can't change colour when I change this to a variable */
+/* Can't change colour when I change colour to a variable */
 .nav-item .dropdown-item {
     color: #48003b;
     box-sizing: border-box;
@@ -162,6 +152,10 @@ header {
    Text, headings, paragraphs etc
    ========================================================================== */
 
+#main-heading {
+    font-family: 'Playfair Display', serif;
+}
+
 h1 {
     color: var(--secondary-text-color);
 }
@@ -212,7 +206,6 @@ li {
     color: var(--main-bg-color);
     text-decoration: none;
     border-radius: 12px;
-    margin-right: 15px;
 }
 
 .btn-half:hover {
@@ -228,6 +221,16 @@ li {
 
 .btn-outline-light:hover {
     border-color: var(--main-bg-color);
+}
+
+.btn-dark {
+    background-color: var(--tertiary-bg-color);
+    color: var(--secondary-text-color);
+    border-color: var(--tertiary-bg-color);
+}
+
+.btn-dark:hover {
+    background-color: var(--tertiary-bg-color);
 }
 
 .arranging {
