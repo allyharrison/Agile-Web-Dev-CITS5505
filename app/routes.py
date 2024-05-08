@@ -14,7 +14,7 @@ def html():
     return render_template("HTML.html")
 
 
-
+# This code is used from the mega-flask tutorial: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ix-pagination
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
@@ -52,7 +52,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash("Congratulations, you are now a registered user!")
-        return redirect(url_for("login.html"))
+        return redirect(url_for("login"))
     return render_template("register.html", title="Register", form=form)
 
 
