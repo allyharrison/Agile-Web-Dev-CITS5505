@@ -13,8 +13,9 @@
                 {% endfor %}
             </div>
             <div class="mb-3 form-floating" id="floatingInput">
-                {{ form.username.label(class="form-label") }}
                 {{ form.username(class="form-control", size=32) }}
+                {{ form.username.label(class="form-label") }}
+
             </div>
             <div class="invalid-feedback" style="display: block; color: red;">
                 {% for error in form.email.errors %}
@@ -22,8 +23,8 @@
                 {% endfor %}
             </div>
             <div class="mb-3 form-floating" id="floatingInput">
-                {{ form.email.label(class="form-label") }}
                 {{ form.email(class="form-control", size=64) }}
+                {{ form.email.label(class="form-label") }}
             </div>
             <div class="invalid-feedback" style="display: block; color: red;">
                 {% for error in form.password.errors %}
@@ -31,8 +32,9 @@
                 {% endfor %}
             </div>
             <div class="mb-3 form-floating" id="floatingInput">
-                {{ form.password.label(class="form-label") }}
                 {{ form.password(class="form-control", size=32) }}
+                {{ form.password.label(class="form-label") }}
+
             </div>
             <div class="invalid-feedback" style="display: block; color: red;">
                 {% for error in form.password2.errors %}
@@ -40,8 +42,9 @@
                 {% endfor %}
             </div>
             <div class="mb-3 form-floating" id="floatingInput">
-                {{ form.password2.label(class="form-label") }}
                 {{ form.password2(class="form-control", size=32) }}
+                {{ form.password2.label(class="form-label") }}
+
             </div>
             <button type="submit" class="btn w-100 py-2 btn-dark">{{ form.submit.label }}</button>
         </form>
