@@ -7,6 +7,7 @@ from app.models import User, Post
 from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from urllib.parse import urlsplit
 from app.forms import EmptyForm
+from flask_login import logout_user
 
 
 @app.route("/")
@@ -37,7 +38,7 @@ def login():
 
 @app.route("/logout")
 def logout():
-    # logout_user()
+    logout_user()
     return redirect(url_for("html"))
 
 
