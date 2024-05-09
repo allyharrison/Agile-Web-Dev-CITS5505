@@ -175,3 +175,4 @@ cython_debug/
 
 database.db
 app/app.db
+app/app.db
