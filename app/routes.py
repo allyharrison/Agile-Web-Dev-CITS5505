@@ -7,6 +7,7 @@ from app.models import User, Post
 from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from urllib.parse import urlsplit
 from app.forms import EmptyForm
+from flask_login import logout_user
 
 
 @app.route("/")
@@ -37,7 +38,7 @@ def login():
 
 @app.route("/logout")
 def logout():
-    # logout_user()
+    logout_user()
     return redirect(url_for("html"))
 
 
@@ -118,7 +119,7 @@ def explore():
     query = sa.select(Post).order_by(Post.timestamp.desc())
     posts = db.paginate(query, page=page,
                         per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-    return render_template("index.html", title='Explore', posts=posts.items)
+    return render_template("blog.html", title='Explore', posts=posts.items)
 
 @app.route('/follow/<username>', methods=['POST'])
 @login_required
