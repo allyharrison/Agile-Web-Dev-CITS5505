@@ -119,7 +119,7 @@ def explore():
     query = sa.select(Post).order_by(Post.timestamp.desc())
     posts = db.paginate(query, page=page,
                         per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-    return render_template("index.html", title='Explore', posts=posts.items)
+    return render_template("blog.html", title='Explore', posts=posts.items)
 
 @app.route('/follow/<username>', methods=['POST'])
 @login_required
