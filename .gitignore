@@ -9,6 +9,7 @@ instance/*
 
 ### Database ## 
 *.db
+app/app.db
 
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
@@ -174,4 +175,3 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/flask
 
 database.db
-*.db

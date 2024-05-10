@@ -1,0 +1,12 @@
+# User Stories for Foodie Hub 
+
+## Foodie Users 
+
+1. **As a Foodie Hub member**, I want to read blog posts about various cuisines so that I can learn about different culinary cultures and cooking techniques.
+2. **As a Foodie Hub member**, I want to be able to see and interactive with blog posts so that I can engage with the content and provide feedback or ask questions.
+3. **As a Foodie Hub member**, I want to easily post new articles so that I can share my latest food experiences and insights with my audience.
+4. **As a Foodie Hub member**, I want to search for blog posts by keywords so that I can quickly find content relevant to my interests.
+5. **As a Foodie Hub member**, I want to find restaurants near me on a map so that I can try out local cuisines while traveling.
+6. **As Foodie Hub member**, I want to get directions to a restaurant from the map so that I can easily navigate to it.
+7. **As a Foodie Hub member**, I want to filter restaurants on the map by ratings, cuisine types, and open hours so that I can choose the best dining options based on my preferences.
+8. **As a first time user**, I want to be shown around the website so that I can immediately start enaging with the community and content.
