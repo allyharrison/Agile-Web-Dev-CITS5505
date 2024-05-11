@@ -1,6 +1,38 @@
+// Recipe page js 
+document.addEventListener('DOMContentLoaded', function() {
+  // Bind click events to each button that toggles recipe details
+  var buttons = document.querySelectorAll('button[data-target]');
+  buttons.forEach(function(button) {
+      button.addEventListener('click', function() {
+          var targetId = this.getAttribute('data-target');
+          var detailsDiv = document.getElementById(targetId);
+          detailsDiv.classList.toggle('collapse');  // Toggle visibility of the recipe details
+      });
+  });
+});
+
+
+    // This is still a WIP for the modals, still a bit buggy
+    // window.addEventListener('DOMContentLoaded', function () {
+    //   var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    //   loginModal.show();
+    // });
+    const loginBtn = document.getElementById("loginBtn");
+    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+
+    // Add an event listener to the login button
+    loginBtn.addEventListener("click", function () {
+      // Show the login modal when the button is clicked
+      loginModal.show();
+      // This is supposed to make the rest of the page active again once the 
+      // modal is closed but it's not working yet
+      loginModal.addEventListener('hidden.bs.modal', function () {
+        document.body.style.overflow = 'auto';
+
+      });
+    });
+
 // tour js 
-
-
 const driver = window.driver.js.driver;
 
 const driverObj = driver({

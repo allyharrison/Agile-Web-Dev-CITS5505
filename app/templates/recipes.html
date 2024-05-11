@@ -1,30 +1,126 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Find a Restaurant
+{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="flip-card" onclick="this.classList.toggle('flipped');">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img class="card-img-top" src="https://s-media-cache-ak0.pinimg.com/736x/57/98/9f/57989f2a2e186e38bf93429aa395120c.jpg" alt="Gazpacho">
-                        <div class="card-body">
-                            <h5 class="card-title">Gazpacho</h5>
-                            <p class="card-text">Serves: 3 hearty appetites, 4 normal appetites.</p>
-                            <p class="card-text"><small class="text-muted">50 mins | 4 servings</small></p>
+<main class="container-fluid">
+    <div class="row p-5">
+        <h2 class="text-center">Need something for breakfast?</h2>
+    </div>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">  
+                <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <h2 class="font-bold text-2xl">Ricotta Pancakes</h2>
+                            <div class="py-2">
+                                <span class="badge bg-secondary me-2">Dairy</span>
+                                <span class="badge bg-secondary me-2">Vegetarian</span>
+                                <span class="badge bg-secondary">Breakfast</span>
+                            </div>
+                            <p class="text-muted">
+                                Ricotta pancakes are special because they are extra soft and fluffy inside.<br>
+                                <strong>Total Servings:</strong> 9<br>
+                                <strong>Prep Time:</strong> 15 min<br>
+                                <strong>Cook Time:</strong> 30 min
+                            </p>
+                            <button id="toggleButton1" class="btn btn-danger mt-3" data-target="recipeDetails1">See Recipe</button>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="https://www.allrecipes.com/thmb/WqWggh6NwG-r8PoeA3OfW908FUY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-Good-old-Fashioned-Pancakes-mfs_001-1fa26bcdedc345f182537d95b6cf92d8.jpg" alt="Ricotta Pancakes" class="img-fluid">
                         </div>
                     </div>
-                    <div class="flip-card-back">
-                        <div class="card-body">
-                            <h5 class="card-title">Ingredients and Preparation</h5>
-                            <p class="card-text">Here you can list the ingredients and steps...</p>
-                            <!-- Add the details for ingredients and steps similar to how they were added before -->
+                    <div class="collapse recipe-content" id="recipeDetails1">
+                        <div class="card card-body">
+                            <h4> Ingredients </h4>
+							<ul>
+								<li> 3/4 cup ricotta cheese </li>
+								<li> 3 eggs </li>
+								<li>3 tbsp caster suger </li>
+								<li> 3/4 cup milk </li>
+								<li> 1/2 tsp villian extract </li>
+								<li> 1 1/3 cups plain flour </li>
+								<li> 2 tsp baking powder </li>
+								<li> 1/ tsp baking soda </li>
+								<li> pinch of salt</li>
+								<li> Your Favourite Toppings!</li>
+							</ul>
+                            <h4> Instructions </h4>
+							<ol>
+								<li> Whisk wet – Place the Wet ingredients in a bowl and whisk vigorously to combine. You should have little ricotta curd bits in it, but you don't want giant ricotta clumps.</li>
+								<li> Scatter the Dry ingredients across the surface then whisk until combined. The batter is a little thicker than standard pancake batter </li>
+								<li> Lightly butter pan – Heat a non-stick pan over medium heat until hot. </li>
+								<li> Batter – Pour in 1/4 cup batter – it should just about spread evenly into a round  </li>
+								<li> ook 3 minutes – Cook the first side for 1 1/2 minutes or until golden brown (turn heat down if browning too fast). Flip then cook the other side for 1 1/2 minutes or until golden. Remove onto a plate. </li>
+								<li> Cook remaining – If your non-stick coating is good, you won't need more butter though a very light brush of melted butter every 2nd or 3rd pancake won't hurt. Continue cooking, lowering the heat as you go as the pan gets hotter. You should get 9 to 10 in total. Keep cooked pancakes stacked so they keep each other warm. </li>
+
+							</ol>
                         </div>
                     </div>
                 </div>
             </div>
+           
+			<div class="col-md-6">  
+                <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <h2 class="font-bold text-2xl">Ricotta Pancakes</h2>
+                            <div class="py-2">
+                                <span class="badge bg-secondary me-2">Dairy</span>
+                                <span class="badge bg-secondary me-2">Vegetarian</span>
+                                <span class="badge bg-secondary">Breakfast</span>
+                            </div>
+                            <p class="text-muted">
+                                Ricotta pancakes are special because they are extra soft and fluffy inside.
+								<br>
+							<strong>Total Servings:</strong> 9<br>
+                            <strong>Prep Time:</strong> 15 min<br>
+							<strong>Cook Time:</strong> 30 min<br>
+                            </p>
+							<button id="toggleButton2" class="btn btn-danger mt-3" data-target="recipeDetails2">See Recipe</button>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://www.allrecipes.com/thmb/WqWggh6NwG-r8PoeA3OfW908FUY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-Good-old-Fashioned-Pancakes-mfs_001-1fa26bcdedc345f182537d95b6cf92d8.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="collapse recipe-content" id="recipeDetails2">
+                        <div class="card card-body">
+                            <h4> Ingredients </h4>
+							<ul>
+								<li> 3/4 cup ricotta cheese </li>
+								<li> 3 eggs </li>
+								<li>3 tbsp caster suger </li>
+								<li> 3/4 cup milk </li>
+								<li> 1/2 tsp villian extract </li>
+								<li> 1 1/3 cups plain flour </li>
+								<li> 2 tsp baking powder </li>
+								<li> 1/ tsp baking soda </li>
+								<li> pinch of salt</li>
+								<li> Your Favourite Toppings!</li>
+							</ul>
+                            <h4> Instructions </h4>
+							<ol>
+								<li> Whisk wet – Place the Wet ingredients in a bowl and whisk vigorously to combine. You should have little ricotta curd bits in it, but you don't want giant ricotta clumps.</li>
+								<li> Scatter the Dry ingredients across the surface then whisk until combined. The batter is a little thicker than standard pancake batter </li>
+								<li> Lightly butter pan – Heat a non-stick pan over medium heat until hot. </li>
+								<li> Batter – Pour in 1/4 cup batter – it should just about spread evenly into a round  </li>
+								<li> ook 3 minutes – Cook the first side for 1 1/2 minutes or until golden brown (turn heat down if browning too fast). Flip then cook the other side for 1 1/2 minutes or until golden. Remove onto a plate. </li>
+								<li> Cook remaining – If your non-stick coating is good, you won't need more butter though a very light brush of melted butter every 2nd or 3rd pancake won't hurt. Continue cooking, lowering the heat as you go as the pan gets hotter. You should get 9 to 10 in total. Keep cooked pancakes stacked so they keep each other warm. </li>
+
+							</ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+           
+           
+            </div>
         </div>
     </div>
-</div>
+</main>
 {% endblock %}
