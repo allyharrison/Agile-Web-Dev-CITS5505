@@ -5,20 +5,6 @@ Login
 {% endblock %}
 
 {% block content %}
-<!-- <main id="main-holder">
-  <h1 id="login-header">Login</h1>
-
-  <div id="login-error-msg-holder">
-    <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
-  </div>
-
-  <form id="login-form">
-    <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-    <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-    <input type="submit" value="Login" id="login-form-submit">
-  </form>
- -->
-<!-- Modal -->
 
 <body>
   <div class="modal p-5" id="loginModal" tabindex="-1">
@@ -55,27 +41,7 @@ Login
   </div>
   </main>
 
-  <script>
-    // This is still a WIP for the modals, still a bit buggy
-    // window.addEventListener('DOMContentLoaded', function () {
-    //   var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-    //   loginModal.show();
-    // });
-    const loginBtn = document.getElementById("loginBtn");
-    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
 
-    // Add an event listener to the login button
-    loginBtn.addEventListener("click", function () {
-      // Show the login modal when the button is clicked
-      loginModal.show();
-      // This is supposed to make the rest of the page active again once the 
-      // modal is closed but it's not working yet
-      loginModal.addEventListener('hidden.bs.modal', function () {
-        document.body.style.overflow = 'auto';
-
-      });
-    });
-  </script>
 </body>
 
 {% endblock %}
