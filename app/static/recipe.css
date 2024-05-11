@@ -448,7 +448,7 @@ ol > li > ul > li {
 
 header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg');
+        url('/static/images/banner.webp');
     height: 100px;
     background-position: center;
     background-size: cover;
