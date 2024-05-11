@@ -7,9 +7,10 @@ from app.models import User
 from wtforms.validators import DataRequired
 from wtforms import TextAreaField
 from wtforms.validators import Length
+from flask_babel import lazy_gettext as _l
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()],render_kw={"placeholder": "Username"})
+    username = StringField(_l('Username'), validators=[DataRequired()],render_kw={"placeholder": "Username"})
     password = PasswordField('Password', validators=[DataRequired()],render_kw={"placeholder": "Password"})
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Login')
