@@ -1,3 +1,4 @@
+
 // Recipe page js 
 document.addEventListener('DOMContentLoaded', function() {
   // Bind click events to each button that toggles recipe details
@@ -10,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
+
+// This Js code was used from Driver.JS Tutorials 
 
 
     // This is still a WIP for the modals, still a bit buggy
@@ -55,7 +59,7 @@ function startTour() {
 // Event listener for the "Start" button click
 document.getElementById('start').addEventListener('click', startTour);
 
-// please don't span api :( over a threshold and I pay\
+
 // JS code adapted from MapBox tutorials and chatgpt help
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmkiLCJhIjoiY2x2ZWtrdThhMGI1bjJpbnFrNm9xem80YSJ9.Lz5tsAHEt_qZED_2_wyEGw';
 const map = new mapboxgl.Map({
