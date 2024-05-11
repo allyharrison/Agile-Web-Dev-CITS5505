@@ -73,10 +73,11 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
     <!-- Mapbox Geocoder Plugin -->
     <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <!-- This JS and CSS script is retrieved from the JS driver website-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
-    <script
-        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/driver.js/dist/driver.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/driver.js/dist/driver.min.css" rel="stylesheet">
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='JS.js') }}"></script>
     {{ moment.include_moment() }}
