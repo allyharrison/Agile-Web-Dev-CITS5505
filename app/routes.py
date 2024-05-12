@@ -205,6 +205,10 @@ def blog():
 
     return render_template("blog.html")
 
+@app.route("/hidden_gems")
+def hidden_gems():
+
+    return render_template("hidden_gems.html")
 
 @app.route("/create", methods=["GET", "POST"])
 @login_required
