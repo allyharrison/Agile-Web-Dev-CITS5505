@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Find a Restruant
+{% endblock %}
+
+{% block content %}
+<main class="container-fluid">
+    <div class="row p-5">
+        <h3 class="text-center"> Looking for some Hidden Gems in Perth? <br> Check out these options! </h3>
+    </div>
+</main>
+
+<div id="map"></div>
+
+<div class="container p-5 justify-content-evenly">
+    <h3 class="text-center"> Foodie Hubs Hidden Gems </h3>
+    <div class="row ">
+        <div class="col-lg card m-2">
+            <img src="/images/heather.png" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Hearth Restaurant & Lounge</h4>
+                <h5>1 Barrack St, Perth Western Australia 6000 </h5>
+                <p class="card-text">Hearth is the heart of an unparalleled Western Australian dining experience located
+                    at The Ritz-Carlton, Perth on the edges of Elizabeth Quay. Hearth features seasonal menus using the
+                    freshest ingredients brought to life in our custom hearth. Set against a relaxed and elegant
+                    atmosphere it is infused with warm Australian culture. Step inside Hearth and feel embraced by an
+                    approachable and refined space that radiates a genuine feeling of care and comfort.</p>
+                <a href="https://www.hearthrestaurant.com.au/all-menus" class="card-link">Restaurant Website</a>
+            </div>
+        </div>
+        <div class="col-lg card m-2">
+            <img src="/images/mechanical.png" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Mechanics Institute Bar</h4>
+                <h5>REAR/222 William St, Northbridge WA 6000 </h5>
+                <p class="card-text"> Nestled amongst the heritage rooftops of Northbridge, Mechanics' Institute offers
+                    an escape from the every day below.
+                    With al fresco roof deck seating, sing-out-loud sound tracks and epic cocktails, Mechanics' is a
+                    small bar that’s big on fun.</p>
+                <a href="https://mechanicsinstitutebar.com.au" class="card-link">Restaurant Website</a>
+            </div>
+        </div>
+        <div class="col-lg card m-2">
+            <img src="/images/bobeche.png" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Bobeche</h4>
+                <h5>Basement, 131 St Georges Terrace, Perth WA 6000 </h5>
+                <p class="card-text">Celebrate the art of a well-crafted cocktail at Bobeche, one of Perth’s most
+                    charismatic cocktail bars. Descend to The Heritage basement and find a century old, speak-easy vibe
+                    with some of the best bartenders in town.</p>
+                <a href="https://www.theheritageperth.com.au/bobeche" class="card-link">Restaurant Website</a>
+            </div>
+        </div>
+        <div class="col-lg card m-2">
+            <img src="/images/SneakyTonys.png" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Sneaky Tony’s</h4>
+                <h5> Somewhere in Chinatown, Northbridge, WA 6003 </h5>
+                <p class="card-text">A homage to infamous rum-runner Tony “the hat”, Sneaky Tony’s is a prohibition bar
+                    with shelves bursting with liquid gold. With over 300 bottles of rum from all 4 corners of the
+                    globe, pull up a stool and let us pour you a dram.</p>
+                <a href="https://www.lavishhabits.com.au/venues/sneaky-tonys/" class="card-link">Restaurant Website</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container p-5 justify-content-evenly">
+    <div class="row ">
+        <div class="col-lg card m-2">
+            <img src="/images/AlabamaSong.png" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Alabama Song</h4>
+                <h5>232 William St, Perth WA 6000 </h5>
+                <p class="card-text">Alabama Song is a little bit honky-tonk and a whole lotta country.
+                    Specialising in whiskey and bourbon, you’re guaranteed to have a rockin’ good time once you enter
+                    through the bat swing doors at Alabama.</p>
+                <a href="https://www.lavishhabits.com.au/venues/alabama-song/" class="card-link">Restaurant Website</a>
+            </div>
+        </div>
+        <div class="col-lg card m-2">
+            <img src="/images/Joes.png" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Joe’s Juice Joint</h4>
+                <h5>232 William St, Northbridge WA 6000 </h5>
+                <p class="card-text"> Perth parties ’til late in the basement at Joe’s Juice Joint.
+                    Off the laneway and down the stairs is the rock ‘n roll den that is Joe’s Juice Joint.</p>
+                <a href="https://www.lavishhabits.com.au/venues/joes-juice-joint/" class="card-link">Restaurant
+                    Website</a>
+            </div>
+        </div>
+        <div class="col-lg card m-2">
+            <img src="/images/Varnish.png" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Varnish on King</h4>
+                <p class="card-text">An absolute jewel of King Street, Perth bar Varnish on King has successfully
+                    transplanted an American Whiskey bar into Perth’s CBD. And they've been doing a damn good job of it
+                    for a whole decade now.</p>
+                <a href="https://www.theurbanlist.com/perth/directory/varnish-on-king" class="card-link">Restaurant
+                    Website</a>
+            </div>
+        </div>
+        <div class="col-lg card m-2">
+            <img src="/images/toastfacegrillah.png" class="card-img-top" alt="">
+            <div class="card-body">
+                <h4 class="card-title">Toastface Grillah</h4>
+                <p class="card-text">The best damn toastie you'll ever have! Opening in a humble laneway in 2013,
+                    Toastface Grillah has now expanded to more than 6 locations throughout WA in the last 10 years!</p>
+                <a href="https://www.toastfacegrillah.com" class="card-link">Restaurant Website</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
