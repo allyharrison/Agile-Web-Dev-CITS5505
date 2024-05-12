@@ -255,3 +255,21 @@ def translate_text():
     return {'text': translate(data['text'],
                               data['source_language'],
                               data['dest_language'])}
+
+@app.route('/search')
+@login_required
+def search():
+    query = request.args.get('query', '', type=str)  # Retrieves the query from URL query parameters
+    if not query:
+        return redirect('/')  # Redirect if the query is empty
+
+    page = request.args.get('page', 1, type=int)  # Handle pagination
+    posts, total = Post.search(query, page, app.config['POSTS_PER_PAGE'])  # Assuming Post.search method exists
+
+    next_url = url_for('search', query=query, page=page + 1) \
+        if total > page * app.config['POSTS_PER_PAGE'] else None
+    prev_url = url_for('search', query=query, page=page - 1) \
+        if page > 1 else None
+
+    return render_template('search.html', title='Search', posts=posts,
+                           next_url=next_url, prev_url=prev_url, query=query)

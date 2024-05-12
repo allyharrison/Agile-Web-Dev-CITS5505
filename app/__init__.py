@@ -7,6 +7,7 @@ from flask_mde import Mde
 from flask_moment import Moment
 from flask import request
 from flask_babel import Babel, lazy_gettext as _l
+from elasticsearch import Elasticsearch
 
 
 def get_locale():
@@ -23,8 +24,10 @@ babel = Babel(app, locale_selector=get_locale)
 login = LoginManager(app)
 login.login_view = 'login'
 login.login_message = _l('Please log in to access this page.')
+app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+        if app.config['ELASTICSEARCH_URL'] else None
 
-
+print("Elasticsearch URL:", app.config['ELASTICSEARCH_URL'])  # Add this line to debug
 
 from . import routes, models
 
