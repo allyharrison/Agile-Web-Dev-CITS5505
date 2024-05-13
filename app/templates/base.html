@@ -44,17 +44,18 @@
 
     <!-- Content -->
     <div class="content flex-grow-1">
-        {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
         {% endif %}
         {% endwith %}
-
+    </div>
+    
 
         {% block content %}
 
@@ -81,6 +82,24 @@
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='JS.js') }}"></script>
     {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+    <script>
+        async function translate(sourceElem, destElem, sourceLang, destLang) {
+            document.getElementById(destElem).innerHTML =
+                '<img src="{{ url_for("static", filename="/loading_spinner.gif") }}">';
+            const response = await fetch('/translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                body: JSON.stringify({
+                    text: document.getElementById(sourceElem).innerText,
+                    source_language: sourceLang,
+                    dest_language: destLang
+                })
+            })
+            const data = await response.json();
+            document.getElementById(destElem).innerText = data.text;
+        }
+    </script>
 </body>
 
 </html>

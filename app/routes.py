@@ -8,6 +8,12 @@ from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from urllib.parse import urlsplit
 from app.forms import EmptyForm
 from flask_login import logout_user
+from flask_babel import _
+from flask import g
+from flask_babel import get_locale
+from langdetect import detect, LangDetectException
+from app.translate import translate
+from langdetect import detect_langs
 
 
 @app.route("/")
@@ -83,6 +89,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.now(timezone.utc)
         db.session.commit()
+        g.locale = str(get_locale())
 
 
 @app.route("/edit_profile", methods=["GET", "POST"])
@@ -110,10 +117,21 @@ from app.models import Post
 def index():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
+        try:
+            possible_langs = detect_langs(form.post.data)
+            # Select the most probable language
+            most_probable_lang = max(possible_langs, key=lambda x: x.prob)
+            if most_probable_lang.prob > 0.9:
+                language = most_probable_lang.lang
+            else:
+                language = ''
+        except LangDetectException:
+            language = ''
+        post = Post(body=form.post.data, author=current_user,
+                    language=language)
         db.session.add(post)
         db.session.commit()
-        flash('Your post is now live!')
+        flash(_('Your post is now live!'))
         return redirect(url_for('blog'))
     page = request.args.get('page', 1, type=int)
     posts = db.paginate(current_user.following_posts(), page=page,
@@ -147,7 +165,7 @@ def follow(username):
         user = db.session.scalar(
             sa.select(User).where(User.username == username))
         if user is None:
-            flash(f'User {username} not found.')
+            flash(_('User %(username)s not found.', username=username))
             return redirect(url_for('html'))
         if user == current_user:
             flash('You cannot follow yourself!')
@@ -233,3 +251,29 @@ def edit(id):
 def delete(id):
 
     return redirect(url_for("blog"))
+
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate_text():
+    data = request.get_json()
+    return {'text': translate(data['text'],
+                              data['source_language'],
+                              data['dest_language'])}
+
+@app.route('/search')
+@login_required
+def search():
+    query = request.args.get('query', '', type=str)  # Retrieves the query from URL query parameters
+    if not query:
+        return redirect('/')  # Redirect if the query is empty
+
+    page = request.args.get('page', 1, type=int)  # Handle pagination
+    posts, total = Post.search(query, page, app.config['POSTS_PER_PAGE'])  # Assuming Post.search method exists
+
+    next_url = url_for('search', query=query, page=page + 1) \
+        if total > page * app.config['POSTS_PER_PAGE'] else None
+    prev_url = url_for('search', query=query, page=page - 1) \
+        if page > 1 else None
+
+    return render_template('search.html', title='Search', posts=posts,
+                           next_url=next_url, prev_url=prev_url, query=query)

@@ -73,16 +73,17 @@
                             {% endif %}
                         </ul>
                     <li class="nav-item d-lg-none d-xxl-block w-100">
-                        <form class="d-flex search-bar form-inline" role="search">
-                            <input id="search" type="search" placeholder="Start searching" list="search-suggestions"
-                                autocomplete="off" aria-label="Search" />
-                            <datalist class="" id="search-suggestions">
+                        <form class="d-flex search-bar form-inline" role="search" action="/search" method="get">
+                            <input id="search" type="search" name="query" placeholder="Start searching"
+                                list="search-suggestions" autocomplete="off" aria-label="Search" />
+                            <datalist id="search-suggestions">
                                 <option value="Recipes"></option>
                                 <option value="Blog"></option>
                                 <option value="Recommendations"></option>
                             </datalist>
                             <button class="btn btn-dark mx-2" type="submit">Search</button>
                         </form>
+
                     </li>
                 </ul>
                 {% if current_user.is_anonymous %}
