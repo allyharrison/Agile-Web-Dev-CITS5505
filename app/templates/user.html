@@ -11,6 +11,14 @@
             {% if user.about_me %}
             <p>{{ user.about_me }}</p>
             {% endif %}
+            {% if user != current_user %}
+            <p>
+                <a href="{{ url_for('send_message',
+                                    recipient=user.username) }}">
+                    {{ _('Send private message') }}
+                </a>
+            </p>
+            {% endif %}
             {% if user.last_seen %}
             <p>Last seen on: {{ user.last_seen }}</p>
             {% endif %}

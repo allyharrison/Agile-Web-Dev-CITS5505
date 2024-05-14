@@ -458,3 +458,25 @@ p {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(1em);
 }
+
+.badge {
+    display: inline-block;
+    min-width: 20px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    background-color: rgb(243, 129, 36);
+    border-radius: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+.badge.visible {
+    visibility: visible;
+    opacity: 1;
+}
+.badge.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
