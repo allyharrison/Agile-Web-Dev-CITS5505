@@ -199,9 +199,19 @@ def unfollow(username):
         return redirect(url_for('html'))
 
 # Below is older stiff can be turned into html tag 
-@app.route("/recipes")
+@app.route('/recipes')
 def recipes():
-    return render_template("recipes.html")
+    recipe_type = request.args.get('type', 'default')  # Get the 'type' query parameter, default to 'default' if not present
+    if recipe_type == 'breakfast':
+        title = "Breakfast Recipes"
+    elif recipe_type == 'lunch':
+        title = "Lunch Recipes"
+    elif recipe_type == 'dinner':
+        title = "Dinner Recipes"
+    else:
+        title = "Some Default Title"
+
+    return render_template('recipes.html', title=title, type=recipe_type)
 
 
 @app.route("/new_restaurants")
