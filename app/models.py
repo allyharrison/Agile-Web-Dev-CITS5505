@@ -8,6 +8,7 @@ import sqlalchemy.orm as so
 from app import db
 from hashlib import md5
 from app.search import add_to_index, remove_from_index, query_index
+from flask import url_for
 
 
 
@@ -71,7 +72,7 @@ class User(UserMixin, db.Model):
     email: so.Mapped[str] = so.mapped_column(sa.String(120), index=True,
                                              unique=True)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
-
+    profile_image: so.Mapped[Optional[str]] = so.mapped_column(sa.String(128), nullable=True)
     posts: so.WriteOnlyMapped['Post'] = so.relationship(
         back_populates='author')
     
@@ -146,6 +147,8 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
     
     def avatar(self, size):
+        if self.profile_image:
+            return url_for('static', filename=f'profile_images/{self.profile_image}', _external=True)
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
 

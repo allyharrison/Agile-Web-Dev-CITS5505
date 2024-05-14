@@ -8,6 +8,9 @@ from wtforms.validators import DataRequired
 from wtforms import TextAreaField
 from wtforms.validators import Length
 from flask_babel import lazy_gettext as _l
+from flask_wtf.file import FileField, FileAllowed
+
+
 
 class LoginForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()],render_kw={"placeholder": "Username"})
@@ -39,6 +42,9 @@ class RegistrationForm(FlaskForm):
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
+    profile_image = FileField('Upload Profile Image', validators=[
+        FileAllowed(['jpg', 'jpeg', 'png', 'gif'], 'Images only!')
+    ])
     submit = SubmitField('Submit')
 
 

@@ -40,18 +40,18 @@
 /* Headers
    ========================================================================== */
 
-header {
+   header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("/static/images/banner.webp");
+        url("/static/images/banner.png");
     /* want to come back to this and change opacity of background image only */
     /* opacity: .5; */
     height: 600px;
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
-    /*background-attachment: fixed; */
-    
+    /* background-attachment: fixed; */
     color: var(--secondary-bg-color);
 }
+
 
 /* Search
    ========================================================================== */
@@ -480,3 +480,4 @@ p {
     visibility: hidden;
     opacity: 0;
 }
+

@@ -4,7 +4,8 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-4 text-center">
-            <img src="{{ user.avatar(128) }}" class="img-fluid rounded-circle" alt="User Avatar">
+            <img src="{{ user.avatar(128) }}" class="img-fluid rounded-circle" alt="User Avatar"
+                style="width: 200px; height: 200px; object-fit: cover;">
         </div>
         <div class="col-md-8">
             <h1>User: {{ user.username }}</h1>
@@ -13,8 +14,7 @@
             {% endif %}
             {% if user != current_user %}
             <p>
-                <a href="{{ url_for('send_message',
-                                    recipient=user.username) }}">
+                <a href="{{ url_for('send_message', recipient=user.username) }}">
                     {{ _('Send private message') }}
                 </a>
             </p>
