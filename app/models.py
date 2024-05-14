@@ -78,6 +78,11 @@ class User(UserMixin, db.Model):
     about_me: so.Mapped[Optional[str]] = so.mapped_column(sa.String(140))
     last_seen: so.Mapped[Optional[datetime]] = so.mapped_column(
         default=lambda: datetime.now(timezone.utc))
+    last_message_read_time: so.Mapped[Optional[datetime]]
+    messages_sent: so.WriteOnlyMapped['Message'] = so.relationship(
+        foreign_keys='Message.sender_id', back_populates='author')
+    messages_received: so.WriteOnlyMapped['Message'] = so.relationship(
+        foreign_keys='Message.recipient_id', back_populates='recipient')
     
     following: so.WriteOnlyMapped['User'] = so.relationship(
         secondary=followers, primaryjoin=(followers.c.follower_id == id),
@@ -88,6 +93,12 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.follower_id == id),
         back_populates='following')
     
+    def unread_message_count(self):
+        last_read_time = self.last_message_read_time or datetime(1900, 1, 1)
+        query = sa.select(Message).where(Message.recipient == self,
+                                         Message.timestamp > last_read_time)
+        return db.session.scalar(sa.select(sa.func.count()).select_from(
+            query.subquery()))
     def follow(self, user):
         if not self.is_following(user):
             self.following.add(user)
@@ -157,3 +168,22 @@ class Post(SearchableMixin, db.Model):
 def load_user(id):
     return db.session.get(User, int(id))
 
+class Message(db.Model):
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    sender_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
+                                                 index=True)
+    recipient_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
+                                                    index=True)
+    body: so.Mapped[str] = so.mapped_column(sa.String(140))
+    timestamp: so.Mapped[datetime] = so.mapped_column(
+        index=True, default=lambda: datetime.now(timezone.utc))
+
+    def __repr__(self):
+        return '<Message {}>'.format(self.body)
+    
+    author: so.Mapped[User] = so.relationship(
+        foreign_keys='Message.sender_id',
+        back_populates='messages_sent')
+    recipient: so.Mapped[User] = so.relationship(
+        foreign_keys='Message.recipient_id',
+        back_populates='messages_received')

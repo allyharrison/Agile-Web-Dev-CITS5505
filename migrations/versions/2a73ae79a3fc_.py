@@ -1,8 +1,8 @@
-"""kartik is no1
+"""empty message
 
-Revision ID: 71dffa9fe66b
+Revision ID: 2a73ae79a3fc
 Revises: 
-Create Date: 2024-05-12 17:10:16.091680
+Create Date: 2024-05-14 16:06:55.093379
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '71dffa9fe66b'
+revision = '2a73ae79a3fc'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -25,6 +25,7 @@ def upgrade():
     sa.Column('password_hash', sa.String(length=256), nullable=True),
     sa.Column('about_me', sa.String(length=140), nullable=True),
     sa.Column('last_seen', sa.DateTime(), nullable=True),
+    sa.Column('last_message_read_time', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     with op.batch_alter_table('user', schema=None) as batch_op:
@@ -38,11 +39,27 @@ def upgrade():
     sa.ForeignKeyConstraint(['follower_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('follower_id', 'followed_id')
     )
+    op.create_table('message',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('sender_id', sa.Integer(), nullable=False),
+    sa.Column('recipient_id', sa.Integer(), nullable=False),
+    sa.Column('body', sa.String(length=140), nullable=False),
+    sa.Column('timestamp', sa.DateTime(), nullable=False),
+    sa.ForeignKeyConstraint(['recipient_id'], ['user.id'], ),
+    sa.ForeignKeyConstraint(['sender_id'], ['user.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    with op.batch_alter_table('message', schema=None) as batch_op:
+        batch_op.create_index(batch_op.f('ix_message_recipient_id'), ['recipient_id'], unique=False)
+        batch_op.create_index(batch_op.f('ix_message_sender_id'), ['sender_id'], unique=False)
+        batch_op.create_index(batch_op.f('ix_message_timestamp'), ['timestamp'], unique=False)
+
     op.create_table('post',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('body', sa.String(length=2000), nullable=False),
     sa.Column('timestamp', sa.DateTime(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('language', sa.String(length=5), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -60,6 +77,12 @@ def downgrade():
         batch_op.drop_index(batch_op.f('ix_post_timestamp'))
 
     op.drop_table('post')
+    with op.batch_alter_table('message', schema=None) as batch_op:
+        batch_op.drop_index(batch_op.f('ix_message_timestamp'))
+        batch_op.drop_index(batch_op.f('ix_message_sender_id'))
+        batch_op.drop_index(batch_op.f('ix_message_recipient_id'))
+
+    op.drop_table('message')
     op.drop_table('followers')
     with op.batch_alter_table('user', schema=None) as batch_op:
         batch_op.drop_index(batch_op.f('ix_user_username'))

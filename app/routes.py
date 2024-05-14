@@ -14,14 +14,14 @@ from flask_babel import get_locale
 from langdetect import detect, LangDetectException
 from app.translate import translate
 from langdetect import detect_langs
+from app.forms import MessageForm
+from app.models import Message
 
 
 @app.route("/")
 def html():
     return render_template("HTML.html")
 
-
-# This code is used from the mega-flask tutorial: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ix-pagination
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
@@ -287,3 +287,38 @@ def search():
 
     return render_template('search.html', title='Search', posts=posts,
                            next_url=next_url, prev_url=prev_url, query=query)
+
+@app.route('/send_message/<recipient>', methods=['GET', 'POST'])
+@login_required
+def send_message(recipient):
+    user = db.first_or_404(sa.select(User).where(User.username == recipient))
+    form = MessageForm()
+    if form.validate_on_submit():
+        msg = Message(author=current_user, recipient=user,
+                      body=form.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash(_('Your message has been sent.'))
+        return redirect(url_for('user', username=recipient))
+    return render_template('send_message.html', title=_('Send Message'),
+                           form=form, recipient=recipient)
+
+
+
+@app.route('/messages')
+@login_required
+def messages():
+    current_user.last_message_read_time = datetime.now(timezone.utc)
+    db.session.commit()
+    page = request.args.get('page', 1, type=int)
+    query = current_user.messages_received.select().order_by(
+        Message.timestamp.desc())
+    messages = db.paginate(query, page=page,
+                           per_page=app.config['POSTS_PER_PAGE'],
+                           error_out=False)
+    next_url = url_for('messages', page=messages.next_num) \
+        if messages.has_next else None
+    prev_url = url_for('messages', page=messages.prev_num) \
+        if messages.has_prev else None
+    return render_template('messages.html', messages=messages.items,
+                           next_url=next_url, prev_url=prev_url)
