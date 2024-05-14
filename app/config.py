@@ -10,3 +10,5 @@ class Config:
     LANGUAGES = ['en']
     MS_TRANSLATOR_KEY = '59be18cdd97f4f6c8578fe1480996bf7'
     ELASTICSEARCH_URL = 'http://localhost:9200'
+    UPLOAD_FOLDER = os.path.join(basedir, 'static/profile_images')
+    MAX_CONTENT_PATH = 16 * 1024 * 1024 
