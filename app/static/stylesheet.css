@@ -40,9 +40,9 @@
 /* Headers
    ========================================================================== */
 
-   header {
+header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("/static/images/banner.png");
+        url('/static/images/banner.png');
     /* want to come back to this and change opacity of background image only */
     /* opacity: .5; */
     height: 600px;
@@ -51,7 +51,6 @@
     /* background-attachment: fixed; */
     color: var(--secondary-bg-color);
 }
-
 
 /* Search
    ========================================================================== */
@@ -192,6 +191,16 @@ li {
     object-fit: cover;
 }
 
+.card-img-top {
+    height: 15vw;
+    object-fit: cover;
+}
+.img-fluid {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
 .link,
 .card-link {
     color: var(--secondary-text-color);
@@ -278,7 +287,6 @@ p {
    ========================================================================== */
 
 /* CSS for login/ sign in form */
-
 
 #main-holder {
     clear: both;
@@ -399,14 +407,14 @@ p {
 /* just testing this out */
 .flip-card {
     perspective: 500px; /* Depth effect for the flip animation */
-  }
-  
-  .flip-card-front img {
-    max-width: 100%;  /* Ensure the image is not wider than the card */
-    height: 400px;     /* Maintain the aspect ratio of the image */
 }
 
-  .flip-card-inner {
+.flip-card-front img {
+    max-width: 100%; /* Ensure the image is not wider than the card */
+    height: 400px; /* Maintain the aspect ratio of the image */
+}
+
+.flip-card-inner {
     position: relative;
     width: 100%;
     min-height: 400px; /* Adjust this value based on your content needs */
@@ -414,7 +422,8 @@ p {
     transform-style: preserve-3d;
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -425,20 +434,18 @@ p {
     padding: 15px; /* Add padding to prevent text touching the edges */
 }
 
-  
-  .flip-card.flipped .flip-card-inner {
+.flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg); /* Perform the flip */
-  }
+}
 
-  
-  .flip-card-back {
+.flip-card-back {
     transform: rotateY(180deg); /* Initially flipped to the back */
     color: white;
     background-color: #007bff; /* Bootstrap primary color for consistency */
-  }
-  
-  .clearfix::after {
-    content: "";
+}
+
+.clearfix::after {
+    content: '';
     display: table;
     clear: both;
 }
@@ -480,4 +487,3 @@ p {
     visibility: hidden;
     opacity: 0;
 }
-
