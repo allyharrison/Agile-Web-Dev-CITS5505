@@ -12,12 +12,12 @@ Find a Restaurant
         <h2 class="text-center">Need something for {{ type | capitalize }}?</h2>
     </div>
 
-     <!-- Dynamically load the relevant cards based on type -->
-     {% if type == 'breakfast' %}
+    <!-- Dynamically load the relevant cards based on type -->
+    {% if type == 'breakfast' %}
     <!-- Card 1 -->
-    <div class="container">
+    <div class="container p-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">  
+            <div class="col-md-6 p-2">
                 <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
                     <div class="row g-3">
                         <div class="col-12 col-md-6">
@@ -33,43 +33,54 @@ Find a Restaurant
                                 <strong>Prep Time:</strong> 15 min<br>
                                 <strong>Cook Time:</strong> 30 min
                             </p>
-                            <button id="toggleButton1" class="btn btn-danger mt-3" data-target="recipeDetails1">See Recipe</button>
+                            <button id="toggleButton1" class="btn btn-danger mt-3" data-target="recipeDetails1">See
+                                Recipe</button>
                         </div>
                         <div class="col-12 col-md-6">
-                            <img src="https://www.allrecipes.com/thmb/WqWggh6NwG-r8PoeA3OfW908FUY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-Good-old-Fashioned-Pancakes-mfs_001-1fa26bcdedc345f182537d95b6cf92d8.jpg" alt="Ricotta Pancakes" class="img-fluid">
+                            <img src="https://www.allrecipes.com/thmb/WqWggh6NwG-r8PoeA3OfW908FUY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-Good-old-Fashioned-Pancakes-mfs_001-1fa26bcdedc345f182537d95b6cf92d8.jpg"
+                                alt="Ricotta Pancakes" class="img-fluid">
                         </div>
                     </div>
                     <div class="collapse recipe-content" id="recipeDetails1">
                         <div class="card card-body">
                             <h4> Ingredients </h4>
-							<ul>
-								<li> 3/4 cup ricotta cheese </li>
-								<li> 3 eggs </li>
-								<li>3 tbsp caster suger </li>
-								<li> 3/4 cup milk </li>
-								<li> 1/2 tsp villian extract </li>
-								<li> 1 1/3 cups plain flour </li>
-								<li> 2 tsp baking powder </li>
-								<li> 1/ tsp baking soda </li>
-								<li> pinch of salt</li>
-								<li> Your Favourite Toppings!</li>
-							</ul>
+                            <ul>
+                                <li> 3/4 cup ricotta cheese </li>
+                                <li> 3 eggs </li>
+                                <li>3 tbsp caster suger </li>
+                                <li> 3/4 cup milk </li>
+                                <li> 1/2 tsp villian extract </li>
+                                <li> 1 1/3 cups plain flour </li>
+                                <li> 2 tsp baking powder </li>
+                                <li> 1/ tsp baking soda </li>
+                                <li> pinch of salt</li>
+                                <li> Your Favourite Toppings!</li>
+                            </ul>
                             <h4> Instructions </h4>
-							<ol>
-								<li> Whisk wet – Place the Wet ingredients in a bowl and whisk vigorously to combine. You should have little ricotta curd bits in it, but you don't want giant ricotta clumps.</li>
-								<li> Scatter the Dry ingredients across the surface then whisk until combined. The batter is a little thicker than standard pancake batter </li>
-								<li> Lightly butter pan – Heat a non-stick pan over medium heat until hot. </li>
-								<li> Batter – Pour in 1/4 cup batter – it should just about spread evenly into a round  </li>
-								<li> Cook 3 minutes – Cook the first side for 1 1/2 minutes or until golden brown (turn heat down if browning too fast). Flip then cook the other side for 1 1/2 minutes or until golden. Remove onto a plate. </li>
-								<li> Cook remaining – If your non-stick coating is good, you won't need more butter though a very light brush of melted butter every 2nd or 3rd pancake won't hurt. Continue cooking, lowering the heat as you go as the pan gets hotter. You should get 9 to 10 in total. Keep cooked pancakes stacked so they keep each other warm. </li>
+                            <ol>
+                                <li> Whisk wet – Place the Wet ingredients in a bowl and whisk vigorously to combine.
+                                    You should have little ricotta curd bits in it, but you don't want giant ricotta
+                                    clumps.</li>
+                                <li> Scatter the Dry ingredients across the surface then whisk until combined. The
+                                    batter is a little thicker than standard pancake batter </li>
+                                <li> Lightly butter pan – Heat a non-stick pan over medium heat until hot. </li>
+                                <li> Batter – Pour in 1/4 cup batter – it should just about spread evenly into a round
+                                </li>
+                                <li> Cook 3 minutes – Cook the first side for 1 1/2 minutes or until golden brown (turn
+                                    heat down if browning too fast). Flip then cook the other side for 1 1/2 minutes or
+                                    until golden. Remove onto a plate. </li>
+                                <li> Cook remaining – If your non-stick coating is good, you won't need more butter
+                                    though a very light brush of melted butter every 2nd or 3rd pancake won't hurt.
+                                    Continue cooking, lowering the heat as you go as the pan gets hotter. You should get
+                                    9 to 10 in total. Keep cooked pancakes stacked so they keep each other warm. </li>
 
-							</ol>
+                            </ol>
                         </div>
                     </div>
                 </div>
             </div>
-             <!-- Card 2 -->
-			<div class="col-md-6">  
+            <!-- Card 2 -->
+            <div class="col-md-6 p-2">
                 <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -80,51 +91,57 @@ Find a Restaurant
                                 <span class="badge bg-secondary">Breakfast</span>
                             </div>
                             <p class="text-muted">
-                                Healthy, delicous protein packed frittata that's great for making ahead. 
-								<br>
-							<strong>Total Servings:</strong> 8 <br>
-                            <strong>Prep Time:</strong> 15 min<br>
-							<strong>Cook Time:</strong> 1 hr 10 min<br>
+                                Healthy, delicous protein packed frittata that's great for making ahead.
+                                <br>
+                                <strong>Total Servings:</strong> 8 <br>
+                                <strong>Prep Time:</strong> 15 min<br>
+                                <strong>Cook Time:</strong> 1 hr 10 min<br>
                             </p>
-							<button id="toggleButton2" class="btn btn-danger mt-3" data-target="recipeDetails2">See Recipe</button>
+                            <button id="toggleButton2" class="btn btn-danger mt-3" data-target="recipeDetails2">See
+                                Recipe</button>
                         </div>
                         <div class="col-md-6">
-                            <img src="https://media.healthyfood.com/wp-content/uploads/2016/11/Roast-vegetable-frittata.jpg" alt="Frittata" class="img-fluid">
+                            <img src="https://media.healthyfood.com/wp-content/uploads/2016/11/Roast-vegetable-frittata.jpg"
+                                alt="Frittata" class="img-fluid">
                         </div>
                     </div>
                     <div class="collapse recipe-content" id="recipeDetails2">
                         <div class="card card-body">
                             <h4> Ingredients </h4>
-							<ul>
-								<li> 10 eggs </li>
-								<li> 3/4 cups cream </li>
-								<li> 1/2 tsp salt and pepper </li>
-								<li> 1 1/2 cups shredded cheese (chedder) </li>
-								<li> 100g mushroom, sliced </li>
-								<li> 100g feta </li>
-								<li> 2 tbsp Olive Oil </li>
-								<li> 2 garlic cloves, minced </li>
-								<li> 350g pumpkin (cubed) </li>
-								<li> 2 zucchinis (sliced) </li>
+                            <ul>
+                                <li> 10 eggs </li>
+                                <li> 3/4 cups cream </li>
+                                <li> 1/2 tsp salt and pepper </li>
+                                <li> 1 1/2 cups shredded cheese (chedder) </li>
+                                <li> 100g mushroom, sliced </li>
+                                <li> 100g feta </li>
+                                <li> 2 tbsp Olive Oil </li>
+                                <li> 2 garlic cloves, minced </li>
+                                <li> 350g pumpkin (cubed) </li>
+                                <li> 2 zucchinis (sliced) </li>
                                 <li> 1 red capsicum (sliced) </li>
-							</ul>
+                            </ul>
                             <h4> Instructions </h4>
-							<ol>
-								<li> Preheat oven to 220°C (200°C fan).</li>
-								<li> Toss vegetables on tray with oil, garlic, herbs, salt and pepper. Spread out. </li>
-								<li> Roast 25 minutes, undisturbed (no flipping). Remove and cool for at least 5 minutes before using. </li>
-								<li> Grease & line pan: Spray a 19 x 30cm / 8 x 10" rectangle or 22 cm / 9" square pan lightly with oil, then line with parchment paper with overhang.  </li>
-								<li> Whisk eggs, cream, salt and pepper in a bowl. </li>
-								<li> Spread 2/3 of the vegetables in the prepared pan. Pour over egg mixture, sprinkle with cheese, then top with remaining vegetables. </li>
-                                <li> Top with crumbled feta, then mushrooms. Drizzle mushrooms with a touch of olive oil (makes it brown).</li>
+                            <ol>
+                                <li> Preheat oven to 220°C (200°C fan).</li>
+                                <li> Toss vegetables on tray with oil, garlic, herbs, salt and pepper. Spread out. </li>
+                                <li> Roast 25 minutes, undisturbed (no flipping). Remove and cool for at least 5 minutes
+                                    before using. </li>
+                                <li> Grease & line pan: Spray a 19 x 30cm / 8 x 10" rectangle or 22 cm / 9" square pan
+                                    lightly with oil, then line with parchment paper with overhang. </li>
+                                <li> Whisk eggs, cream, salt and pepper in a bowl. </li>
+                                <li> Spread 2/3 of the vegetables in the prepared pan. Pour over egg mixture, sprinkle
+                                    with cheese, then top with remaining vegetables. </li>
+                                <li> Top with crumbled feta, then mushrooms. Drizzle mushrooms with a touch of olive oil
+                                    (makes it brown).</li>
                                 <li> Bake 40 minutes until centre is just set. </li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
-             <!-- Card 3 -->
-            <div class="col-md-6">  
+            <!-- Card 3 -->
+            <div class="col-md-6 p-2">
                 <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -134,48 +151,60 @@ Find a Restaurant
                                 <span class="badge bg-secondary">Breakfast</span>
                             </div>
                             <p class="text-muted">
-                                Strata, breakfast casserole, savoury French toast bake or savoury bread pudding 
-								<br>
-							<strong>Total Servings:</strong> 8 <br>
-                            <strong>Prep Time:</strong> 15 min<br>
-							<strong>Cook Time:</strong> 30 min<br>
+                                Strata, breakfast casserole, savoury French toast bake or savoury bread pudding
+                                <br>
+                                <strong>Total Servings:</strong> 8 <br>
+                                <strong>Prep Time:</strong> 15 min<br>
+                                <strong>Cook Time:</strong> 30 min<br>
                             </p>
-							<button id="toggleButton3" class="btn btn-danger mt-3" data-target="recipeDetails3">See Recipe</button>
+                            <button id="toggleButton3" class="btn btn-danger mt-3" data-target="recipeDetails3">See
+                                Recipe</button>
                         </div>
                         <div class="col-md-6">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqghUmD_PbxPzNHB7sfymr5IdEt7HQ3kZ4RvJJYsznJQ&s" alt="Breafast Strata" class="img-fluid">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqghUmD_PbxPzNHB7sfymr5IdEt7HQ3kZ4RvJJYsznJQ&s"
+                                alt="Breafast Strata" class="img-fluid">
                         </div>
                     </div>
                     <div class="collapse recipe-content" id="recipeDetails3">
                         <div class="card card-body">
                             <h4> Ingredients </h4>
-							<ul>
-								<li> 300g bacon </li>
-								<li> 6 large eggs </li>
-								<li> 1/4 1 cups milk </li>
-								<li> 1/4 tsp  salt </li>
-								<li> 7 cups of plain bread </li>
-								<li> 2 cups of cheese (shredded) </li>
-								<li> Parsley to granish </li>
-							</ul>
+                            <ul>
+                                <li> 300g bacon </li>
+                                <li> 6 large eggs </li>
+                                <li> 1/4 1 cups milk </li>
+                                <li> 1/4 tsp salt </li>
+                                <li> 7 cups of plain bread </li>
+                                <li> 2 cups of cheese (shredded) </li>
+                                <li> Parsley to granish </li>
+                            </ul>
                             <h4> Instructions </h4>
-							<ol>
-								<li> Heat a large non-stick frying pan over high heat. (Use a bit of oil if not using non-stick). Add all but 2 tbsp of bacon (reserve some for topping just before baking), cook until lightly browned. Remove from the pan and drain on a paper towel. </li>
-								<li> Whisk the eggs, milk, salt and pepper in a large bowl (or container, if leaving overnight). </li>
-								<li> Add the bread, 1 1/2 cups of the cheese and the cooked bacon to the egg mixture. Mix well. Cover and set aside in the fridge for at least 30 minutes (until all the egg is soaked into the bread) or overnight. </li>
-								<li> Preheat oven to 180°C. </li>
-								<li> Grease a 20cm/8" springform cake tin with butter. </li>
-								<li> Pour the bread mixture into the cake tin, pat down to compress. Scatter with reserved uncooked bacon and remaining 1/2 cup of cheese. Cover loosely with foil. </li>
-                                <li> Bake for 25 minutes, then remove the lid and bake for a further 15 – 20 minutes until golden on top and a skewer inserted into the centre comes out clean (no raw egg).</li>
+                            <ol>
+                                <li> Heat a large non-stick frying pan over high heat. (Use a bit of oil if not using
+                                    non-stick). Add all but 2 tbsp of bacon (reserve some for topping just before
+                                    baking), cook until lightly browned. Remove from the pan and drain on a paper towel.
+                                </li>
+                                <li> Whisk the eggs, milk, salt and pepper in a large bowl (or container, if leaving
+                                    overnight). </li>
+                                <li> Add the bread, 1 1/2 cups of the cheese and the cooked bacon to the egg mixture.
+                                    Mix well. Cover and set aside in the fridge for at least 30 minutes (until all the
+                                    egg is soaked into the bread) or overnight. </li>
+                                <li> Preheat oven to 180°C. </li>
+                                <li> Grease a 20cm/8" springform cake tin with butter. </li>
+                                <li> Pour the bread mixture into the cake tin, pat down to compress. Scatter with
+                                    reserved uncooked bacon and remaining 1/2 cup of cheese. Cover loosely with foil.
+                                </li>
+                                <li> Bake for 25 minutes, then remove the lid and bake for a further 15 – 20 minutes
+                                    until golden on top and a skewer inserted into the centre comes out clean (no raw
+                                    egg).</li>
                                 <li> Garnish with parsley if using. </li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
-          
-             <!-- Card 4 -->
-            <div class="col-md-6">  
+
+            <!-- Card 4 -->
+            <div class="col-md-6 p-2">
                 <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -185,37 +214,44 @@ Find a Restaurant
                                 <span class="badge bg-secondary">Breakfast</span>
                             </div>
                             <p class="text-muted">
-                                Moist and fluffy scones, made with only 3 ingredients! 
-								<br>
-							<strong>Total Servings:</strong> 10 <br>
-                            <strong>Prep Time:</strong> 10 min<br>
-							<strong>Cook Time:</strong> 15 min<br>
+                                Moist and fluffy scones, made with only 3 ingredients!
+                                <br>
+                                <strong>Total Servings:</strong> 10 <br>
+                                <strong>Prep Time:</strong> 10 min<br>
+                                <strong>Cook Time:</strong> 15 min<br>
                             </p>
-							<button id="toggleButton4" class="btn btn-danger mt-3" data-target="recipeDetails4">See Recipe</button>
+                            <button id="toggleButton4" class="btn btn-danger mt-3" data-target="recipeDetails4">See
+                                Recipe</button>
                         </div>
                         <div class="col-md-6">
-                            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1001500_10-16f94ee.jpg" alt="Scones" class="img-fluid">
+                            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1001500_10-16f94ee.jpg"
+                                alt="Scones" class="img-fluid">
                         </div>
                     </div>
                     <div class="collapse recipe-content" id="recipeDetails4">
                         <div class="card card-body">
                             <h4> Ingredients </h4>
-							<ul>
-								<li> 3 1/2 cups self raising flour </li>
-								<li> 1 cup thickened cream  </li>
-								<li> 1 cup lemonade </li>
-								<li> Whipped cream </li>
-								<li> Jam </li>
-							</ul>
+                            <ul>
+                                <li> 3 1/2 cups self raising flour </li>
+                                <li> 1 cup thickened cream </li>
+                                <li> 1 cup lemonade </li>
+                                <li> Whipped cream </li>
+                                <li> Jam </li>
+                            </ul>
                             <h4> Instructions </h4>
-							<ol>
-								<li> Preheat oven to 200°C</li>
-								<li> Combine the flour, cream and lemonade in a bowl and mix until flour is mostly combined. Do not over mix, it will make the scones dense!  </li>
-								<li> Turn out onto a floured surface, and knead gently just 3 - 5 times to bring dough together, then gently pat into a disc shape 2.5cm/1" thick. </li>
-								<li> Use a 6cm/2.5" round cutter to cut rounds - press straight up and down (don't twist), flour cutter in between.   </li>
-								<li> Use a knife or similar to scoop up (avoid touching sides) and place on tray, slightly touching each other (they help each other rise). </li>
-								<li> Brush the tops lightly with milk.  </li>
-                                <li> Bake for 15 minutes until golden on top. Place on rack to cool. Place tea towel over them to stop the tops from getting crusty. </li>
+                            <ol>
+                                <li> Preheat oven to 200°C</li>
+                                <li> Combine the flour, cream and lemonade in a bowl and mix until flour is mostly
+                                    combined. Do not over mix, it will make the scones dense! </li>
+                                <li> Turn out onto a floured surface, and knead gently just 3 - 5 times to bring dough
+                                    together, then gently pat into a disc shape 2.5cm/1" thick. </li>
+                                <li> Use a 6cm/2.5" round cutter to cut rounds - press straight up and down (don't
+                                    twist), flour cutter in between. </li>
+                                <li> Use a knife or similar to scoop up (avoid touching sides) and place on tray,
+                                    slightly touching each other (they help each other rise). </li>
+                                <li> Brush the tops lightly with milk. </li>
+                                <li> Bake for 15 minutes until golden on top. Place on rack to cool. Place tea towel
+                                    over them to stop the tops from getting crusty. </li>
                                 <li> Serve with copious amounts of cream and jam, and of course tea! </li>
                             </ol>
                         </div>
@@ -226,452 +262,556 @@ Find a Restaurant
 
             {% elif type == 'lunch' %}
             <!-- Lunch -->
-        <div class="container">
-            <div class="row justify-content-center">           
-                <div class="col-md-6">  
-                    <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <h2 class="font-bold text-2xl">Gazpacho</h2>
-                                <div class="py-2">
-                                    <span class="badge bg-secondary me-2">Vegetarian</span>
-                                    <span class="badge bg-secondary">Lunch</span>
+            <div class="container p-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 p-2">
+                        <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h2 class="font-bold text-2xl">Gazpacho</h2>
+                                    <div class="py-2">
+                                        <span class="badge bg-secondary me-2">Vegetarian</span>
+                                        <span class="badge bg-secondary">Lunch</span>
+                                    </div>
+                                    <p class="text-muted">
+                                        Delicious hearty meal.
+                                        <br>
+                                        <strong>Total Servings:</strong> 10 <br>
+                                        <strong>Prep Time:</strong> 3 hr <br>
+                                        <strong>Cook Time:</strong> 15 min<br>
+                                    </p>
+                                    <button id="toggleButton5" class="btn btn-danger mt-3"
+                                        data-target="recipeDetails5">See Recipe</button>
                                 </div>
-                                <p class="text-muted">
-                                    Delicious hearty meal. 
-                                    <br>
-                                <strong>Total Servings:</strong> 10 <br>
-                                <strong>Prep Time:</strong> 3 hr <br>
-                                <strong>Cook Time:</strong> 15 min<br>
-                                </p>
-                                <button id="toggleButton5" class="btn btn-danger mt-3" data-target="recipeDetails5">See Recipe</button>
+                                <div class="col-md-6">
+                                    <img src="https://www.seriouseats.com/thmb/M0V55hkUtqWV3zqKnhwOYKL1ELc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-gazpacho-recipe-hero-1-7ad49d7b9488406b8c92d576dbe5b205.JPG"
+                                        alt="Gazpacho" class="img-fluid">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <img src="https://www.seriouseats.com/thmb/M0V55hkUtqWV3zqKnhwOYKL1ELc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-gazpacho-recipe-hero-1-7ad49d7b9488406b8c92d576dbe5b205.JPG" alt="Gazpacho" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="collapse recipe-content" id="recipeDetails5">
-                            <div class="card card-body">
-                                <h4> Ingredients </h4>
-                                <ul>
-                                    <li>1 kg / 2 lb ripe tomatoes (~7), cut into 8 wedges, core removed </li>
-                                    <li>  1 cucumber (20cm/8" long) , peeled and diced into 1cm / 1/2" cubes  </li>
-                                    <li>  1 red capsicum/bell pepper , cut into 1.5 cm / 1/2″ cubes </li>
-                                    <li> 2 garlic cloves , chopped </li>
-                                    <li> 1/4 cup red onion , finely diced </li>
-                                    <li> 1/4 cup extra virgin olive oil , + extra for serving </li>
-                                    <li> 1 1/2 tbsp sherry vinegar (sub white wine or champagne vinegar) </li>
-                                    <li> 3/4 tsp cooking/kosher salt </li>
-                                    <li> 1/2 tsp black pepper 3 1/2 cups self raising flour </li>
-                                    <li> Crusty bread </li>
-                                </ul>
-                                <h4> Instructions </h4>
-                                <ol>
-                                    <li> Toss all the gazpacho ingredients together in a large bowl. Cover then set aside to marinate, preferably 12 to 24 hours, or at least 3 hours. </li>
-                                    <li> Transfer everything into a blender and blitz on high until smooth. (Or use a tall jug with a hand blender). For 100% perfectly smooth, pass through a fine mesh strainer or food mill and discard solids.  </li>
-                                    <li> Pour into a bowl. Rest for 15 minutes to let the bubbles subside. Stir, then ladle into bowls. </li>
-                                    <li> Top with diced cucumber, if using, and a swish of olive oil. Serve with crusty bread! </li>
-                                </ol>
+                            <div class="collapse recipe-content" id="recipeDetails5">
+                                <div class="card card-body">
+                                    <h4> Ingredients </h4>
+                                    <ul>
+                                        <li>1 kg / 2 lb ripe tomatoes (~7), cut into 8 wedges, core removed </li>
+                                        <li> 1 cucumber (20cm/8" long) , peeled and diced into 1cm / 1/2" cubes </li>
+                                        <li> 1 red capsicum/bell pepper , cut into 1.5 cm / 1/2″ cubes </li>
+                                        <li> 2 garlic cloves , chopped </li>
+                                        <li> 1/4 cup red onion , finely diced </li>
+                                        <li> 1/4 cup extra virgin olive oil , + extra for serving </li>
+                                        <li> 1 1/2 tbsp sherry vinegar (sub white wine or champagne vinegar) </li>
+                                        <li> 3/4 tsp cooking/kosher salt </li>
+                                        <li> 1/2 tsp black pepper 3 1/2 cups self raising flour </li>
+                                        <li> Crusty bread </li>
+                                    </ul>
+                                    <h4> Instructions </h4>
+                                    <ol>
+                                        <li> Toss all the gazpacho ingredients together in a large bowl. Cover then set
+                                            aside to marinate, preferably 12 to 24 hours, or at least 3 hours. </li>
+                                        <li> Transfer everything into a blender and blitz on high until smooth. (Or use
+                                            a tall jug with a hand blender). For 100% perfectly smooth, pass through a
+                                            fine mesh strainer or food mill and discard solids. </li>
+                                        <li> Pour into a bowl. Rest for 15 minutes to let the bubbles subside. Stir,
+                                            then ladle into bowls. </li>
+                                        <li> Top with diced cucumber, if using, and a swish of olive oil. Serve with
+                                            crusty bread! </li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                    
-                <div class="col-md-6">  
-                    <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <h2 class="font-bold text-2xl">Rice Noodle Salad</h2>
-                                <div class="py-2">
-                                    <span class="badge bg-secondary me-2">Vegetarian</span>
-                                    <span class="badge bg-secondary">Lunch</span>
+
+                    <div class="col-md-6 p-2">
+                        <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                            <div class="row g-3">
+                                <div class="col-md-6 ">
+                                    <h2 class="font-bold text-2xl">Rice Noodle Salad</h2>
+                                    <div class="py-2">
+                                        <span class="badge bg-secondary me-2">Vegetarian</span>
+                                        <span class="badge bg-secondary">Lunch</span>
+                                    </div>
+                                    <p class="text-muted">
+                                        Looking for something refreshing and light?
+                                        <br>
+                                        <strong>Total Servings:</strong> 6 <br>
+                                        <strong>Prep Time:</strong> 15 min <br>
+                                        <strong>Cook Time:</strong> 15 min<br>
+                                    </p>
+                                    <button id="toggleButton6" class="btn btn-danger mt-3"
+                                        data-target="recipeDetails6">See Recipe</button>
                                 </div>
-                                <p class="text-muted">
-                                    Looking for something refreshing and light? 
-                                    <br>
-                                <strong>Total Servings:</strong> 6 <br>
-                                <strong>Prep Time:</strong> 15 min <br>
-                                <strong>Cook Time:</strong> 15 min<br>
-                                </p>
-                                <button id="toggleButton6" class="btn btn-danger mt-3" data-target="recipeDetails6">See Recipe</button>
+                                <div class="col-md-6">
+                                    <img src="https://assets.epicurious.com/photos/58126cc9818f8c7f339cb319/4:3/w_1776,h_1332,c_limit/asian-noodle-salad-102716.jpg"
+                                        alt="Rice noodle salad" class="img-fluid">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <img src="https://assets.epicurious.com/photos/58126cc9818f8c7f339cb319/4:3/w_1776,h_1332,c_limit/asian-noodle-salad-102716.jpg" alt="Rice noodle salad" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="collapse recipe-content" id="recipeDetails6">
-                            <div class="card card-body">
-                                <h4> Ingredients </h4>
-                                <ul>
-                                    <li> 100g (uncooked) rice vermicelli noodles </li>
-                                    <li> 200g tofu diced into 1–2 cm squares  </li>
-                                    <li> olive oil or sesame oil for frying the tofu </li>
-                                    <li> 1 tablespoon soy sauce for marinating the tofu </li>
-                                    <li> 50g cos lettuce finely chopped </li>
-                                    <li> 100g carrot (one medium) grated </li>
-                                    <li> 100g cucumber (1/3 large) grated </li>
-                                    <li> 2 spring onions (green parts only) finely sliced </li>
-                                    <li> a small handful of coriander leaves and mint (to taste), chopped if desired </li>
-                                    <li> finely sliced chilli to taste </li>
-                                    <li> 2 tablespoons rice wine vinegar </li>
-                                    <li> 1 tablespoon fish sauce (substitute for soy sauce for vegetarian option) </li>
-                                    <li> juice of one lime </li>
-                                    <li> 2 teaspoons brown sugar </li>
-                                    <li> 1/2 clove garlic crushed </li>
-                                    <li> 1 cm square ginger finely grated </li>
-                                </ul>
-                                <h4> Instructions </h4>
-                                <ol>
-                                    <li> Prepare the rice vermicelli noodles according to their packet instructions and marinate the tofu. </li>
-                                    <li> Meanwhile prepare the dressing by adding the rice wine vinegar, fish sauce, lime, sugar, garlic and ginger in a small bowl and stir until the sugar has dissolved. Set aside.  </li>
-                                    <li> Cook the tofu in a small frypan over a medium heat until browned, this will take around 5 minutes. </li>
-                                    <li> While the tofu is cooking prepare the salad vegetables, herbs and chilli and then begin to assemble the salad. </li>
-                                    <li> Portion the cooked noodles between 2 salad bowls – I use about 1.5 cups of noodles per bowl so you may have some noodles left over which can be used for rice paper rolls. Then top with the lettuce, carrot, cucumber and the cooked tofu. </li>
-                                    <li> Then add the spring onions, herbs, chilli and fried shallots and dress the salad to taste. </li>
-                                </ol>
+                            <div class="collapse recipe-content" id="recipeDetails6">
+                                <div class="card card-body">
+                                    <h4> Ingredients </h4>
+                                    <ul>
+                                        <li> 100g (uncooked) rice vermicelli noodles </li>
+                                        <li> 200g tofu diced into 1–2 cm squares </li>
+                                        <li> olive oil or sesame oil for frying the tofu </li>
+                                        <li> 1 tablespoon soy sauce for marinating the tofu </li>
+                                        <li> 50g cos lettuce finely chopped </li>
+                                        <li> 100g carrot (one medium) grated </li>
+                                        <li> 100g cucumber (1/3 large) grated </li>
+                                        <li> 2 spring onions (green parts only) finely sliced </li>
+                                        <li> a small handful of coriander leaves and mint (to taste), chopped if desired
+                                        </li>
+                                        <li> finely sliced chilli to taste </li>
+                                        <li> 2 tablespoons rice wine vinegar </li>
+                                        <li> 1 tablespoon fish sauce (substitute for soy sauce for vegetarian option)
+                                        </li>
+                                        <li> juice of one lime </li>
+                                        <li> 2 teaspoons brown sugar </li>
+                                        <li> 1/2 clove garlic crushed </li>
+                                        <li> 1 cm square ginger finely grated </li>
+                                    </ul>
+                                    <h4> Instructions </h4>
+                                    <ol>
+                                        <li> Prepare the rice vermicelli noodles according to their packet instructions
+                                            and marinate the tofu. </li>
+                                        <li> Meanwhile prepare the dressing by adding the rice wine vinegar, fish sauce,
+                                            lime, sugar, garlic and ginger in a small bowl and stir until the sugar has
+                                            dissolved. Set aside. </li>
+                                        <li> Cook the tofu in a small frypan over a medium heat until browned, this will
+                                            take around 5 minutes. </li>
+                                        <li> While the tofu is cooking prepare the salad vegetables, herbs and chilli
+                                            and then begin to assemble the salad. </li>
+                                        <li> Portion the cooked noodles between 2 salad bowls – I use about 1.5 cups of
+                                            noodles per bowl so you may have some noodles left over which can be used
+                                            for rice paper rolls. Then top with the lettuce, carrot, cucumber and the
+                                            cooked tofu. </li>
+                                        <li> Then add the spring onions, herbs, chilli and fried shallots and dress the
+                                            salad to taste. </li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-6">  
-                    <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <h2 class="font-bold text-2xl">Snap Pea Salad</h2>
-                                <div class="py-2">
-                                    <span class="badge bg-secondary me-2">Vegetarian</span>
-                                    <span class="badge bg-secondary">Lunch</span>
+                    <div class="col-md-6 p-2">
+                        <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h2 class="font-bold text-2xl">Snap Pea Salad</h2>
+                                    <div class="py-2">
+                                        <span class="badge bg-secondary me-2">Vegetarian</span>
+                                        <span class="badge bg-secondary">Lunch</span>
+                                    </div>
+                                    <p class="text-muted">
+                                        Looking for something refreshing and light, but more crunchy and crisp?
+                                        <br>
+                                        <strong>Total Servings:</strong> 6 <br>
+                                        <strong>Prep Time:</strong> 15 min <br>
+                                        <strong>Cook Time:</strong> 15 min<br>
+                                    </p>
+                                    <button id="toggleButton7" class="btn btn-danger mt-3"
+                                        data-target="recipeDetails7">See Recipe</button>
                                 </div>
-                                <p class="text-muted">
-                                    Looking for something refreshing and light, but more crunchy and crisp? 
-                                    <br>
-                                <strong>Total Servings:</strong> 6 <br>
-                                <strong>Prep Time:</strong> 15 min <br>
-                                <strong>Cook Time:</strong> 15 min<br>
-                                </p>
-                                <button id="toggleButton7" class="btn btn-danger mt-3" data-target="recipeDetails7">See Recipe</button>
+                                <div class="col-md-6">
+                                    <img src="https://static01.nyt.com/images/2023/05/11/multimedia/as-snap-pea-salad-kfjm/as-snap-pea-salad-kfjm-superJumbo.jpg"
+                                        alt="Snap Pea salad" class="img-fluid">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <img src="https://static01.nyt.com/images/2023/05/11/multimedia/as-snap-pea-salad-kfjm/as-snap-pea-salad-kfjm-superJumbo.jpg" alt="Snap Pea salad" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="collapse recipe-content" id="recipeDetails7">
-                            <div class="card card-body">
-                                <h4> Ingredients </h4>
-                                <ul>
-                                    <li> 300g sugar snap peas, fresh </li>
-                                    <li> 22 cups spinach, fresh </li>
-                                    <li> 200g green sicilian olives, pitted</li>
-                                    <li> /2 cup feta cheese </li>
-                                    <li> 1 brown onion finely chopped </li>
-                                    <li> 2 tbsp corn starch </li>
-                                    <li> 4 tbsp frying oil, any neutral oil </li>
-                                    <li> 1/2 a red onion, finely sliced </li>
-                                    <li> 1 tbsp dijon mustard</li>
-                                    <li> 2 tsp white balsamic vinegar </li>
-                                    <li> 1 tsp fresh lemon juice </li>
-                                    <li> 1 1/2 tbsp extra virgin olive oil </li>
-                                    <li> big pinch of salt and pepper</li>
-                                </ul>
-                                <h4> Instructions </h4>
-                                <ol>
-                                    <li> Bring a large pot with 1 liter of water to a rapid boil. Once boiling, add 4 tbsp cooking salt. Have a large bowl containing lots of ice and some water ready to go off to the side. Add the snap peas to the boiling water and remove them using a slotted spoon after 1 minute, transferring directly into the ice water. Allow them to cool completely in the ice water, then drain and pat dry with a kitchen towel. </li>
-                                    <li> Add dijon, white balsamic, lemon juice, olive oil, salt and pepper to a large mixing bowl and whisk until creamy. Add red onion and mix to combine so they’re all in a dijon vinaigrette bath. Allow them to sit in the dressing while you prepare the rest, so they can soften.  </li>
-                                    <li> Toss thinly sliced brown onions with corn starch until they’re all equally coated. Bring a large non-stick fry pan to a medium-high heat and add 4 tbsp frying oil, or enough to gently coat the base of the pan. Once hot, add onions, scattering them evenly across the pan, and fry on all sides until golden brown, approximately 10 minutes. Break them apart every now and then using your spatula so they don’t stick together. Once golden, transfer to a paper towel lined plate to cool. </li>
-                                    <li> Add snap peas and olives to the dijon vinaigrette and toss to coat evenly. Add spinach, toss to combine. Garnish the top with crumbled feta and fried onions. </li>
-                                </ol>
+                            <div class="collapse recipe-content" id="recipeDetails7">
+                                <div class="card card-body">
+                                    <h4> Ingredients </h4>
+                                    <ul>
+                                        <li> 300g sugar snap peas, fresh </li>
+                                        <li> 22 cups spinach, fresh </li>
+                                        <li> 200g green sicilian olives, pitted</li>
+                                        <li> /2 cup feta cheese </li>
+                                        <li> 1 brown onion finely chopped </li>
+                                        <li> 2 tbsp corn starch </li>
+                                        <li> 4 tbsp frying oil, any neutral oil </li>
+                                        <li> 1/2 a red onion, finely sliced </li>
+                                        <li> 1 tbsp dijon mustard</li>
+                                        <li> 2 tsp white balsamic vinegar </li>
+                                        <li> 1 tsp fresh lemon juice </li>
+                                        <li> 1 1/2 tbsp extra virgin olive oil </li>
+                                        <li> big pinch of salt and pepper</li>
+                                    </ul>
+                                    <h4> Instructions </h4>
+                                    <ol>
+                                        <li> Bring a large pot with 1 liter of water to a rapid boil. Once boiling, add
+                                            4 tbsp cooking salt. Have a large bowl containing lots of ice and some water
+                                            ready to go off to the side. Add the snap peas to the boiling water and
+                                            remove them using a slotted spoon after 1 minute, transferring directly into
+                                            the ice water. Allow them to cool completely in the ice water, then drain
+                                            and pat dry with a kitchen towel. </li>
+                                        <li> Add dijon, white balsamic, lemon juice, olive oil, salt and pepper to a
+                                            large mixing bowl and whisk until creamy. Add red onion and mix to combine
+                                            so they’re all in a dijon vinaigrette bath. Allow them to sit in the
+                                            dressing while you prepare the rest, so they can soften. </li>
+                                        <li> Toss thinly sliced brown onions with corn starch until they’re all equally
+                                            coated. Bring a large non-stick fry pan to a medium-high heat and add 4 tbsp
+                                            frying oil, or enough to gently coat the base of the pan. Once hot, add
+                                            onions, scattering them evenly across the pan, and fry on all sides until
+                                            golden brown, approximately 10 minutes. Break them apart every now and then
+                                            using your spatula so they don’t stick together. Once golden, transfer to a
+                                            paper towel lined plate to cool. </li>
+                                        <li> Add snap peas and olives to the dijon vinaigrette and toss to coat evenly.
+                                            Add spinach, toss to combine. Garnish the top with crumbled feta and fried
+                                            onions. </li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                
-                <div class="col-md-6">  
-                    <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <h2 class="font-bold text-2xl">Prawn thokku</h2>
-                                <div class="py-2">
-                                    <span class="badge bg-secondary me-2">Saute</span>
-                                    <span class="badge bg-secondary">Lunch</span>
+
+                    <div class="col-md-6">
+                        <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h2 class="font-bold text-2xl">Prawn thokku</h2>
+                                    <div class="py-2">
+                                        <span class="badge bg-secondary me-2">Saute</span>
+                                        <span class="badge bg-secondary">Lunch</span>
+                                    </div>
+                                    <p class="text-muted">
+                                        Indulge in the rich flavours of prawn thokku, a traditional South Indian
+                                        delicacy.
+                                        <br>
+                                        <strong>Total Servings:</strong> 4 <br>
+                                        <strong>Prep Time:</strong> 10 min <br>
+                                        <strong>Cook Time:</strong> 15 min<br>
+                                    </p>
+                                    <button id="toggleButton8" class="btn btn-danger mt-3"
+                                        data-target="recipeDetails8">See Recipe</button>
                                 </div>
-                                <p class="text-muted">
-                                    Indulge in the rich flavours of prawn thokku, a traditional South Indian delicacy. 
-                                    <br>
-                                <strong>Total Servings:</strong> 4 <br>
-                                <strong>Prep Time:</strong> 10 min <br>
-                                <strong>Cook Time:</strong> 15 min<br>
-                                </p>
-                                <button id="toggleButton8" class="btn btn-danger mt-3" data-target="recipeDetails8">See Recipe</button>
+                                <div class="col-md-6">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK0XoE5EqXtnwChwBqBafOHIJNMS532prL8YixChwXjw&s"
+                                        alt="Prawn Thokku" class="img-fluid">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK0XoE5EqXtnwChwBqBafOHIJNMS532prL8YixChwXjw&s" alt="Prawn Thokku" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="collapse recipe-content" id="recipeDetails8">
-                            <div class="card card-body">
-                                <h4> Ingredients </h4>
-                                <ul>
-                                    <li> 1 tbsp vegetable oil </li>
-                                    <li> 2 fresh curry leaves </li>
-                                    <li> 2 large red onions, finely chopped</li>
-                                    <li> 8cm piece fresh ginger, finely grated </li>
-                                    <li> 3 garlic cloves, crushed </li>
-                                    <li> 2 long green chillies, sliced, plus extra to serve </li>
-                                    <li> 1 tbsp ground cumin </li>
-                                    <li> 1 tbsp ground coriander </li>
-                                    <li> 2 tsp ground turmeric </li>
-                                    <li> 2 tsp garam masala </li>
-                                    <li> 500g tomatoes, finely chopped </li>
-                                    <li> 2 Massel Vegetable Stock Cubes </li>
-                                    <li> 2 tbsp tomato paste</li>
-                                    <li> 60ml (¼ cup) coconut milk </li>
-                                    <li> 500g large raw peeled prawns, tails intact </li>
-                                    <li> 1 tbsp tamarind puree </li>
-                                    <li> Naan, warmed, to serve </li>
-                                </ul>
-                                <h4> Instructions </h4>
-                                <ol>
-                                    <li>Heat 1 tbsp vegetable oil in a large deep frying pan over medium heat. Add 2 fresh curry leaves sprig and curry leaves and cook for 1 minute or until leaves are crisp. Transfer 1 sprig to a plate lined with paper towel (leave curry leaves in pan). </li>
-                                    <li> Add 2 large red onions, finely chopped, 8cm piece fresh ginger, finely grated, 3 garlic cloves, crushed, 2 long green chillies, sliced, plus extra to serve and 1 tbsp ground cumin|1 tbsp ground coriander|2 tsp ground turmeric|2 tsp garam masala to pan, and cook, stirring occasionally, for 8-10 minutes or until onion softens. Add 500g tomatoes, finely chopped, 2 Massel Vegetable Stock Cubes, 2 tbsp tomato paste and 1/2 cup water, and cook, stirring occasionally, for 8-10 minutes or until mixture thickens. </li>
-                                    <li> Add 60ml (¼ cup) coconut milk, 500g large raw peeled prawns, tails intact and 1 tbsp tamarind puree. Season and cook, stirring occasionally, for 4-5 minutes or until prawns have cooked through. </li>
-                                    <li> Top curry with reserved curry sprig and extra chilli. Serve with Naan, warmed, to serve. </li>
-                                </ol>
+                            <div class="collapse recipe-content" id="recipeDetails8">
+                                <div class="card card-body">
+                                    <h4> Ingredients </h4>
+                                    <ul>
+                                        <li> 1 tbsp vegetable oil </li>
+                                        <li> 2 fresh curry leaves </li>
+                                        <li> 2 large red onions, finely chopped</li>
+                                        <li> 8cm piece fresh ginger, finely grated </li>
+                                        <li> 3 garlic cloves, crushed </li>
+                                        <li> 2 long green chillies, sliced, plus extra to serve </li>
+                                        <li> 1 tbsp ground cumin </li>
+                                        <li> 1 tbsp ground coriander </li>
+                                        <li> 2 tsp ground turmeric </li>
+                                        <li> 2 tsp garam masala </li>
+                                        <li> 500g tomatoes, finely chopped </li>
+                                        <li> 2 Massel Vegetable Stock Cubes </li>
+                                        <li> 2 tbsp tomato paste</li>
+                                        <li> 60ml (¼ cup) coconut milk </li>
+                                        <li> 500g large raw peeled prawns, tails intact </li>
+                                        <li> 1 tbsp tamarind puree </li>
+                                        <li> Naan, warmed, to serve </li>
+                                    </ul>
+                                    <h4> Instructions </h4>
+                                    <ol>
+                                        <li>Heat 1 tbsp vegetable oil in a large deep frying pan over medium heat. Add 2
+                                            fresh curry leaves sprig and curry leaves and cook for 1 minute or until
+                                            leaves are crisp. Transfer 1 sprig to a plate lined with paper towel (leave
+                                            curry leaves in pan). </li>
+                                        <li> Add 2 large red onions, finely chopped, 8cm piece fresh ginger, finely
+                                            grated, 3 garlic cloves, crushed, 2 long green chillies, sliced, plus extra
+                                            to serve and 1 tbsp ground cumin|1 tbsp ground coriander|2 tsp ground
+                                            turmeric|2 tsp garam masala to pan, and cook, stirring occasionally, for
+                                            8-10 minutes or until onion softens. Add 500g tomatoes, finely chopped, 2
+                                            Massel Vegetable Stock Cubes, 2 tbsp tomato paste and 1/2 cup water, and
+                                            cook, stirring occasionally, for 8-10 minutes or until mixture thickens.
+                                        </li>
+                                        <li> Add 60ml (¼ cup) coconut milk, 500g large raw peeled prawns, tails intact
+                                            and 1 tbsp tamarind puree. Season and cook, stirring occasionally, for 4-5
+                                            minutes or until prawns have cooked through. </li>
+                                        <li> Top curry with reserved curry sprig and extra chilli. Serve with Naan,
+                                            warmed, to serve. </li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-                {% elif type == 'dinner' %}
-        <!-- Include Dinner Cards -->
-        <div class="container">
-            <div class="row justify-content-center">  
-                <div class="col-md-6">  
-                    <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <h2 class="font-bold text-2xl">Spaghetti Alla Norma</h2>
-                                <div class="py-2">
-                                    <span class="badge bg-secondary me-2">Vegetarian</span>
-                                    <span class="badge bg-secondary">Dinner</span>
+            {% elif type == 'dinner' %}
+            <!-- Include Dinner Cards -->
+            <div class="container p-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 p-2">
+                        <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h2 class="font-bold text-2xl">Spaghetti Alla Norma</h2>
+                                    <div class="py-2">
+                                        <span class="badge bg-secondary me-2">Vegetarian</span>
+                                        <span class="badge bg-secondary">Dinner</span>
+                                    </div>
+                                    <p class="text-muted">
+                                        Indulge in a lovely pasta recipe.
+                                        <br>
+                                        <strong>Total Servings:</strong> 4 <br>
+                                        <strong>Prep Time:</strong> 15 min <br>
+                                        <strong>Cook Time:</strong> 25 min<br>
+                                    </p>
+                                    <button id="toggleButton9" class="btn btn-danger mt-3"
+                                        data-target="recipeDetails9">See Recipe</button>
                                 </div>
-                                <p class="text-muted">
-                                    Indulge in a lovely pasta recipe. 
-                                    <br>
-                                <strong>Total Servings:</strong> 4 <br>
-                                <strong>Prep Time:</strong> 15 min <br>
-                                <strong>Cook Time:</strong> 25 min<br>
-                                </p>
-                                <button id="toggleButton9" class="btn btn-danger mt-3" data-target="recipeDetails9">See Recipe</button>
+                                <div class="col-md-6">
+                                    <img src="https://assets.tmecosys.cn/image/upload/t_web767x639/img/recipe/ras/Assets/BE259340-A828-41AE-9CCB-1DDE3A51961A/Derivates/6826FFB5-0B18-4B44-A04C-6D5179A2A7AC.jpg"
+                                        alt="Spaghetti alla norma" class="img-fluid">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <img src="https://assets.tmecosys.cn/image/upload/t_web767x639/img/recipe/ras/Assets/BE259340-A828-41AE-9CCB-1DDE3A51961A/Derivates/6826FFB5-0B18-4B44-A04C-6D5179A2A7AC.jpg" alt="Spaghetti alla norma" class="img-fluid">
+                            <div class="collapse recipe-content" id="recipeDetails9">
+                                <div class="card card-body">
+                                    <h4> Ingredients </h4>
+                                    <ul>
+                                        <li> 400 gr spaghetti </li>
+                                        <li> 1 aubergine - large </li>
+                                        <li> 2 garlic cloves </li>
+                                        <li> 3 Tbsp extra virgin olive oil </li>
+                                        <li> 200 gr cherry tomatoes </li>
+                                        <li> 300 gr tomato passata </li>
+                                        <li> 1 tsp dried oregano </li>
+                                        <li> 3 basil leaves </li>
+                                        <li> 100 gr salted ricotta - hard </li>
+                                        <li> salt and pepper - to taste </li>
+                                    </ul>
+                                    <h4> Instructions </h4>
+                                    <ol>
+                                        <li>Peeling the aubergine is an optional step, I’ll leave that to you. I peel
+                                            mine simply because I don’t like the texture too much when cooked and I use
+                                            the peelings in other recipes sometimes (I slice them thinly and deep fry
+                                            them until crispy). </li>
+                                        <li> Now chop the aubergine into cubes (the smaller, the quicker they cook) and
+                                            if you are preparing this sauce ahead of time I recommend to season the
+                                            aubergine cubes with salt and let them sit for a while in order to get rid
+                                            of part of the bitter water. Again, an optional step. </li>
+                                        <li> Rub the crushed garlic cloves into a large pan and fry in olive oil until
+                                            lightly golden. Add the aubergine (season them if not done it before) and
+                                            cook on low-medium heat for about 15 minutes until soft. Now remove the
+                                            garlic and add the oregano, the chopped tomatoes and the passata, add a few
+                                            basil leaves a pinch of salt and an extra glug of oil and simmer for 15 more
+                                            minutes until cooked and reduced into a sauce-like consistency. </li>
+                                        <li> Drop the spaghetti in salted boiling water and cook 1 minute less than the
+                                            packet instruction to keep it ‘al dente’, with a little bite to them. Toss
+                                            into the pan and keep cooking into the sauce while mixing to make sure the
+                                            spaghetti are well coated. Check the seasoning and plate in large bowls with
+                                            abundant sauce on top. </li>
+                                        <li> Top with grated hard ricotta and fresh basil leaves. </li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
-                        <div class="collapse recipe-content" id="recipeDetails9">
-                            <div class="card card-body">
-                                <h4> Ingredients </h4>
-                                <ul>
-                                    <li> 400 gr spaghetti </li>
-                                    <li> 1 aubergine - large </li>
-                                    <li> 2 garlic cloves </li>
-                                    <li> 3 Tbsp extra virgin olive oil </li>
-                                    <li> 200 gr cherry tomatoes </li>
-                                    <li> 300 gr tomato passata </li>
-                                    <li> 1 tsp dried oregano </li>
-                                    <li> 3 basil leaves </li>
-                                    <li> 100 gr salted ricotta - hard </li>
-                                    <li> salt and pepper - to taste </li>
-                                </ul>
-                                <h4> Instructions </h4>
-                                <ol>
-                                    <li>Peeling the aubergine is an optional step, I’ll leave that to you. I peel mine simply because I don’t like the texture too much when cooked and I use the peelings in other recipes sometimes (I slice them thinly and deep fry them until crispy). </li>
-                                    <li> Now chop the aubergine into cubes (the smaller, the quicker they cook) and if you are preparing this sauce ahead of time I recommend to season the aubergine cubes with salt and let them sit for a while in order to get rid of part of the bitter water. Again, an optional step. </li>
-                                    <li> Rub the crushed garlic cloves into a large pan and fry in olive oil until lightly golden. Add the aubergine (season them if not done it before) and cook on low-medium heat for about 15 minutes until soft. Now remove the garlic and add the oregano, the chopped tomatoes and the passata, add a few basil leaves a pinch of salt and an extra glug of oil and simmer for 15 more minutes until cooked and reduced into a sauce-like consistency. </li>
-                                    <li> Drop the spaghetti in salted boiling water and cook 1 minute less than the packet instruction to keep it ‘al dente’, with a little bite to them. Toss into the pan and keep cooking into the sauce while mixing to make sure the spaghetti are well coated. Check the seasoning and plate in large bowls with abundant sauce on top. </li>
-                                    <li> Top with grated hard ricotta and fresh basil leaves. </li>
-                                </ol>
+                    </div>
+
+
+                    <div class="col-md-6 p-2">
+                        <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h2 class="font-bold text-2xl">Chorizo chickpea stew</h2>
+                                    <div class="py-2">
+                                        <span class="badge bg-secondary me-2">Spanish</span>
+                                        <span class="badge bg-secondary">Dinner</span>
+                                    </div>
+                                    <p class="text-muted">
+                                        his is a great, hearty, full flavoured Spanish-inspired stew that's quick to
+                                        make.
+                                        <br>
+                                        <strong>Total Servings:</strong> 4 <br>
+                                        <strong>Prep Time:</strong> 5 min <br>
+                                        <strong>Cook Time:</strong> 35 min<br>
+                                    </p>
+                                    <button id="toggleButton10" class="btn btn-danger mt-3"
+                                        data-target="recipeDetails10">See Recipe</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="https://www.recipetineats.com/wp-content/uploads/2023/01/Chorizo-chickpea-stew_8.jpg"
+                                        alt="Chorizo chickpea stew" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="collapse recipe-content" id="recipeDetails10">
+                                <div class="card card-body">
+                                    <h4> Ingredients </h4>
+                                    <ul>
+                                        <li> 1 1/2 tbsp olive oil </li>
+                                        <li> 250g chorizo (2 pieces), cut into 8mm slices </li>
+                                        <li> 2 garlic cloves , minced </li>
+                                        <li> 1/2 tsp dried thyme </li>
+                                        <li> 1/2 tsp smoked paprika </li>
+                                        <li> 1 bay leaf </li>
+                                        <li> 400g crushed tomato </li>
+                                        <li> 400g chickpeas </li>
+                                        <li> 1 cup chicken stock/broth </li>
+                                        <li> 1/4 tsp cooking/kosher salt </li>
+                                        <li> 1/4 tsp black pepper </li>
+                                    </ul>
+                                    <h4> Instructions </h4>
+                                    <ol>
+                                        <li>Sauté chorizo – Heat olive oil in a large saucepan or small pot over medium
+                                            high heat. Add chorizo and cook for 3 minutes or until golden. </li>
+                                        <li> Sauté aromatics – Add garlic, thyme, paprika and bay leaf, then stir for 1
+                                            minute. </li>
+                                        <li> Add everything else – Add tomato, chickpeas, chicken stock, salt and
+                                            pepper. Stir, bring to a simmer then lower the heat down to medium low so it
+                                            is simmering very gently. </li>
+                                        <li> Cook for 15 minutes (no lid), stirring regularly to ensure the base does
+                                            not catch, until the sauce has reduced and thickened. </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 p-2">
+                        <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h2 class="font-bold text-2xl">One Pot Mexican Chicken</h2>
+                                    <div class="py-2">
+                                        <span class="badge bg-secondary me-2">Spanish</span>
+                                        <span class="badge bg-secondary">Dinner</span>
+                                    </div>
+                                    <p class="text-muted">
+                                        Chicken seared with Fajita flavours then baked with seasoned Mexican red rice.
+                                        <br>
+                                        <strong>Total Servings:</strong> 5 <br>
+                                        <strong>Prep Time:</strong> 15 min <br>
+                                        <strong>Cook Time:</strong> 55 min<br>
+                                    </p>
+                                    <button id="toggleButton11" class="btn btn-danger mt-3"
+                                        data-target="recipeDetails11">See Recipe</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="https://foodhub.scene7.com/is/image/woolworthsltdprod/fi-2401-05-easy-one-pot-mexican-style-chicken-and-rice:Mobile-1300x1150"
+                                        alt="Chorizo chickpea stew" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="collapse recipe-content" id="recipeDetails11">
+                                <div class="card card-body">
+                                    <h4> Ingredients </h4>
+                                    <ul>
+                                        <li> 2 tsp garlic powder (or 2 garlic cloves, minced) </li>
+                                        <li> 2 tsp paprika </li>
+                                        <li> 2 tsp cumin powder </li>
+                                        <li> 1 3/4 tsp salt </li>
+                                        <li> 1/2 tsp cayenne pepper </li>
+                                        <li> Black pepper </li>
+                                        <li> 5 chicken thighs, bone-in, skin on </li>
+                                        <li> 2 tbsp olive oil </li>
+                                        <li> 1 tbsp lime juice </li>
+                                        <li> 1 small onion , peeled and diced (or 1/2 large) </li>
+                                        <li> 1 garlic clove , minced </li>
+                                        <li> 1 red capsicum, diced or sliced </li>
+                                        <li> 1 cup long grain rice </li>
+                                        <li> 1 cup chicken stock/broth </li>
+                                        <li> 3/4 cup tomato passata </li>
+                                        <li> 1 cup frozen corn kernels </li>
+                                        <li> 1 can (400g/16oz) black beans </li>
+                                        <li> 1 lime </li>
+                                        <li> Cordiander </li>
+                                        <li> Sliced jalapeno </li>
+                                    </ul>
+                                    <h4> Instructions </h4>
+                                    <ol>
+                                        <li>Preheat oven to 180°C/350°F (160° fan)</li>
+                                        <li> Mix poweders together </li>
+                                        <li> Place 1 1/2 tablespoons of the Mexican Spice Mix in a large bowl (reserve
+                                            rest for rice) with 1 tablespoon olive oil and lime juice. Mix to form a
+                                            paste then add the chicken and toss to coat the chicken. </li>
+                                        <li> Using a large deep skillet preferably with a lid (Note 6), heat the
+                                            remaining 1 tbsp olive oil over medium high heat. Sear the skin side of the
+                                            chicken for 4 minutes until light golden, then sear the flesh side for 1 1/2
+                                            minutes (will still be raw inside). Remove onto a plate. </li>
+                                        <li> If you've got a lot of burnt spices on the base, scrape off and discard
+                                            some of it. Then in the same skillet, still over medium high heat, add the
+                                            onion, garlic and capsicum (bell peppers). Sauté for 3 minutes until the
+                                            onion softens. </li>
+                                        <li> Add the rice and stir. Add chicken stock, tomato passata, corn, beans and
+                                            remaining Mexican Spice Mix. Stir to combine.</li>
+                                        <li> Place chicken on top of the rice, skin side up. It will be partially
+                                            submerged but most of the skin should be above the liquid. </li>
+                                        <li> Bring to simmer, then cover skillet with a lid or foil and place in the
+                                            oven for 25 minutes. </li>
+                                        <li> Remove the lid/foil and bake for a further 15 minutes until only small
+                                            puddles of liquid remain on the surface of the rice. </li>
+                                        <li> Remove from the oven and allow to rest for 10 minutes (uncovered). Any
+                                            remaining liquid will evaporate in this step. </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 p-2">
+                        <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h2 class="font-bold text-2xl">Lemon garlic salmon</h2>
+                                    <div class="py-2">
+                                        <span class="badge bg-secondary me-2">Fish</span>
+                                        <span class="badge bg-secondary">Dinner</span>
+                                    </div>
+                                    <p class="text-muted">
+                                        This is a tasty salmon tray bake recipe that’s as simple as it is healthy.
+                                        <br>
+                                        <strong>Total Servings:</strong> 4 <br>
+                                        <strong>Prep Time:</strong> 10 min <br>
+                                        <strong>Cook Time:</strong> 10 min<br>
+                                    </p>
+                                    <button id="toggleButton12" class="btn btn-danger mt-3"
+                                        data-target="recipeDetails12">See Recipe</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2021/01/Baked-Salmon-main-1.jpg"
+                                        alt="Salmon Bake" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="collapse recipe-content" id="recipeDetails12">
+                                <div class="card card-body">
+                                    <h4> Ingredients </h4>
+                                    <ul>
+                                        <li> 4 x 180g salmon fillets </li>
+                                        <li> 1 tsp lemon zest </li>
+                                        <li> 1 tbsp lemon juice </li>
+                                        <li> 2 tbsp extra virgin olive oil </li>
+                                        <li> 1 tsp dijon mustard </li>
+                                        <li> 2 garlic cloves </li>
+                                        <li> 1/2 tsp cooking salt / kosher salt </li>
+                                        <li> 1/4 tsp black pepper </li>
+                                        <li> 1 cup chicken stock/broth </li>
+                                        <li> 1/4 tsp cooking/kosher salt </li>
+                                        <li> 1/4 tsp black pepper </li>
+                                        <li> 3 bunches asparagus </li>
+                                        <li> 200g cherry tomatoes </li>
+                                        <li> 2 tsp extra virgin olive oil </li>
+                                        <li> 1/4 tsp each salt and pepper</li>
+                                        <li> Parmesan </li>
+                                    </ul>
+                                    <h4> Instructions </h4>
+                                    <ol>
+                                        <li>Mix the marinade ingredients in a small bowl. Slather onto the top and sides
+                                            of the salmon. If time permits, marinade for 1 hour. Otherwise, proceed with
+                                            recipe. </li>
+                                        <li> Preheat oven grill / broiler to 280°C/525°F or as high as yours goes. Place
+                                            the oven shelf 20 cm /8" from the heat source. </li>
+                                        <li> Prepare tray – Toss the asparagus and cherry tomatoes with the olive oil,
+                                            salt and pepper. Spread out on a large tray then clear space for the salmon.
+                                            Place salmon on the tray leaving a bit of space between each. Spray surface
+                                            of salmon with oil. </li>
+                                        <li> Grill/broil for 11 minutes or until the salmon is done – the flesh should
+                                            flake, the internal temperature should be 50°C/122°F </li>
+                                        <li> ransfer salmon and vegetables to plate. Grate parmesan over the vegetables.
+                                            Squeeze lemon juice over the salmon, sprinkle with parsley. Eat! </li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="col-md-6">  
-                    <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <h2 class="font-bold text-2xl">Chorizo chickpea stew</h2>
-                                <div class="py-2">
-                                    <span class="badge bg-secondary me-2">Spanish</span>
-                                    <span class="badge bg-secondary">Dinner</span>
-                                </div>
-                                <p class="text-muted">
-                                    his is a great, hearty, full flavoured Spanish-inspired stew that's quick to make. 
-                                    <br>
-                                <strong>Total Servings:</strong> 4 <br>
-                                <strong>Prep Time:</strong> 5 min <br>
-                                <strong>Cook Time:</strong> 35 min<br>
-                                </p>
-                                <button id="toggleButton10" class="btn btn-danger mt-3" data-target="recipeDetails10">See Recipe</button>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="https://www.recipetineats.com/wp-content/uploads/2023/01/Chorizo-chickpea-stew_8.jpg" alt="Chorizo chickpea stew" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="collapse recipe-content" id="recipeDetails10">
-                            <div class="card card-body">
-                                <h4> Ingredients </h4>
-                                <ul>
-                                    <li> 1 1/2 tbsp olive oil </li>
-                                    <li> 250g chorizo (2 pieces), cut into 8mm slices </li>
-                                    <li> 2 garlic cloves , minced </li>
-                                    <li> 1/2 tsp dried thyme </li>
-                                    <li> 1/2 tsp smoked paprika </li>
-                                    <li> 1 bay leaf  </li>
-                                    <li> 400g crushed tomato </li>
-                                    <li> 400g chickpeas </li>
-                                    <li> 1 cup chicken stock/broth  </li>
-                                    <li> 1/4 tsp cooking/kosher salt </li>
-                                    <li> 1/4 tsp black pepper </li>
-                                </ul>
-                                <h4> Instructions </h4>
-                                <ol>
-                                    <li>Sauté chorizo – Heat olive oil in a large saucepan or small pot over medium high heat. Add chorizo and cook for 3 minutes or until golden. </li>
-                                    <li> Sauté aromatics – Add garlic, thyme, paprika and bay leaf, then stir for 1 minute. </li>
-                                    <li> Add everything else – Add tomato, chickpeas, chicken stock, salt and pepper. Stir, bring to a simmer then lower the heat down to medium low so it is simmering very gently. </li>
-                                    <li> Cook for 15 minutes (no lid), stirring regularly to ensure the base does not catch, until the sauce has reduced and thickened. </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">  
-                    <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <h2 class="font-bold text-2xl">One Pot Mexican Chicken</h2>
-                                <div class="py-2">
-                                    <span class="badge bg-secondary me-2">Spanish</span>
-                                    <span class="badge bg-secondary">Dinner</span>
-                                </div>
-                                <p class="text-muted">
-                                    Chicken seared with Fajita flavours then baked with seasoned Mexican red rice. 
-                                    <br>
-                                <strong>Total Servings:</strong> 5 <br>
-                                <strong>Prep Time:</strong> 15 min <br>
-                                <strong>Cook Time:</strong> 55 min<br>
-                                </p>
-                                <button id="toggleButton11" class="btn btn-danger mt-3" data-target="recipeDetails11">See Recipe</button>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="https://foodhub.scene7.com/is/image/woolworthsltdprod/fi-2401-05-easy-one-pot-mexican-style-chicken-and-rice:Mobile-1300x1150" alt="Chorizo chickpea stew" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="collapse recipe-content" id="recipeDetails11">
-                            <div class="card card-body">
-                                <h4> Ingredients </h4>
-                                <ul>
-                                    <li> 2 tsp garlic powder (or 2 garlic cloves, minced) </li>
-                                    <li> 2 tsp paprika </li>
-                                    <li> 2 tsp cumin powder </li>
-                                    <li> 1 3/4 tsp salt </li>
-                                    <li> 1/2 tsp cayenne pepper </li>
-                                    <li> Black pepper </li>
-                                    <li> 5 chicken thighs, bone-in, skin on </li>
-                                    <li> 2 tbsp olive oil </li>
-                                    <li> 1 tbsp lime juice  </li>
-                                    <li> 1 small onion , peeled and diced (or 1/2 large) </li>
-                                    <li> 1 garlic clove , minced </li>
-                                    <li> 1 red capsicum, diced or sliced </li>
-                                    <li> 1 cup long grain rice </li>
-                                    <li> 1 cup chicken stock/broth  </li>
-                                    <li> 3/4 cup tomato passata  </li>
-                                    <li> 1 cup frozen corn kernels </li>
-                                    <li> 1 can (400g/16oz) black beans </li>
-                                    <li> 1 lime </li>
-                                    <li> Cordiander </li>
-                                    <li> Sliced jalapeno </li>
-                                </ul>
-                                <h4> Instructions </h4>
-                                <ol>
-                                    <li>Preheat oven to 180°C/350°F (160° fan)</li>
-                                    <li> Mix poweders together </li>
-                                    <li> Place 1 1/2 tablespoons of the Mexican Spice Mix in a large bowl (reserve rest for rice) with 1 tablespoon olive oil and lime juice. Mix to form a paste then add the chicken and toss to coat the chicken. </li>
-                                    <li> Using a large deep skillet preferably with a lid (Note 6), heat the remaining 1 tbsp olive oil over medium high heat. Sear the skin side of the chicken for 4 minutes until light golden, then sear the flesh side for 1 1/2 minutes (will still be raw inside). Remove onto a plate. </li>
-                                    <li> If you've got a lot of burnt spices on the base, scrape off and discard some of it. Then in the same skillet, still over medium high heat, add the onion, garlic and capsicum (bell peppers). Sauté for 3 minutes until the onion softens. </li>
-                                    <li> Add the rice and stir. Add chicken stock, tomato passata, corn, beans and remaining Mexican Spice Mix. Stir to combine.</li>
-                                    <li> Place chicken on top of the rice, skin side up. It will be partially submerged but most of the skin should be above the liquid. </li>
-                                    <li>  Bring to simmer, then cover skillet with a lid or foil and place in the oven for 25 minutes. </li>
-                                    <li> Remove the lid/foil and bake for a further 15 minutes until only small puddles of liquid remain on the surface of the rice. </li>
-                                    <li> Remove from the oven and allow to rest for 10 minutes (uncovered). Any remaining liquid will evaporate in this step. </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6">  
-                    <div class="bg-gradient p-3 rounded-xl shadow-custom backdrop-blur hover-effect">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <h2 class="font-bold text-2xl">Lemon garlic salmon</h2>
-                                <div class="py-2">
-                                    <span class="badge bg-secondary me-2">Fish</span>
-                                    <span class="badge bg-secondary">Dinner</span>
-                                </div>
-                                <p class="text-muted">
-                                    This is a tasty salmon tray bake recipe that’s as simple as it is healthy.  
-                                    <br>
-                                <strong>Total Servings:</strong> 4 <br>
-                                <strong>Prep Time:</strong> 10 min <br>
-                                <strong>Cook Time:</strong> 10 min<br>
-                                </p>
-                                <button id="toggleButton12" class="btn btn-danger mt-3" data-target="recipeDetails12">See Recipe</button>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2021/01/Baked-Salmon-main-1.jpg" alt="Salmon Bake" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class="collapse recipe-content" id="recipeDetails12">
-                            <div class="card card-body">
-                                <h4> Ingredients </h4>
-                                <ul>
-                                    <li> 4 x 180g salmon fillets </li>
-                                    <li> 1 tsp lemon zest </li>
-                                    <li> 1 tbsp lemon juice </li>
-                                    <li> 2 tbsp extra virgin olive oil </li>
-                                    <li> 1 tsp dijon mustard </li>
-                                    <li> 2 garlic cloves  </li>
-                                    <li> 1/2 tsp cooking salt / kosher salt </li>
-                                    <li> 1/4 tsp black pepper </li>
-                                    <li> 1 cup chicken stock/broth  </li>
-                                    <li> 1/4 tsp cooking/kosher salt </li>
-                                    <li> 1/4 tsp black pepper </li>
-                                    <li> 3 bunches asparagus </li>
-                                    <li> 200g cherry tomatoes </li>
-                                    <li> 2 tsp extra virgin olive oil </li>
-                                    <li> 1/4 tsp each salt and pepper</li>
-                                    <li> Parmesan </li>
-                                </ul>
-                                <h4> Instructions </h4>
-                                <ol>
-                                    <li>Mix the marinade ingredients in a small bowl. Slather onto the top and sides of the salmon. If time permits, marinade for 1 hour. Otherwise, proceed with recipe. </li>
-                                    <li> Preheat oven grill / broiler to 280°C/525°F or as high as yours goes. Place the oven shelf 20 cm /8" from the heat source. </li>
-                                    <li> Prepare tray – Toss the asparagus and cherry tomatoes with the olive oil, salt and pepper. Spread out on a large tray then clear space for the salmon. Place salmon on the tray leaving a bit of space between each. Spray surface of salmon with oil. </li>
-                                    <li> Grill/broil for 11 minutes or until the salmon is done – the flesh should flake, the internal temperature should be 50°C/122°F </li>
-                                    <li> ransfer salmon and vegetables to plate. Grate parmesan over the vegetables. Squeeze lemon juice over the salmon, sprinkle with parsley. Eat! </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    </div>
-    {% endif %}
+                {% endif %}
 </main>
 {% endblock %}

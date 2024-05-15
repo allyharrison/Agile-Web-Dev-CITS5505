@@ -192,6 +192,11 @@ li {
     object-fit: cover;
 }
 
+.card-img-top {
+    height: 15vw;
+    object-fit: cover;
+}
+
 .link,
 .card-link {
     color: var(--secondary-text-color);
