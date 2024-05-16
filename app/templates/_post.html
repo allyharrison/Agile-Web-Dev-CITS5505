@@ -27,3 +27,29 @@
         </td>
     </tr>
 </table>
+
+<hr>
+<h4>Comments</h4>
+{% for comment in post_comments %}
+<div class="mb-3">
+    <strong>{{ comment.user.username }}</strong>
+    <p>{{ comment.content }}</p>
+    <small class="text-muted">{{ moment(comment.date_posted).fromNow() }}</small>
+</div>
+{% endfor %}
+<hr>
+<h4>Leave a Comment:</h4>
+<form action="{{ url_for('comment') }}" method="post">
+    {{ comment_form.hidden_tag() }}
+    <div class="mb-3">
+        {{ comment_form.content.label(class="form-label") }}
+        {{ comment_form.content(class="form-control", rows=3) }}
+        {% for error in comment_form.content.errors %}
+        <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <input type="hidden" name="post_id" value="{{ post.id }}">
+    <div>
+        {{ comment_form.submit(class="btn btn-primary") }}
+    </div>
+</form>

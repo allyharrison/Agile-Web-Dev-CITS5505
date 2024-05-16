@@ -5,6 +5,7 @@ from app import login
 from typing import Optional
 import sqlalchemy as sa
 import sqlalchemy.orm as so
+from sqlalchemy.orm import backref
 from app import db
 from hashlib import md5
 from app.search import add_to_index, remove_from_index, query_index
@@ -163,6 +164,7 @@ class Post(SearchableMixin, db.Model):
 
     author: so.Mapped[User] = so.relationship(back_populates='posts')
     language: so.Mapped[Optional[str]] = so.mapped_column(sa.String(5))
+    comments = so.relationship('Comment', backref='post', lazy='dynamic')
     
     def __repr__(self):
         return '<Post {}>'.format(self.body)
@@ -190,3 +192,11 @@ class Message(db.Model):
     recipient: so.Mapped[User] = so.relationship(
         foreign_keys='Message.recipient_id',
         back_populates='messages_received')
+    
+class Comment(db.Model):
+    id = sa.Column(sa.Integer, primary_key=True)
+    content = sa.Column(sa.Text, nullable=False)
+    date_posted = sa.Column(sa.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
+    post_id = sa.Column(sa.Integer, sa.ForeignKey('post.id'), nullable=False)
+    user_id = sa.Column(sa.Integer, sa.ForeignKey('user.id'), nullable=False)
+    user = so.relationship('User', backref=backref('comments', lazy=True))
