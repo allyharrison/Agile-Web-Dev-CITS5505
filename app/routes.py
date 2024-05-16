@@ -181,7 +181,7 @@ def comment():
         db.session.add(comment)
         db.session.commit()
         flash(_('Your comment has been posted!'))
-    return redirect(url_for('user'))
+    return redirect(url_for('blog'))
 
 
 @app.route('/explore')
