@@ -80,14 +80,22 @@ This will be updated with project details and ideas
 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
 
-## Local Set-up & Deploying
+## Local Development
 
 To run the project locally, first set up a `venv`, then `pip install` `requirements-dev` and then run flask.
 
 ```sh
+# Activate virtual environment
 python3 -m venv tmp-env
 source tmp-env/bin/activate
+
+# Install dependencies
 pip install -r requirements-dev.txt # (this includes requirements.txt)
+
+# Apply migrations
+flask db upgrade 4b95257877d0
+
+# Start app
 flask run
 ```
 
@@ -98,7 +106,9 @@ This works well if you are editing HTML/CSS, not so great for editing Python fil
 python local_dev.py
 ```
 
-When deploying to production, only install `requirements.txt` (don't install `requirements.dev.txt`)
+# Deploying
+
+When deploying to production, only install `requirements.txt` (don't install `requirements-dev.txt`)
 
 ```sh
 pip install -r requirements.txt
