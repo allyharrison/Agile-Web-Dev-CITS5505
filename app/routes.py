@@ -62,7 +62,7 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash("Congratulations, you are now a registered user!")
+        flash("Congratulations, you are now a registered user!", category="success")
         return redirect(url_for("login"))
     return render_template("register.html", title="Register", form=form)
 
@@ -109,7 +109,7 @@ def edit_profile():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         db.session.commit()
-        flash('Your changes have been saved.')
+        flash('Your changes have been saved.', category="success")
         return redirect(url_for('edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
@@ -139,7 +139,7 @@ def index():
                     language=language)
         db.session.add(post)
         db.session.commit()
-        flash(_('Your post is now live!'))
+        flash(_('Your post is now live!'), category="success")
         return redirect(url_for('blog'))
     page = request.args.get('page', 1, type=int)
     posts = db.paginate(current_user.following_posts(), page=page,
@@ -180,7 +180,7 @@ def follow(username):
             return redirect(url_for('user', username=username))
         current_user.follow(user)
         db.session.commit()
-        flash(f'You are following {username}!')
+        flash(f'You are following {username}!', category="success")
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('html'))
@@ -254,7 +254,7 @@ def create():
         post = Post(body=form.body.data, author=current_user)
         db.session.add(post)
         db.session.commit()
-        flash("Your post has been created!", "success")
+        flash("Your post has been created!", category="success")
         return redirect(url_for("blog"))
     return render_template("create.html", title="Create Post", form=form)
 
@@ -306,7 +306,7 @@ def send_message(recipient):
                       body=form.message.data)
         db.session.add(msg)
         db.session.commit()
-        flash(_('Your message has been sent.'))
+        flash(_('Your message has been sent.', category="success"))
         return redirect(url_for('user', username=recipient))
     return render_template('send_message.html', title=_('Send Message'),
                            form=form, recipient=recipient)
