@@ -82,11 +82,13 @@ def user(username):
     prev_url = url_for('user', username=user.username, page=posts.prev_num) \
         if posts.has_prev else None
     
+    
     comments = {post.id: Comment.query.filter_by(post_id=post.id).options(so.joinedload(Comment.user)).order_by(Comment.date_posted.desc()).all() for post in posts.items}
 
     form = EmptyForm()
+    comment_form = CommentForm()
     return render_template('user.html', user=user, posts=posts.items,
-                           next_url=next_url, prev_url=prev_url, form=form, comments=comments)
+                           next_url=next_url, prev_url=prev_url, form=form, comment_form=comment_form, comments=comments)
 
 
 
@@ -179,7 +181,7 @@ def comment():
         db.session.add(comment)
         db.session.commit()
         flash(_('Your comment has been posted!'))
-    return redirect(url_for('index'))
+    return redirect(url_for('user'))
 
 
 @app.route('/explore')
@@ -329,6 +331,7 @@ def send_message(recipient):
         return redirect(url_for('user', username=recipient))
     return render_template('send_message.html', title=_('Send Message'),
                            form=form, recipient=recipient)
+
 
 
 
