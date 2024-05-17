@@ -1,29 +1,53 @@
-<table class="table table-hover">
-    <tr>
-        <td width="70px">
-            <a href="{{ url_for('user', username=post.author.username) }}">
-                <img src="{{ post.author.avatar(70) }}" class="img-fluid rounded-circle" alt="Post Author Avatar">
-            </a>
-        </td>
-        <td>
-            {% set user_link %}
-            <a href="{{ url_for('user', username=post.author.username) }}">
-                {{ post.author.username }}
-            </a>
-            {% endset %}
-            {{ _('%(username)s said %(when)s', username=user_link, when=moment(post.timestamp).fromNow()) }}
+<div class="card mb-3 post-card">
+    <div class="card-header d-flex flex-row align-items-center">
+        <a href="{{ url_for('user', username=post.author.username) }}">
+            <img src="{{ post.author.avatar(70) }}" class="img-fluid rounded-circle me-3" alt="Post Author Avatar"
+                style="width: 70px; height: 70px;">
+        </a>
+        <div>
+            <a href="{{ url_for('user', username=post.author.username) }}" class="text-dark">{{ post.author.username
+                }}</a>
             <br>
-            <span id="post{{ post.id }}">{{ post.body }}</span>
-            {% if post.language and post.language != g.locale %}
-            <br><br>
-            <span id="translation{{ post.id }}">
-                <a href="javascript:translate(
-                                'post{{ post.id }}',
-                                'translation{{ post.id }}',
-                                '{{ post.language }}',
-                                '{{ g.locale }}');">{{ _('Translate') }}</a>
-            </span>
-            {% endif %}
-        </td>
-    </tr>
-</table>
+            <small>{{ _('%(username)s said %(when)s', username=user_link, when=moment(post.timestamp).fromNow())
+                }}</small>
+        </div>
+    </div>
+    <div class="card-body">
+        <p id="post{{ post.id }}">{{ post.body }}</p>
+        {% if post.language and post.language != g.locale %}
+        <br>
+        <span id="translation{{ post.id }}">
+            <a href="javascript:translate('post{{ post.id }}', 'translation{{ post.id }}', '{{ post.language }}', '{{ g.locale }}')"
+                class="btn btn-sm btn-outline-secondary">{{ _('Translate') }}</a>
+        </span>
+        {% endif %}
+    </div>
+    <div class="card-footer">
+        <h4>Comments</h4>
+        {% for comment in post_comments %}
+        <div class="card mb-2 comment-card">
+            <div class="card-header comment-header">
+                <strong>{{ comment.user.username }}</strong>
+                <small class="text-muted">{{ moment(comment.date_posted).fromNow() }}</small>
+            </div>
+            <div class="card-body comment-body comment-content">
+                <p>{{ comment.content }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <hr>
+        <form action="{{ url_for('comment') }}" method="post" class="comment-form">
+            {{ comment_form.hidden_tag() }}
+            <div class="mb-3">
+                {{ comment_form.content(class="form-control", rows=2, placeholder="Leave a comment") }}
+                {% for error in comment_form.content.errors %}
+                <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <input type="hidden" name="post_id" value="{{ post.id }}">
+            <div>
+                {{ comment_form.submit(class="btn btn-primary btn-sm") }}
+            </div>
+        </form>
+    </div>
+</div>

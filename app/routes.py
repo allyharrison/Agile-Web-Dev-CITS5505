@@ -3,7 +3,7 @@ from app import app
 from flask_login import current_user, login_user, login_required
 import sqlalchemy as sa
 from app import db
-from app.models import User, Post
+from app.models import User, Post, Comment
 from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from urllib.parse import urlsplit
 from app.forms import EmptyForm
@@ -17,9 +17,10 @@ from langdetect import detect_langs
 from app.forms import MessageForm
 from app.models import Message
 from app.forms import PostForm
-from app.models import Post
+from app.forms import CommentForm
 from datetime import datetime, timezone
 from werkzeug.utils import secure_filename
+import sqlalchemy.orm as so
 import os
 
 @app.route("/")
@@ -80,9 +81,14 @@ def user(username):
         if posts.has_next else None
     prev_url = url_for('user', username=user.username, page=posts.prev_num) \
         if posts.has_prev else None
+    
+    
+    comments = {post.id: Comment.query.filter_by(post_id=post.id).options(so.joinedload(Comment.user)).order_by(Comment.date_posted.desc()).all() for post in posts.items}
+
     form = EmptyForm()
+    comment_form = CommentForm()
     return render_template('user.html', user=user, posts=posts.items,
-                           next_url=next_url, prev_url=prev_url, form=form)
+                           next_url=next_url, prev_url=prev_url, form=form, comment_form=comment_form, comments=comments)
 
 
 
@@ -123,11 +129,13 @@ def edit_profile():
 @app.route('/blog', methods=['GET', 'POST'])
 @login_required
 def index():
-    form = PostForm()
-    if form.validate_on_submit():
+    post_form = PostForm()
+    comment_form = CommentForm()
+
+    # Handle post submission
+    if post_form.validate_on_submit() and 'post' in request.form:
         try:
-            possible_langs = detect_langs(form.post.data)
-            # Select the most probable language
+            possible_langs = detect_langs(post_form.post.data)
             most_probable_lang = max(possible_langs, key=lambda x: x.prob)
             if most_probable_lang.prob > 0.9:
                 language = most_probable_lang.lang
@@ -135,22 +143,46 @@ def index():
                 language = ''
         except LangDetectException:
             language = ''
-        post = Post(body=form.post.data, author=current_user,
-                    language=language)
+        post = Post(body=post_form.post.data, author=current_user, language=language)
         db.session.add(post)
         db.session.commit()
+
         flash(_('Your post is now live!'), category="success")
         return redirect(url_for('blog'))
+    # Handle comment submission
+    if comment_form.validate_on_submit() and 'comment' in request.form:
+        post_id = request.form.get('post_id')
+        post = Post.query.get_or_404(post_id)
+        comment = Comment(content=comment_form.content.data, post_id=post.id, user_id=current_user.id)
+        db.session.add(comment)
+        db.session.commit()
+        flash(_('Your comment has been posted!'))
+        return redirect(url_for('index'))
+
+    # Fetch posts and their comments
     page = request.args.get('page', 1, type=int)
-    posts = db.paginate(current_user.following_posts(), page=page,
-                        per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-    next_url = url_for('index', page=posts.next_num) \
-        if posts.has_next else None
-    prev_url = url_for('index', page=posts.prev_num) \
-        if posts.has_prev else None
-    return render_template('blog.html', title='Home', form=form,
-                           posts=posts.items, next_url=next_url,
-                           prev_url=prev_url)
+    posts = db.paginate(current_user.following_posts(), page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+    next_url = url_for('index', page=posts.next_num) if posts.has_next else None
+    prev_url = url_for('index', page=posts.prev_num) if posts.has_prev else None
+
+    # Fetch comments with their users for each post
+    comments = {post.id: db.session.query(Comment).filter_by(post_id=post.id).options(so.joinedload(Comment.user)).order_by(Comment.date_posted.desc()).all() for post in posts.items}
+
+    return render_template('blog.html', title='Home', form=post_form, comment_form=comment_form, posts=posts.items, next_url=next_url, prev_url=prev_url, comments=comments)
+
+@app.route('/comment', methods=['POST'])
+@login_required
+def comment():
+    comment_form = CommentForm()
+    if comment_form.validate_on_submit():
+        post_id = request.form.get('post_id')
+        post = Post.query.get_or_404(post_id)
+        comment = Comment(content=comment_form.content.data, post_id=post.id, user_id=current_user.id)
+        db.session.add(comment)
+        db.session.commit()
+        flash(_('Your comment has been posted!'))
+    return redirect(url_for('blog'))
+
 @app.route('/explore')
 @login_required
 def explore():
@@ -162,8 +194,13 @@ def explore():
         if posts.has_next else None
     prev_url = url_for('explore', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template("blog.html", title='Explore', posts=posts.items,
-                           next_url=next_url, prev_url=prev_url)
+    
+    comment_form = CommentForm()
+
+    # Fetch comments with their users for each post
+    comments = {post.id: db.session.query(Comment).filter_by(post_id=post.id).options(so.joinedload(Comment.user)).order_by(Comment.date_posted.desc()).all() for post in posts.items}
+
+    return render_template("blog.html", title='Explore', form=None, comment_form=comment_form, posts=posts.items, next_url=next_url, prev_url=prev_url, comments=comments)
 
 @app.route('/follow/<username>', methods=['POST'])
 @login_required
@@ -206,7 +243,7 @@ def unfollow(username):
     else:
         return redirect(url_for('html'))
 
-# Below is older stiff can be turned into html tag 
+
 @app.route('/recipes')
 def recipes():
     recipe_type = request.args.get('type', 'default')  # Get the 'type' query parameter, default to 'default' if not present
@@ -226,25 +263,14 @@ def recipes():
 def new_restaurants():
     return render_template("new_restaurants.html")
 
-
-@app.route("/cuisine")
-def cuisine():
-    return render_template("cuisine.html")
-
-
-@app.route("/account")
-def account():
-    return render_template("account.html")
-
 @app.route("/blog")
 def blog():
-
     return render_template("blog.html")
 
 @app.route("/hidden_gems")
 def hidden_gems():
-
     return render_template("hidden_gems.html")
+
 
 @app.route("/create", methods=["GET", "POST"])
 @login_required
@@ -259,16 +285,7 @@ def create():
     return render_template("create.html", title="Create Post", form=form)
 
 
-@app.route("/<int:id>/edit/", methods=("GET", "POST"))
-def edit(id):
-    # post = get_post(id)
-    return render_template("edit.html")
 
-
-@app.route("/<int:id>/delete/", methods=("POST",))
-def delete(id):
-
-    return redirect(url_for("blog"))
 
 @app.route('/translate', methods=['POST'])
 @login_required
@@ -281,20 +298,28 @@ def translate_text():
 @app.route('/search')
 @login_required
 def search():
-    query = request.args.get('query', '', type=str)  # Retrieves the query from URL query parameters
+    query = request.args.get('query', '', type=str)
     if not query:
         return redirect('/')  # Redirect if the query is empty
 
-    page = request.args.get('page', 1, type=int)  # Handle pagination
-    posts, total = Post.search(query, page, app.config['POSTS_PER_PAGE'])  # Assuming Post.search method exists
+    print(f"Search query: {query}")  # Debug print
 
-    next_url = url_for('search', query=query, page=page + 1) \
-        if total > page * app.config['POSTS_PER_PAGE'] else None
-    prev_url = url_for('search', query=query, page=page - 1) \
-        if page > 1 else None
+    page = request.args.get('page', 1, type=int)
+    posts, total = Post.search(query, page, app.config['POSTS_PER_PAGE'])
+    
+    posts_list = list(posts)  # Convert ScalarResult to list
+    print(f"Total results: {total}")  # Debug print
 
-    return render_template('search.html', title='Search', posts=posts,
-                           next_url=next_url, prev_url=prev_url, query=query)
+    next_url = url_for('search', query=query, page=page + 1) if total > page * app.config['POSTS_PER_PAGE'] else None
+    prev_url = url_for('search', query=query, page=page - 1) if page > 1 else None
+
+    comment_form = CommentForm()
+    comments = {post.id: db.session.query(Comment).filter_by(post_id=post.id).options(so.joinedload(Comment.user)).order_by(Comment.date_posted.desc()).all() for post in posts_list}
+
+    # Debug print the context being passed to the template
+    print(f"Posts: {posts_list}, Comments: {comments}, Query: {query}")
+
+    return render_template('search.html', title='Search', posts=posts_list, next_url=next_url, prev_url=prev_url, query=query, comment_form=comment_form, comments=comments)
 
 @app.route('/send_message/<recipient>', methods=['GET', 'POST'])
 @login_required
@@ -310,7 +335,6 @@ def send_message(recipient):
         return redirect(url_for('user', username=recipient))
     return render_template('send_message.html', title=_('Send Message'),
                            form=form, recipient=recipient)
-
 
 
 @app.route('/messages')
