@@ -12,29 +12,27 @@
             {% if user.about_me %}
             <p>{{ user.about_me }}</p>
             {% endif %}
-            {% if user != current_user %}
-            <p>
-                <a href="{{ url_for('send_message', recipient=user.username) }}">
-                    {{ _('Send private message') }}
-                </a>
-            </p>
-            {% endif %}
             {% if user.last_seen %}
             <p>Last seen on: {{ user.last_seen }}</p>
             {% endif %}
             <p>{{ user.followers_count() }} followers, {{ user.following_count() }} following.</p>
             {% if user == current_user %}
-            <a href="{{ url_for('edit_profile') }}" class="btn btn-primary">Edit your profile</a>
+            <a href="{{ url_for('edit_profile') }}" class="btn btn-primary btn-sm mb-2">Edit your profile</a>
             {% elif not current_user.is_following(user) %}
-            <form action="{{ url_for('follow', username=user.username) }}" method="post">
+            <form action="{{ url_for('follow', username=user.username) }}" method="post" class="d-inline">
                 {{ form.hidden_tag() }}
-                <button type="submit" class="btn btn-success">Follow</button>
+                <button type="submit" class="btn btn-dark btn-sm">Follow</button>
             </form>
             {% else %}
-            <form action="{{ url_for('unfollow', username=user.username) }}" method="post">
+            <form action="{{ url_for('unfollow', username=user.username) }}" method="post" class="d-inline">
                 {{ form.hidden_tag() }}
-                <button type="submit" class="btn btn-warning">Unfollow</button>
+                <button type="submit" class="btn btn-dark btn-sm text-white">Unfollow</button>
             </form>
+            {% endif %}
+            {% if user != current_user %}
+            <a href="{{ url_for('send_message', recipient=user.username) }}" class="btn btn-primary btn-sm ml-2">
+                {{ _('Send private message') }}
+            </a>
             {% endif %}
         </div>
     </div>
