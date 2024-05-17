@@ -63,7 +63,7 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash("Congratulations, you are now a registered user!")
+        flash("Congratulations, you are now a registered user!", category="success")
         return redirect(url_for("login"))
     return render_template("register.html", title="Register", form=form)
 
@@ -115,7 +115,7 @@ def edit_profile():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         db.session.commit()
-        flash('Your changes have been saved.')
+        flash('Your changes have been saved.', category="success")
         return redirect(url_for('edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
@@ -146,9 +146,9 @@ def index():
         post = Post(body=post_form.post.data, author=current_user, language=language)
         db.session.add(post)
         db.session.commit()
-        flash(_('Your post is now live!'))
-        return redirect(url_for('index'))
 
+        flash(_('Your post is now live!'), category="success")
+        return redirect(url_for('blog'))
     # Handle comment submission
     if comment_form.validate_on_submit() and 'comment' in request.form:
         post_id = request.form.get('post_id')
@@ -217,7 +217,7 @@ def follow(username):
             return redirect(url_for('user', username=username))
         current_user.follow(user)
         db.session.commit()
-        flash(f'You are following {username}!')
+        flash(f'You are following {username}!', category="success")
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('html'))
@@ -272,6 +272,20 @@ def hidden_gems():
     return render_template("hidden_gems.html")
 
 
+@app.route("/create", methods=["GET", "POST"])
+@login_required
+def create():
+    form = Post()
+    if form.validate_on_submit():
+        post = Post(body=form.body.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash("Your post has been created!", category="success")
+        return redirect(url_for("blog"))
+    return render_template("create.html", title="Create Post", form=form)
+
+
+
 
 @app.route('/translate', methods=['POST'])
 @login_required
@@ -317,12 +331,10 @@ def send_message(recipient):
                       body=form.message.data)
         db.session.add(msg)
         db.session.commit()
-        flash(_('Your message has been sent.'))
+        flash(_('Your message has been sent.', category="success"))
         return redirect(url_for('user', username=recipient))
     return render_template('send_message.html', title=_('Send Message'),
                            form=form, recipient=recipient)
-
-
 
 
 @app.route('/messages')
