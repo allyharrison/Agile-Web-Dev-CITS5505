@@ -93,7 +93,7 @@ source tmp-env/bin/activate
 pip install -r requirements-dev.txt # (this includes requirements.txt)
 
 # Apply migrations
-flask db upgrade 4b95257877d0
+flask db upgrade 8f09b1c4c9ea
 
 # Start app
 flask run
