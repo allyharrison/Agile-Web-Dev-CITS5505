@@ -487,3 +487,49 @@ p {
     visibility: hidden;
     opacity: 0;
 }
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+.table .tr .td {
+    width: 50px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table td a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.table td a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Set width for the first td in each tr */
+.table tr td:first-child {
+    width: 80px;
+}
