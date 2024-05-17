@@ -181,8 +181,7 @@ def comment():
         db.session.add(comment)
         db.session.commit()
         flash(_('Your comment has been posted!'))
-    return redirect(url_for('user'))
-
+    return redirect(url_for('blog'))
 
 @app.route('/explore')
 @login_required
@@ -264,21 +263,12 @@ def recipes():
 def new_restaurants():
     return render_template("new_restaurants.html")
 
-
-@app.route("/cuisine")
-def cuisine():
-    return render_template("cuisine.html")
-
-
-
 @app.route("/blog")
 def blog():
-
     return render_template("blog.html")
 
 @app.route("/hidden_gems")
 def hidden_gems():
-
     return render_template("hidden_gems.html")
 
 
