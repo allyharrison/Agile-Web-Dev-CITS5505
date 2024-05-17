@@ -377,13 +377,6 @@ p {
     outline: none;
 } */
 
-.alert {
-    padding: 20px;
-    margin: 5px;
-    color: #970020;
-    background-color: #ffd5de;
-}
-
 /* for map page */
 #map {
     position: relative;
