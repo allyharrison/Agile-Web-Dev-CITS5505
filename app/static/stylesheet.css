@@ -377,13 +377,6 @@ p {
     outline: none;
 } */
 
-.alert {
-    padding: 20px;
-    margin: 5px;
-    color: #970020;
-    background-color: #ffd5de;
-}
-
 /* for map page */
 #map {
     position: relative;
@@ -486,4 +479,78 @@ p {
 .badge.hidden {
     visibility: hidden;
     opacity: 0;
+}
+
+.post-card {
+    background-color: #f8f9fa;
+    /* Light grey background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition for transform and box-shadow */
+    margin: 10px; /* Add space between cards */
+}
+
+.post-card:hover {
+    transform: scale(1.01); /* Slightly increase the size */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a very subtle shadow effect */
+}
+
+
+.comment-card {
+    background-color: #ffffff;
+    /* White background */
+    margin: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    /* Light grey border */
+    width: 80%;
+    /* Make the comment div smaller */
+}
+
+.comment-body {
+    padding: 10px;
+}
+
+.comment-header {
+    background-color: #ffffff;
+    /* White background for comment header */
+    padding: 5px 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    /* Light grey border */
+}
+
+.comment-content {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.comment-form {
+    margin: 10px 20px;
+}
+
+.translate-box {
+    background-color: #007bff; /* Blue background for clarity and communication */
+    color: #ffffff; /* White text color for contrast */
+    border: 1px solid #0056b3; /* Slightly darker border for definition */
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.translate-box:hover {
+    background-color: #0056b3; /* Darker blue on hover for interaction feedback */
+}
+
+/* Specific style for the translate button within the post card */
+.post-card .btn-outline-secondary {
+    color: #007bff; /* Blue text color */
+    border-color: #007bff; /* Blue border */
+    background-color: transparent; /* Transparent background */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.post-card .btn-outline-secondary:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: #ffffff; /* White text color on hover */
 }

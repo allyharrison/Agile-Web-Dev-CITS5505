@@ -1,4 +1,6 @@
   // tour js 
+  
+// This Js code was used from Driver.JS Tutorials 
   const driver = window.driver.js.driver;
 
   const driverObj = driver({
@@ -57,7 +59,6 @@ map.addControl(
 
 
 
-// This Js code was used from Driver.JS Tutorials 
 
 
     // This is still a WIP for the modals, still a bit buggy

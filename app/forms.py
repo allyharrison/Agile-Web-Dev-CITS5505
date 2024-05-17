@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 import sqlalchemy as sa
 from app import db
-from app.models import User
+from app.models import User, Comment
 from wtforms.validators import DataRequired
 from wtforms import TextAreaField
 from wtforms.validators import Length
@@ -60,3 +60,8 @@ class MessageForm(FlaskForm):
     message = TextAreaField(_l('Message'), validators=[
         DataRequired(), Length(min=0, max=140)])
     submit = SubmitField(_l('Submit'))  
+
+class CommentForm(FlaskForm):
+    content = TextAreaField('Content', validators=[DataRequired(), Length(min=1, max=1000)])
+    submit = SubmitField('Submit')
+
