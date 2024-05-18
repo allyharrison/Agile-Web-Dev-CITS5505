@@ -95,6 +95,9 @@ pip install -r requirements-dev.txt # (this includes requirements.txt)
 # Apply migrations
 flask db upgrade 8f09b1c4c9ea
 
+# Launch container for search
+docker run --name elasticsearch -d --rm -p 9200:9200 --memory="2GB" -e discovery.type=single-node -e xpack.security.enabled=false -t docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+
 # Start app
 flask run
 ```
