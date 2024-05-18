@@ -10,7 +10,7 @@ from flask_babel import Babel, lazy_gettext as _l
 from elasticsearch import Elasticsearch
 from markupsafe import Markup
 import re
-import bleach  # Import bleach for sanitization
+import bleach
 
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
@@ -30,16 +30,21 @@ app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) if app.conf
 
 # Define the nl2br custom filter with sanitization and allowed HTML tags/attributes
 def nl2br(value):
-    allowed_tags = ['a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol', 'strong', 'ul', 'p', 'br', 'span', 'div']
-    allowed_attrs = {
-        '*': ['class', 'style'],
-        'a': ['href', 'title'],
-        'abbr': ['title'],
-        'acronym': ['title'],
-    }
-    clean_value = bleach.clean(value, tags=allowed_tags, attributes=allowed_attrs, strip=True)  # Sanitize the input
-    result = re.sub(r'(\r\n|\n\r|\r|\n)', r'<br>', clean_value)
-    return Markup(result)
+    if '<' in value and '>' in value:
+        # Assume the content is HTML, sanitize it
+        allowed_tags = ['a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol', 'strong', 'ul', 'p', 'br', 'span', 'div']
+        allowed_attrs = {
+            '*': ['class', 'style'],
+            'a': ['href', 'title'],
+            'abbr': ['title'],
+            'acronym': ['title'],
+        }
+        clean_value = bleach.clean(value, tags=allowed_tags, attributes=allowed_attrs, strip=True)
+        return Markup(clean_value)
+    else:
+        # Convert newlines to <br> for plain text
+        result = re.sub(r'(\r\n|\n\r|\r|\n)', r'<br>', value)
+        return Markup(result)
 
 app.jinja_env.filters['nl2br'] = nl2br
 
