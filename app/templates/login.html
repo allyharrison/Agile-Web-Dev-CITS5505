@@ -27,7 +27,7 @@
                 {{ form.remember_me(class="form-check-input") }}
                 {{ form.remember_me.label(class="form-check-label") }}
             </div>
-            <button type="submit" class="btn w-100 py-2 btn-dark">{{ form.submit.label }}</button>
+            <button name="submit" type="submit" class="btn w-100 py-2 btn-dark">{{ form.submit.label }}</button>
             <div class="mt-4 text-center"> Don't have an account?
                 <a href="{{ url_for('register') }}" class="link">Sign up here</a>
             </div>

@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="card-body">
-        <p id="post{{ post.id }}">{{ post.body }}</p>
+        <p id="post{{ post.id }}">{{ post.body|nl2br }}</p>
         {% if post.language and post.language != g.locale %}
         <br>
         <span id="translation{{ post.id }}">
@@ -30,7 +30,7 @@
                 <small class="text-muted">{{ moment(comment.date_posted).fromNow() }}</small>
             </div>
             <div class="card-body comment-body comment-content">
-                <p>{{ comment.content }}</p>
+                <p>{{ comment.content|nl2br }}</p>
             </div>
         </div>
         {% endfor %}
