@@ -1,6 +1,6 @@
 // tour js
 
-// This Js code was used from Driver.JS Tutorials
+// This Js code was used from Driver.JS Tutorials - see https://driverjs.com/
 const driver = window.driver.js.driver
 
 const driverObj = driver({
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 })
 
-// JS code adapted from MapBox tutorials and chatgpt help
+// JS code adapted from MapBox tutorials https://docs.mapbox.com/help/tutorials/ and chatgpt help
 mapboxgl.accessToken =
     'pk.eyJ1Ijoic3RldmkiLCJhIjoiY2x2ZWtrdThhMGI1bjJpbnFrNm9xem80YSJ9.Lz5tsAHEt_qZED_2_wyEGw'
 const map = new mapboxgl.Map({
@@ -83,11 +83,8 @@ map.addControl(
     'top-left'
 )
 
-// This is still a WIP for the modals, still a bit buggy
-// window.addEventListener('DOMContentLoaded', function () {
-//   var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-//   loginModal.show();
-// });
+// This is still a WIP for the modals
+
 const loginBtn = document.getElementById('loginBtn')
 const loginModal = new bootstrap.Modal(document.getElementById('loginModal'))
 
@@ -102,6 +99,7 @@ loginBtn.addEventListener('click', function () {
     })
 })
 
+// Translation function JS 
 async function translate(sourceElem, destElem, sourceLang, destLang) {
     document.getElementById(destElem).innerHTML =
         '<img src="{{ url_for("static", filename="/loading_spinner.gif") }}">'
