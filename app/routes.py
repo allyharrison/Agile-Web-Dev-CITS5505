@@ -76,54 +76,30 @@ def register():
 
 
 # Route to view a user's profile
-@app.route("/user/<username>")
+@app.route('/user/<username>')
 @login_required
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.username == username))
-    page = request.args.get("page", 1, type=int)
+    page = request.args.get('page', 1, type=int)
+
     query = user.posts.select().order_by(Post.timestamp.desc())
-    # Fetch comments for each post - orde by date
-    comments = {
-        post.id: Comment.query.filter_by(post_id=post.id)
-        .options(so.joinedload(Comment.user))
-        .order_by(Comment.date_posted.desc())
-        .all()
-        for post in posts.items
-    }
-    posts = db.paginate(
-        query, page=page, per_page=app.config["POSTS_PER_PAGE"], error_out=False
-    )
-    next_url = (
-        url_for("user", username=user.username, page=posts.next_num)
-        if posts.has_next
-        else None
-    )
-    prev_url = (
-        url_for("user", username=user.username, page=posts.prev_num)
-        if posts.has_prev
-        else None
-    )
 
-    comments = {
-        post.id: Comment.query.filter_by(post_id=post.id)
-        .options(so.joinedload(Comment.user))
-        .order_by(Comment.date_posted.desc())
-        .all()
-        for post in posts.items
-    }
-
+    posts = db.paginate(query, page=page,
+                        per_page=app.config['POSTS_PER_PAGE'],
+                        error_out=False)
+    
+    next_url = url_for('user', username=user.username, page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('user', username=user.username, page=posts.prev_num) \
+        if posts.has_prev else None
+   
+   
+    comments = {post.id: Comment.query.filter_by(post_id=post.id).options(so.joinedload(Comment.user)).order_by(Comment.date_posted.desc()).all() for post in posts.items}
+ 
     form = EmptyForm()
     comment_form = CommentForm()
-    return render_template(
-        "user.html",
-        user=user,
-        posts=posts.items,
-        next_url=next_url,
-        prev_url=prev_url,
-        form=form,
-        comment_form=comment_form,
-        comments=comments,
-    )
+    return render_template('user.html', user=user, posts=posts.items,
+                           next_url=next_url, prev_url=prev_url, form=form, comment_form=comment_form, comments=comments)
 
 
 # Hook to run before each request
