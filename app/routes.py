@@ -31,7 +31,7 @@ def html():
 
 
 # Route for logging in
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"]) # Adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 def login():
     if current_user.is_authenticated:
         return redirect(url_for("html"))
@@ -52,14 +52,14 @@ def login():
 
 
 # Route for logging out
-@app.route("/logout")
+@app.route("/logout") # used from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 def logout():
     logout_user()
     return redirect(url_for("html"))
 
 
 # Route for user registration
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register", methods=["GET", "POST"]) # adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 def register():
     if current_user.is_authenticated:
         return redirect(url_for("html"))
@@ -76,7 +76,7 @@ def register():
 
 
 # Route to view a user's profile
-@app.route('/user/<username>')
+@app.route('/user/<username>') # adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 @login_required
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.username == username))
@@ -112,7 +112,7 @@ def before_request():
 
 
 # Route to edit user profile
-@app.route("/edit_profile", methods=["GET", "POST"])
+@app.route("/edit_profile", methods=["GET", "POST"]) # adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 @login_required
 def edit_profile():
     form = EditProfileForm()
@@ -136,7 +136,7 @@ def edit_profile():
 
 
 # Route for the main index page
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"]) # adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 @app.route("/blog", methods=["GET", "POST"])
 @login_required
 def index():
@@ -223,7 +223,7 @@ def comment():
 
 
 # Route to explore posts made
-@app.route("/explore")
+@app.route("/explore") # adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 @login_required
 def explore():
     page = request.args.get("page", 1, type=int)
@@ -259,7 +259,7 @@ def explore():
 
 
 # Route to follow user
-@app.route("/follow/<username>", methods=["POST"])
+@app.route("/follow/<username>", methods=["POST"]) # adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 @login_required
 def follow(username):
     form = EmptyForm()
@@ -282,7 +282,7 @@ def follow(username):
 
 
 # Route to unfollow a user
-@app.route("/unfollow/<username>", methods=["POST"])
+@app.route("/unfollow/<username>", methods=["POST"]) # adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 @login_required
 def unfollow(username):
     form = EmptyForm()
@@ -335,7 +335,7 @@ def hidden_gems():
 
 
 # Route to post
-@app.route("/create", methods=["GET", "POST"])
+@app.route("/create", methods=["GET", "POST"]) #adapted from https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 @login_required
 def create():
     form = Post()
