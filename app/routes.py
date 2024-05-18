@@ -69,9 +69,9 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        login_user(user)
+        # login_user(user)
         flash("Congratulations, you are now a registered user!", category="success")
-        return redirect(url_for("html"))
+        # return redirect(url_for("html"))
     return render_template("register.html", title="Register", form=form)
 
 
