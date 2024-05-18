@@ -12,7 +12,7 @@ from app.search import add_to_index, remove_from_index, query_index
 from flask import url_for
 
 
-
+# Mixin for adding search functionality to models
 class SearchableMixin(object):
     @classmethod
     def search(cls, expression, page, per_page):
@@ -51,11 +51,11 @@ class SearchableMixin(object):
     def reindex(cls):
         for obj in db.session.scalars(sa.select(cls)):
             add_to_index(cls.__tablename__, obj)
-
+# Registering SQLAlchemy event listeners for before and after commit actions
 db.event.listen(db.session, 'before_commit', SearchableMixin.before_commit)
 db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
 
-
+# Association table for many-to-many relationship between users (followers)
 followers = sa.Table(
     'followers',
     db.metadata,
@@ -64,7 +64,7 @@ followers = sa.Table(
     sa.Column('followed_id', sa.Integer, sa.ForeignKey('user.id'),
               primary_key=True)
 )
-
+# User model with various fields and methods for user management
 class User(UserMixin, db.Model):
 
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
@@ -95,34 +95,42 @@ class User(UserMixin, db.Model):
         secondaryjoin=(followers.c.follower_id == id),
         back_populates='following')
     
+    # Method to get count of unread messages
     def unread_message_count(self):
         last_read_time = self.last_message_read_time or datetime(1900, 1, 1)
         query = sa.select(Message).where(Message.recipient == self,
                                          Message.timestamp > last_read_time)
         return db.session.scalar(sa.select(sa.func.count()).select_from(
             query.subquery()))
+    
+    # Method to follow another user
     def follow(self, user):
         if not self.is_following(user):
             self.following.add(user)
-
+    
+    # Method to unfollow a user
     def unfollow(self, user):
         if self.is_following(user):
             self.following.remove(user)
-
+    
+    # Method to check if following a user
     def is_following(self, user):
         query = self.following.select().where(User.id == user.id)
         return db.session.scalar(query) is not None
-
+    
+    # Method to get the count of followers
     def followers_count(self):
         query = sa.select(sa.func.count()).select_from(
             self.followers.select().subquery())
         return db.session.scalar(query)
-
+    
+    # Method to get the count of users being followed
     def following_count(self):
         query = sa.select(sa.func.count()).select_from(
             self.following.select().subquery())
         return db.session.scalar(query)
     
+    # Method to get posts from users being followed
     def following_posts(self):
         Author = so.aliased(User)
         Follower = so.aliased(User)
@@ -141,18 +149,22 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.username)
     
+    # Method to set the user's password
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
+    # Method to check the user's password
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
     
+    # Method to get the user's avatar image URL
     def avatar(self, size):
         if self.profile_image:
             return url_for('static', filename=f'profile_images/{self.profile_image}', _external=True)
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
 
+# Post model with fields and search functionality
 class Post(SearchableMixin, db.Model):
     __searchable__ = ['body']
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
@@ -168,11 +180,13 @@ class Post(SearchableMixin, db.Model):
     
     def __repr__(self):
         return '<Post {}>'.format(self.body)
-    
+
+# Load user callback for Flask-Login   
 @login.user_loader
 def load_user(id):
     return db.session.get(User, int(id))
 
+# Message model with fields and relationships
 class Message(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     sender_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
@@ -192,7 +206,8 @@ class Message(db.Model):
     recipient: so.Mapped[User] = so.relationship(
         foreign_keys='Message.recipient_id',
         back_populates='messages_received')
-    
+
+# Comment model with fields and relationships    
 class Comment(db.Model):
     id = sa.Column(sa.Integer, primary_key=True)
     content = sa.Column(sa.Text, nullable=False)
