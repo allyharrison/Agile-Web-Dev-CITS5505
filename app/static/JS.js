@@ -14,25 +14,18 @@ const driverObj = driver({
             },
         },
         {
-            element: '#nav-recipes',
+            element: '#navrestaurants',
             popover: {
-                title: 'Looking for something to eat?',
-                description: 'Select from our delicious range of meals',
+                title: 'Discover Foodie Hub',
+                description: 'Want a new favourite restraunt? Want to request a meal? How about message a friend? Look here',
+                padding: 90, // Add padding to expand the highlight area
             },
         },
         {
-            element: '#nav-restaurants',
-            popover: {
-                title: 'Discover new places to eat',
-                description: 'Want a new favourite restraunt? Click here!',
-            },
-        },
-        {
-            element: '#nav-foodie-hub',
             popover: {
                 title: 'Want to join us?',
                 description:
-                    'Looking to post, respond and keep connected? make sure to sign up or login',
+                    'Looking to post, respond and keep connected? make sure to sign up or login. Click either the right hand corner or login via the FoodieHub bar',
             },
         },
         {
