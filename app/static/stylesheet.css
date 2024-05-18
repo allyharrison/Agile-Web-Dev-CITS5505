@@ -43,12 +43,9 @@
 header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('/static/images/banner.png');
-    /* want to come back to this and change opacity of background image only */
-    /* opacity: .5; */
     height: 600px;
     background-position: bottom;
     background-size: cover;
-    /* background-attachment: fixed; */
     color: var(--secondary-bg-color);
 }
 
@@ -70,8 +67,9 @@ header {
 /* Navigation
    ========================================================================== */
 
-/* Alter header text and nav dropwdown on large screens so the dropdown can fold 
+/* Alter header text and nav dropdown on large screens so the dropdown can fold 
    over the top */
+/* Approximates Bootstrap lg breakpoint without using SASS */
 @media (max-width: 991.98px) {
     #navbarSupportedContent {
         background-color: black;
@@ -94,7 +92,6 @@ header {
     font-weight: bold;
 }
 
-/* Can't change colour when I change colour to a variable */
 .nav-item .dropdown-item {
     color: #48003b;
     box-sizing: border-box;
@@ -105,7 +102,6 @@ header {
     border-bottom: 1px solid;
     box-sizing: border-box !important;
     transition: all 0.15s ease-in;
-    /* border-color: var(--main-bg-color); */
 }
 
 .navbar-brand {
@@ -121,41 +117,9 @@ header {
     box-sizing: border-box;
 }
 
-/* Commenting this out for now, hard to implement with responsive nav stuff rn */
-/* .dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    border: 1px solid #ccc;
-    border-radius: 5%;
-    padding: 10px;
-    box-sizing: border-box;
-    transition: opacity 0.5s ease-in-out; /* Add transition for smooth opening and closing */
-/* Initially set opacity to 0 
-} */
-
-/* .dropdown-content a {
-    color: var(--secondary-bg-color);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 5px;
-    box-sizing: border-box;
-} */
-
-/* don't think this is doing anything */
-/* .nav-item:hover .dropdown-content,
-.dropdown-content:hover {
-    display: block;
-} */
-
 /* ==========================================================================
    Text, headings, paragraphs etc
    ========================================================================== */
-
-#main-heading {
-    font-family: 'Playfair Display', serif;
-}
-
 h1 {
     color: var(--secondary-text-color);
 }
@@ -265,13 +229,9 @@ li {
 
 footer {
     display: block;
-    /* padding: 150px; */
     background-color: var(--main-bg-color);
-    /* position: absolute;
-    bottom: 0; */
 }
 
-/* Need to revise this, not sure if bad practice */
 footer.link,
 h4,
 p {
@@ -286,161 +246,12 @@ p {
    Login
    ========================================================================== */
 
-/* CSS for login/ sign in form */
-
-#main-holder {
-    clear: both;
-    width: 300px; /* Adjust the width as needed */
-    height: auto;
-    padding: 50px;
-    background-size: cover;
-    background-color: white;
-    background-position: center; /* Center the background image */
-    border-radius: 7px;
-    box-shadow: 0px 0px 5px 2px black;
-    text-align: center;
-    margin: 150px auto; /* Center horizontally */
-}
-
-#login-header {
-    color: black;
-}
-
-#login-error-msg-holder {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-}
-
-/* Error message. By default it's transparent, but the opacity is controlled
-  by JavaScript */
-
-#login-error-msg {
-    width: 63%;
-    text-align: center;
-    margin: 10;
-    padding: 5px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #8a0000;
-    border: 1px solid #8a0000;
-    background-color: #e58f8f;
-    opacity: 0;
-}
-
-#error-msg-second-line {
-    display: block;
-}
-
-/* -------------------------------------------------------------- */
-
-/* Adjust the positioning of the login form inside the last row of the
-  main grid */
-/* 
-#login-form {
-    align-self: flex-start;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-} */
-
-/* Style the login form fields' placeholders */
-
-/* .login-form-field::placeholder {
-    color: #3a3a3a;
-} */
-
-/* Style the login form fields (username and password) */
-
-/* .login-form-field {
-    border: none;
-    border-bottom: 1px solid #3a3a3a;
-    margin-bottom: 15px;
-    border-radius: 3px;
-    outline: none;
-    padding: 0px 0px 5px 5px;
-} */
-
-/* Style the login button */
-
-/* #login-form-submit {
-    width: 100%;
-    padding: 7px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    background-color: #3a3a3a;
-    cursor: pointer;
-    outline: none;
-} */
-
 /* for map page */
 #map {
     position: relative;
     top: 100%;
-    width: 1860px;
+    width: vw;
     height: 400px;
-}
-
-#instructions {
-    position: sticky;
-    margin: 20px;
-    width: 25%;
-    top: 0;
-    bottom: 20%;
-    padding: 20px;
-    background-color: #fff;
-    overflow-y: scroll;
-    font-family: sans-serif;
-}
-
-/* just testing this out */
-.flip-card {
-    perspective: 500px; /* Depth effect for the flip animation */
-}
-
-.flip-card-front img {
-    max-width: 100%; /* Ensure the image is not wider than the card */
-    height: 400px; /* Maintain the aspect ratio of the image */
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    min-height: 400px; /* Adjust this value based on your content needs */
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    padding: 15px; /* Add padding to prevent text touching the edges */
-}
-
-.flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg); /* Perform the flip */
-}
-
-.flip-card-back {
-    transform: rotateY(180deg); /* Initially flipped to the back */
-    color: white;
-    background-color: #007bff; /* Bootstrap primary color for consistency */
-}
-
-.clearfix::after {
-    content: '';
-    display: table;
-    clear: both;
 }
 
 .backdrop-blur {
@@ -476,6 +287,7 @@ p {
     visibility: visible;
     opacity: 1;
 }
+
 .badge.hidden {
     visibility: hidden;
     opacity: 0;

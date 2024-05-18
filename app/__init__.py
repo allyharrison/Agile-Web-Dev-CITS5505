@@ -11,7 +11,8 @@ from elasticsearch import Elasticsearch
 
 
 def get_locale():
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
+
 
 app = Flask(__name__)
 mde = Mde(app)
@@ -22,12 +23,14 @@ moment = Moment(app)
 babel = Babel(app, locale_selector=get_locale)
 
 login = LoginManager(app)
-login.login_view = 'login'
-login.login_message = _l('Please log in to access this page.')
-app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
-        if app.config['ELASTICSEARCH_URL'] else None
+login.login_view = "login"
+login.login_message = _l("Please log in to access this page.")
+app.elasticsearch = (
+    Elasticsearch([app.config["ELASTICSEARCH_URL"]])
+    if app.config["ELASTICSEARCH_URL"]
+    else None
+)
 
-print("Elasticsearch URL:", app.config['ELASTICSEARCH_URL'])  # Add this line to debug
+print("Elasticsearch URL:", app.elasticsearch)  # Add this line to debug
 
 from . import routes, models
-
