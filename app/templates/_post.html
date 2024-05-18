@@ -5,11 +5,9 @@
                 style="width: 70px; height: 70px;">
         </a>
         <div>
-            <a href="{{ url_for('user', username=post.author.username) }}" class="text-dark">{{ post.author.username
-                }}</a>
+            <a href="{{ url_for('user', username=post.author.username) }}" class="text-dark">{{ post.author.username }}</a>
             <br>
-            <small>{{ _('%(username)s said %(when)s', username=user_link, when=moment(post.timestamp).fromNow())
-                }}</small>
+            <small>{{ _('%(username)s said %(when)s', username=user_link, when=moment(post.timestamp).fromNow()) }}</small>
         </div>
     </div>
     <div class="card-body">
@@ -23,6 +21,7 @@
         {% endif %}
     </div>
     <div class="card-footer">
+        {% if post_comments is defined %}
         <h4>Comments</h4>
         {% for comment in post_comments %}
         <div class="card mb-2 comment-card">
@@ -35,6 +34,8 @@
             </div>
         </div>
         {% endfor %}
+        {% endif %}
+        {% if comment_form is defined %}
         <hr>
         <form action="{{ url_for('comment') }}" method="post" class="comment-form">
             {{ comment_form.hidden_tag() }}
@@ -49,5 +50,6 @@
                 {{ comment_form.submit(class="btn btn-primary btn-sm") }}
             </div>
         </form>
+        {% endif %}
     </div>
 </div>
