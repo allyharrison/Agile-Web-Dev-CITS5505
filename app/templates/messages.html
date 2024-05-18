@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- messages.html block starts here -->
 <h1>{{ _('Messages') }}</h1>
 {% for post in messages %}
 {% include '_post.html' %}
@@ -20,5 +19,4 @@
         {% endif %}
     </ul>
 </nav>
-<!-- messages.html block ends here -->
 {% endblock %}
