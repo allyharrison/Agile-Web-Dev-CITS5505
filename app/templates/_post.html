@@ -1,8 +1,7 @@
 <div class="card mb-3 post-card">
     <div class="card-header d-flex flex-row align-items-center">
         <a href="{{ url_for('user', username=post.author.username) }}">
-            <img src="{{ post.author.avatar(70) }}" class="img-fluid rounded-circle me-3" alt="Post Author Avatar"
-                style="width: 70px; height: 70px;">
+            <img src="{{ post.author.avatar(70) }}" class="img-fluid rounded-circle me-3 avatar" alt="Post Author Avatar">
         </a>
         <div>
             <a href="{{ url_for('user', username=post.author.username) }}" class="text-dark">{{ post.author.username }}</a>

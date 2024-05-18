@@ -366,3 +366,8 @@ p {
     background-color: #007bff; /* Blue background on hover */
     color: #ffffff; /* White text color on hover */
 }
+
+.avatar {
+    width: 70px;
+    height: 70px;
+}
