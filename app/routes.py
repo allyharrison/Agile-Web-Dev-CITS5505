@@ -23,10 +23,12 @@ from werkzeug.utils import secure_filename
 import sqlalchemy.orm as so
 import os
 
+# Route for the homepage
 @app.route("/")
 def html():
     return render_template("HTML.html")
 
+# Route for logging in
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
@@ -46,13 +48,13 @@ def login():
         return redirect(next_page)
     return render_template("login.html", form=form)
 
-
+# Route for logging out
 @app.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for("html"))
 
-
+# Route for user registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if current_user.is_authenticated:
@@ -67,7 +69,7 @@ def register():
         return redirect(url_for("login"))
     return render_template("register.html", title="Register", form=form)
 
-
+# Route to view a user's profile
 @app.route('/user/<username>')
 @login_required
 def user(username):
@@ -82,7 +84,7 @@ def user(username):
     prev_url = url_for('user', username=user.username, page=posts.prev_num) \
         if posts.has_prev else None
     
-    
+     # Fetch comments for each post - orde by date
     comments = {post.id: Comment.query.filter_by(post_id=post.id).options(so.joinedload(Comment.user)).order_by(Comment.date_posted.desc()).all() for post in posts.items}
 
     form = EmptyForm()
@@ -92,7 +94,7 @@ def user(username):
 
 
 
-
+# Hook to run before each request
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
@@ -100,7 +102,7 @@ def before_request():
         db.session.commit()
         g.locale = str(get_locale())
 
-
+# Route to edit user profile
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
@@ -123,8 +125,7 @@ def edit_profile():
     return render_template('edit_profile.html', title='Edit Profile', form=form)
 
 
-
-
+# Route for the main index page
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/blog', methods=['GET', 'POST'])
 @login_required
@@ -170,6 +171,7 @@ def index():
 
     return render_template('blog.html', title='Home', form=post_form, comment_form=comment_form, posts=posts.items, next_url=next_url, prev_url=prev_url, comments=comments)
 
+# Route to handle comment submission
 @app.route('/comment', methods=['POST'])
 @login_required
 def comment():
@@ -183,6 +185,7 @@ def comment():
         flash(_('Your comment has been posted!'))
     return redirect(url_for('blog'))
 
+# Route to explore posts made
 @app.route('/explore')
 @login_required
 def explore():
@@ -202,6 +205,7 @@ def explore():
 
     return render_template("blog.html", title='Explore', form=None, comment_form=comment_form, posts=posts.items, next_url=next_url, prev_url=prev_url, comments=comments)
 
+# Route to follow user
 @app.route('/follow/<username>', methods=['POST'])
 @login_required
 def follow(username):
@@ -222,7 +226,7 @@ def follow(username):
     else:
         return redirect(url_for('html'))
 
-
+# Route to unfollow a user
 @app.route('/unfollow/<username>', methods=['POST'])
 @login_required
 def unfollow(username):
@@ -254,7 +258,7 @@ def recipes():
     elif recipe_type == 'dinner':
         title = "Dinner Recipes"
     else:
-        title = "Some Default Title"
+        title = "Recipes"  # General title
 
     return render_template('recipes.html', title=title, type=recipe_type)
 
@@ -271,7 +275,7 @@ def blog():
 def hidden_gems():
     return render_template("hidden_gems.html")
 
-
+# Route to post
 @app.route("/create", methods=["GET", "POST"])
 @login_required
 def create():
