@@ -146,13 +146,25 @@ li {
 /* ==========================================================================
    Buttons, links, images
    ========================================================================== */
-.logo img {
-    height: 30px;
-    float: left;
-    padding-left: 30px;
-    padding-right: 20px;
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
 }
 
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 15px; /* Adjust this value as needed */
+}
+
+.navbar-logo img {
+    max-height: 50px; /* Adjust this value as needed */
+}
+
+.navbar-brand {
+    margin-left: 10px; /* Adjust this value as needed */
+}
 .card img {
     object-fit: cover;
 }
@@ -202,7 +214,6 @@ li {
 .btn-dark {
     background-color: var(--tertiary-bg-color);
     color: var(--secondary-text-color);
-    border-color: var(--tertiary-bg-color);
 }
 
 .btn-dark:hover {
@@ -252,7 +263,7 @@ p {
 #map {
     position: relative;
     top: 100%;
-    width: vw;
+    width: 100vw;
     height: 400px;
 }
 
@@ -369,7 +380,22 @@ p {
     color: #ffffff; /* White text color on hover */
 }
 
+/* Avatar styling */
+
 .avatar {
     width: 70px;
     height: 70px;
+}
+
+.user-avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* For register */
+.invalid-feedback-visible {
+    display: block;
+    color: red;
 }

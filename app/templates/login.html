@@ -4,9 +4,10 @@
 <!-- login.html block starts here -->
 <div class="d-flex align-items-center p-4 bg-body-tertiary">
     <main class="form-signin m-auto">
-        <form action="" method="post" novalidate class="needs-validation"> {{ form.hidden_tag() }}
+        <form action="{{ url_for('login') }}" method="post" novalidate class="needs-validation">
+            {{ form.hidden_tag() }}
             <h1 class="mb-3 text-center">Sign in to Foodie Hub</h1>
-            <div class="mb-3 form-floating" id="floatingInput">
+            <div class="mb-3 form-floating floating-input">
                 {{ form.username(class="form-control", size=32) }}
                 {{ form.username.label(class="form-label") }}
                 {% for error in form.username.errors %}
@@ -15,7 +16,7 @@
                 {{ error }}
             </div>
             {% endfor %}
-            <div class="mb-3 form-floating" id="floatingInput">
+            <div class="mb-3 form-floating floating-input">
                 {{ form.password(class="form-control", size=32) }}
                 {{ form.password.label(class="form-label") }}
                 {% for error in form.password.errors %}
