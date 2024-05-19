@@ -9,7 +9,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![image](https://github.com/allyharrison/Agile-Web-Dev-CITS5505/assets/131132228/407e3ab8-a097-4dfe-aa28-3d446991658e)
 
 Our website is all about food! FOODIE HUB is designed to be a one stop shop for all foodies.
 
@@ -55,3 +55,5 @@ When deploying to production, only install `requirements.txt` (don't install `re
 ```sh
 pip install -r requirements.txt
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
