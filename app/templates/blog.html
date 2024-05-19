@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- blog.html block content starts here -->
 <div class="container mt-4">
     <h1 class="m-5">Post here, {{ current_user.username }}!</h1>
 
     {% if form %}
-    <!-- blog.html form starts here -->
     <form action="{{ url_for('index') }}" method="post" class="mb-3">
         {{ form.hidden_tag() }}
         <div class="mb-3">
@@ -17,33 +15,29 @@
             {% endfor %}
         </div>
         <div>
-            {{ form.submit(class="btn btn-primary") }}
+            {{ form.submit(class="btn btn-dark btn-lg") }}
         </div>
     </form>
-    <!-- blog.html form ends here -->
     {% endif %}
 
     {% for post in posts %}
-    <!-- blog.html post comments starts here -->
     {% set post_comments = comments[post.id] %}
     {% include '_post.html' %}
     {% endfor %}
-    <!-- blog.html pagination starts here -->
     <nav aria-label="Page navigation">
-        <ul class="pagination">
+        <ul class="pagination justify-content-center">
             {% if prev_url %}
-            <li class="page-item">
+            <li class="page-item pt-4 pb-5">
                 <a class="page-link" href="{{ prev_url }}">Newer posts</a>
             </li>
             {% endif %}
             {% if next_url %}
-            <li class="page-item">
+            <li class="page-item pt-4 pb-5">
                 <a class="page-link" href="{{ next_url }}">Older posts</a>
             </li>
             {% endif %}
         </ul>
+
     </nav>
-    <!-- blog.html pagination ends here -->
 </div>
-<!-- blog.html block content ends here -->
 {% endblock %}

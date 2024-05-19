@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- base.html head begins here -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if title %}Foodie Hub - {{ title }}{% else %}Foodie Hub{% endif %}</title>
@@ -24,16 +23,15 @@
     <!-- Markdown CSS -->
     {{mde.css}}
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" type="text/css">
-    <!-- base.html head ends here -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
 </head>
 
 <body class="d-flex flex-column justify-content-between">
-    <!-- base.html body begins here -->
     <!-- Navbar -->
     {% include 'includes/_navbar.html' %}
     <!-- Content -->
-    <div class="content flex-grow-1  bg-body-tertiary w-100">
+    <div class="content flex-grow-1 bg-body-tertiary w-100">
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         {% for category, message in messages %}
@@ -67,7 +65,6 @@
     <script src="{{ url_for('static', filename='JS.js') }}"></script>
     {{ moment.include_moment() }}
     {{ moment.lang(g.locale) }}
-    <!-- base.html body ends here -->
 </body>
 
 </html>

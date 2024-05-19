@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- search.html block starts here -->
 <div class="container mt-4">
     <h1 class="mb-3">Hi, {{ current_user.username }}!</h1>
 
@@ -19,12 +18,12 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if prev_url %}
-            <li class="page-item">
+            <li class="page-item pt-4 pb-5">
                 <a class="page-link" href="{{ prev_url }}">Newer posts</a>
             </li>
             {% endif %}
             {% if next_url %}
-            <li class="page-item">
+            <li class="page-item pt-4 pb-5">
                 <a class="page-link" href="{{ next_url }}">Older posts</a>
             </li>
             {% endif %}
@@ -34,5 +33,4 @@
     <p class="text-danger">No results found for "{{ query }}".</p>
     {% endif %}
 </div>
-<!-- search.html block ends here -->
 {% endblock %}
