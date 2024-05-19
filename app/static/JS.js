@@ -95,7 +95,7 @@ loginBtn.addEventListener('click', function () {
 // Translation function JS 
 async function translate(sourceElem, destElem, sourceLang, destLang) {
     document.getElementById(destElem).innerHTML =
-        '<img src="{{ url_for("static", filename="/loading_spinner.gif") }}">'
+    '<img src="/static/loading_spinner.gif" alt="Loading...">';
     const response = await fetch('/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
