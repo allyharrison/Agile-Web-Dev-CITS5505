@@ -146,25 +146,13 @@ li {
 /* ==========================================================================
    Buttons, links, images
    ========================================================================== */
-.navbar {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
+   .logo img {
+    height: 30px;
+    float: left;
+    padding-left: 30px;
+    padding-right: 20px;
 }
 
-.navbar-logo {
-    display: flex;
-    align-items: center;
-    margin-right: 15px; /* Adjust this value as needed */
-}
-
-.navbar-logo img {
-    max-height: 50px; /* Adjust this value as needed */
-}
-
-.navbar-brand {
-    margin-left: 10px; /* Adjust this value as needed */
-}
 .card img {
     object-fit: cover;
 }
