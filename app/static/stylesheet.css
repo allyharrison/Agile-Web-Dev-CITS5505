@@ -202,7 +202,6 @@ li {
 .btn-dark {
     background-color: var(--tertiary-bg-color);
     color: var(--secondary-text-color);
-    border-color: var(--tertiary-bg-color);
 }
 
 .btn-dark:hover {
