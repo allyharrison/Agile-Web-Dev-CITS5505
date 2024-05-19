@@ -149,7 +149,7 @@ li {
 /* ==========================================================================
    Buttons, links, images
    ========================================================================== */
-.logo img {
+   .logo img {
     height: 30px;
     float: left;
     padding-left: 30px;
@@ -307,7 +307,22 @@ p {
     border-bottom: 1px solid #e0e0e0;
 }
 
+/* Avatar styling */
+
 .avatar {
     width: 70px;
     height: 70px;
+}
+
+.user-avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* For register */
+.invalid-feedback-visible {
+    display: block;
+    color: red;
 }
