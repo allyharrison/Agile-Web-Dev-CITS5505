@@ -2,8 +2,7 @@
     <nav class="row navbar navbar-expand-lg navbar-dark" id="menu">
         <div class="container-fluid">
             <div class="logo">
-                <img
-                    src="https://png.pngtree.com/png-clipart/20230823/original/pngtree-fast-food-logo-design-picture-image_8225761.png">
+                <img src="/static/images/logo.png">
             </div>
             <!-- On small screens the navbar toggle button only toggles the dropdown
                 but doesn't retract it. Need to fix-->
@@ -14,7 +13,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center p-4" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navrestaurants"> 
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navrestaurants">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false" href="{{ url_for('recipes') }}">RECIPES</a>
@@ -52,7 +51,7 @@
                             {% else %}
                             <li><a class="dropdown-item"
                                     href="{{ url_for('user', username=current_user.username ) }}">Profile</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('logout' ) }}" >Logout</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('logout' ) }}">Logout</a></li>
                             {% endif %}
                         </ul>
                     <li class="nav-item d-lg-none d-xxl-block w-100">
@@ -90,7 +89,7 @@
 
 
                 <div class="d-flex flex-wrap">
-                    <a class="btn btn-outline-light mx-1" href="{{ url_for('logout' ) }}" >Logout</a>
+                    <a class="btn btn-outline-light mx-1" href="{{ url_for('logout' ) }}">Logout</a>
                 </div>
                 {% endif %}
             </div>

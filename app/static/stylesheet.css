@@ -147,8 +147,10 @@ li {
    Buttons, links, images
    ========================================================================== */
 .logo img {
-    height: 100px;
+    height: 30px;
     float: left;
+    padding-left: 30px;
+    padding-right: 20px;
 }
 
 .card img {
