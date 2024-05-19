@@ -252,7 +252,7 @@ p {
 #map {
     position: relative;
     top: 100%;
-    width: vw;
+    width: 100vw;
     height: 400px;
 }
 
