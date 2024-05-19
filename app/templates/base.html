@@ -30,7 +30,7 @@
     <!-- Navbar -->
     {% include 'includes/_navbar.html' %}
     <!-- Content -->
-    <div class="content flex-grow-1  bg-body-tertiary w-100">
+    <div class="content flex-grow-1 bg-body-tertiary w-100">
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         {% for category, message in messages %}

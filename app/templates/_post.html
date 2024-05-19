@@ -28,7 +28,7 @@
                 <strong>{{ comment.user.username }}</strong>
                 <small class="text-muted">{{ moment(comment.date_posted).fromNow() }}</small>
             </div>
-            <div class="card-body comment-body comment-content">
+            <div class="card-body comment-body comment-content p-2">
                 <p>{{ comment.content|nl2br }}</p>
             </div>
         </div>
@@ -36,7 +36,7 @@
         {% endif %}
         {% if comment_form is defined %}
         <hr>
-        <form action="{{ url_for('comment') }}" method="post" class="comment-form">
+        <form action="{{ url_for('comment') }}" method="post" class="comment-form m-2">
             {{ comment_form.hidden_tag() }}
             <div class="mb-3">
                 {{ comment_form.content(class="form-control", rows=2, placeholder="Leave a comment") }}
