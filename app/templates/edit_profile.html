@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- editprofile.html starts here -->
+
 <div class="container mt-4">
     <h1 class="mb-3">Edit Profile</h1>
     <form action="{{ url_for('edit_profile') }} " method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
@@ -30,5 +30,4 @@
         <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
     </form>
 </div>
-<!-- editprofile.html ends here -->
 {% endblock %}
