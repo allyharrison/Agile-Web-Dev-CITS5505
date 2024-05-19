@@ -10,23 +10,19 @@ CITS5505 Agile Web Development Project due Sunday, May 19th, 2024.
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
+      <a href="#group-members">Group Members</a>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li>
+      <a href="#stack-used">STACK USED</a>
+    </li>
+    <li>
+      <a href="#local-development">Local Development</a>
+    </li>
+    <li>
+      <a href="#deploying">Deploying</a>
+    </li>
   </ol>
 </details>
 
@@ -34,47 +30,22 @@ CITS5505 Agile Web Development Project due Sunday, May 19th, 2024.
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![image](https://github.com/allyharrison/Agile-Web-Dev-CITS5505/assets/131132228/407e3ab8-a097-4dfe-aa28-3d446991658e)
 
 Our Website is all about food! FOODIE HUB is designed to be the one stop shop for all foodies, looking for something to eat? Look no further, the foodie hubs offers a variety of recipes. Looking for a recipe similar to one your Grandma made years ago but don't know where to start? Ask our Foodie hub community to help you discover and remake delicious flavours and meals! How about finding a new favourite place to east? Foodie hub has this recommendation as well!
 
 Foodie Hub offers the chance to interact with like minded and taste-budded people a like. Check us out!
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Group Members 
+# Group Members
 
-## Assessment Criteria
+| UWA ID       | Name          | Github Username |
+|--------------|---------------|-----------------|
+| 22974467     | Stevie Dahlin | St-d603         |
+| 22581066      | Alexandra Harrison        | allyharrison|
+| 23754739      | Neha Neha        | neha200796|
+| 23244793      | Kartik Bhalala        | kartikbhalala|
 
-### Front End
-
-The first part of the project assessment will evaluate the front-end functionality of the application:
-
-1. The application must be functional so that the user can easily use the application as intended.
-2. The application must be implemented using HTML, CSS and Javascript (or a subset thereof).
-3. All resources used (including pictures, JavaScript libraries, css) must be fully referenced.
-4. The HTML and CSS must pass the validators: https://validator.w3.org/ and https://jigsaw.w3.org/css-validator/ .
-5. The website must work on Chrome, Firefox and Microsoft Edge, and render well on mobile devices.
-6. There must be a consistent style (via CSS file) for all pages, yet each page should be easily identifiable.
-
-### Back-end (40%)
-
-The second part of the project assessment evaluates the back-end functionality of the application. At least the following functionality should be provided:
-
-1. A user account and tracking feature.
-2. A method to store interactions and results.
-3. A method to search previous interactions.
-
-### Agile processes (25%)
-
-The third part of the project assessment will evaluate the Agile process used to create the application. Your Github repo will be used to provide evidence of this, in particular there should be:
-
-1. Regular commits with meaningful messages.
-2. Use of issues to discuss bugs, and plan new features.
-3. Use of pull requests, with code reviews provided by your group.
-4. Intermediate deliverables, pinpointed with Git tags.
-
-To see a more detailed mark scheme, please click on the "Submission" item below, and then click the "View rubric" link on the right of the page.
-
-This will be updated with project details and ideas
 
 ### STACK USED
 
@@ -116,3 +87,5 @@ When deploying to production, only install `requirements.txt` (don't install `re
 ```sh
 pip install -r requirements.txt
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
