@@ -149,8 +149,10 @@ li {
    Buttons, links, images
    ========================================================================== */
 .logo img {
-    height: 100px;
+    height: 30px;
     float: left;
+    padding-left: 30px;
+    padding-right: 20px;
 }
 
 .card img {
@@ -208,7 +210,6 @@ li {
 .btn-dark {
     background-color: var(--tertiary-bg-color);
     color: var(--secondary-text-color);
-    border-color: var(--tertiary-bg-color);
 }
 
 .btn-dark:hover {
@@ -260,7 +261,7 @@ p {
 #map {
     position: relative;
     top: 100%;
-    width: vw;
+    width: 100vw;
     height: 400px;
 }
 
