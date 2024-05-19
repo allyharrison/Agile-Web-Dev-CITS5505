@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- search.html block starts here -->
 <div class="container mt-4">
     <h1 class="mb-3">Hi, {{ current_user.username }}!</h1>
 
@@ -34,5 +33,4 @@
     <p class="text-danger">No results found for "{{ query }}".</p>
     {% endif %}
 </div>
-<!-- search.html block ends here -->
 {% endblock %}
