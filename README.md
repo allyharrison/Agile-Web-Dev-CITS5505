@@ -19,7 +19,7 @@ Looking for a recipe similar to one your Grandma made years ago but don't know w
 
 Foodie Hub offers the chance to interact with like minded and taste-budded people alike. Check us out!
 
-## Local Development
+## How to run the project
 
 To run the project locally, follow the instructions below to set up a `venv`, then `pip install` `requirements-dev` and then run flask.
 
@@ -28,8 +28,11 @@ To run the project locally, follow the instructions below to set up a `venv`, th
 python3 -m venv tmp-env
 source tmp-env/bin/activate
 
-# Install dependencies
+# Install these dependencies for development
 pip install -r requirements-dev.txt # (this will also install requirements.txt)
+
+# OR install only these dependencies for production
+pip install -r requirements.txt
 
 # Apply migrations
 flask db upgrade 8f09b1c4c9ea
@@ -46,14 +49,6 @@ Note: This doesn't apply to changes to Python files.
 
 ```sh
 python local_dev.py
-```
-
-# Deploying
-
-When deploying to production, only install `requirements.txt` (don't install `requirements-dev.txt`)
-
-```sh
-pip install -r requirements.txt
 ```
 
 # Tests
@@ -84,6 +79,3 @@ To run the selenium tests, use the following command:
 ```sh
 python3 ./test_selenium.py
 ```
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
