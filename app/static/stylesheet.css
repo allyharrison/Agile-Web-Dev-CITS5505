@@ -11,6 +11,8 @@
     --tertiary-bg-color: #9ec23a;
     --main-text-color: black;
     --secondary-text-color: #48003b;
+    --main-accent-color: #7f9c2f;
+    --secondary-accent-color: #4c5e1d;
 }
 
 * {
@@ -176,12 +178,18 @@ li {
     color: rgb(114, 112, 112);
 }
 
-.btn {
+ .btn {
     border: 1px solid;
-    border-color: var(--main-bg-color);
-    color: var(--main-bg-color);
+    /* border-color: var(--main-bg-color);
+    color: var(--main-bg-color); */
     text-decoration: none;
     border-radius: 12px;
+} 
+
+.btn-half {
+    background-color: var(--tertiary-bg-color);
+    border-color: var(--main-bg-color);
+    color: var(--secondary-text-color);
 }
 
 .btn-half:hover {
@@ -206,6 +214,8 @@ li {
 
 .btn-dark:hover {
     background-color: var(--tertiary-bg-color);
+    color: var(--main-bg-color);
+    border-color: var(--main-accent-color);
 }
 
 .arranging {
@@ -271,52 +281,24 @@ p {
     backdrop-filter: blur(1em);
 }
 
-.badge {
-    display: inline-block;
-    min-width: 20px;
-    padding: 5px 10px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    background-color: rgb(243, 129, 36);
-    border-radius: 12px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
-}
-.badge.visible {
-    visibility: visible;
-    opacity: 1;
-}
-
-.badge.hidden {
-    visibility: hidden;
-    opacity: 0;
-}
-
 .post-card {
     background-color: #f8f9fa;
-    /* Light grey background */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* Smooth transition for transform and box-shadow */
-    margin: 10px; /* Add space between cards */
+    margin: 10px;
 }
 
 .post-card:hover {
-    transform: scale(1.01); /* Slightly increase the size */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a very subtle shadow effect */
+    transform: scale(1.01);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 .comment-card {
     background-color: #ffffff;
-    /* White background */
     margin: 10px 20px;
     border-radius: 15px;
     border: 1px solid #e0e0e0;
-    /* Light grey border */
     width: 80%;
-    /* Make the comment div smaller */
 }
 
 .comment-body {
@@ -325,12 +307,10 @@ p {
 
 .comment-header {
     background-color: #ffffff;
-    /* White background for comment header */
     padding: 5px 10px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom: 1px solid #e0e0e0;
-    /* Light grey border */
 }
 
 .comment-content {
@@ -343,29 +323,28 @@ p {
 }
 
 .translate-box {
-    background-color: #007bff; /* Blue background for clarity and communication */
-    color: #ffffff; /* White text color for contrast */
-    border: 1px solid #0056b3; /* Slightly darker border for definition */
+    background-color: #007bff;
+    color: #ffffff;
+    border: 1px solid #0056b3;
     padding: 10px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
 .translate-box:hover {
-    background-color: #0056b3; /* Darker blue on hover for interaction feedback */
+    background-color: #0056b3;
 }
 
-/* Specific style for the translate button within the post card */
 .post-card .btn-outline-secondary {
-    color: #007bff; /* Blue text color */
-    border-color: #007bff; /* Blue border */
-    background-color: transparent; /* Transparent background */
+    color: #007bff;
+    border-color: #007bff;
+    background-color: transparent;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .post-card .btn-outline-secondary:hover {
-    background-color: #007bff; /* Blue background on hover */
-    color: #ffffff; /* White text color on hover */
+    background-color: #007bff;
+    color: #ffffff;
 }
 
 .avatar {
