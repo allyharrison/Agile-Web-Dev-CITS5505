@@ -9,7 +9,7 @@
 
 ## About The Project
 
-![image](https://github.com/allyharrison/Agile-Web-Dev-CITS5505/assets/131132228/407e3ab8-a097-4dfe-aa28-3d446991658e)
+![Foodie Hub Website](docs/foodie-hub-splash.png)
 
 Our website is all about food! FOODIE HUB is designed to be a one stop shop for all foodies.
 
