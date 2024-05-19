@@ -21,7 +21,7 @@ python3 -m unittest test_app.py
 
 ### Selenium Tests
 
-To run the unit tests, use the following command:
+To run the selenium tests, use the following command:
 
 ```sh
 python3 ./test_selenium.py

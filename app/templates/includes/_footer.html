@@ -14,25 +14,25 @@
       <div class="col-lg-3 d-none d-lg-block p-5">
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="link">Home</a></li>
-          <li><a href="#" class="link">About</a></li>
+          <li><a href="{{ url_for('html') }}" class="link">Home</a></li>
+          <!-- <li><a href="#" class="link">About</a></li> -->
           <li><a href="#" class="link">Get Started</a></li>
         </ul>
       </div>
       <div class="col-lg-3 d-none d-lg-block p-5">
         <h5>Recipes</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="link">By cuisine</a></li>
-          <li><a href="#" class="link">By meal type</a></li>
-          <li><a href="#" class="link">Request a recipe</a></li>
+          <li><a href="{{ url_for('recipes', type='breakfast') }}" class="link">Breakfast</a></li>
+          <li><a href="{{ url_for('recipes', type='lunch') }}" class="link">Lunch</a></li>
+          <li><a href="{{ url_for('recipes', type='dinner') }}" class="link">Dinner</a></li>
         </ul>
       </div>
       <div class="col-lg-3 d-none d-lg-block p-5">
         <h5>Restaurants</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="link">By suburb</a></li>
-          <li><a href="#" class="link">By cuisine</a></li>
-          <li><a href="#" class="link">Request a restaurant</a></li>
+          <li><a href="{{ url_for('new_restaurants') }}" class="link">Perth’s Best</a></li>
+          <li><a href="{{ url_for('hidden_gems') }}" class="link">Hidden Gems</a></li>
+          <li><a href="{{ url_for('explore') }}" class="link">Request a restaurant</a></li>
         </ul>
       </div>
     </div>

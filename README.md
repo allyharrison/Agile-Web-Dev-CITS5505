@@ -7,10 +7,9 @@
 | Neha Neha          | 23754739       | neha2007796     |
 | Stevie Dahlin      | 22974467       | St-d603         |
 
-
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Foodie Hub Website](docs/foodie-hub-splash.png)
 
 Our website is all about food! FOODIE HUB is designed to be a one stop shop for all foodies.
 
@@ -18,11 +17,7 @@ Looking for something to eat? Look no further, Foodie Hub is a community where u
 
 Looking for a recipe similar to one your Grandma made years ago but don't know where to start? Ask our Foodie Hub community to help you discover and make delicious flavours and meals!
 
-
 Foodie Hub offers the chance to interact with like minded and taste-budded people alike. Check us out!
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## Local Development
 
@@ -60,3 +55,5 @@ When deploying to production, only install `requirements.txt` (don't install `re
 ```sh
 pip install -r requirements.txt
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
